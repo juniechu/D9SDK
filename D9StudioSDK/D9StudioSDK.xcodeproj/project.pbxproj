@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		9ECF51AD17549A3800487F96 /* D9StudioSDK-iOS */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK-iOS" */;
+			buildPhases = (
+				9ECF51B117549A4000487F96 /* Build Static Libs */,
+				9ECF51B217549A6A00487F96 /* Build Universal Framework */,
+				9ECF51B317549A8E00487F96 /* CopyFiles */,
+				9ECF51B517549EE200487F96 /* CopyFiles */,
+			);
+			dependencies = (
+			);
+			name = "D9StudioSDK-iOS";
+			productName = "D9StudioSDK-iOS";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4971758AB5D006AE29D /* GTMBase64.m */; };
+		9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */; };
+		9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */; };
+		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
+		9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
+		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
+		9ECF51B417549AA400487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
+		9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B81754A0C100487F96 /* d9_button_down.png */; };
+		9ECF51C31754A0C900487F96 /* d9_button_normal.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B91754A0C100487F96 /* d9_button_normal.png */; };
+		9ECF51C41754A0C900487F96 /* d9_checkbox_false.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */; };
+		9ECF51C51754A0C900487F96 /* d9_checkbox_focus.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */; };
+		9ECF51C61754A0C900487F96 /* d9_checkbox_true.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */; };
+		9ECF51C71754A0C900487F96 /* d9_logo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BD1754A0C100487F96 /* d9_logo.png */; };
+		9ECF51C81754A0C900487F96 /* d9_password.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BE1754A0C100487F96 /* d9_password.png */; };
+		9ECF51C91754A0C900487F96 /* d9_progressbar_bg.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */; };
+		9ECF51CA1754A0C900487F96 /* d9_progressbar_bg2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */; };
+		9ECF51CB1754A0C900487F96 /* d9_username.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51C11754A0C100487F96 /* d9_username.png */; };
+		9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51CD1754A88200487F96 /* D9LoginDialog.m */; };
+		9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51CF1754A8E200487F96 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9ECF519A17549A0E00487F96 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ECF51B317549A8E00487F96 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
+			dstSubfolderSpec = 0;
+			files = (
+				9ECF51B417549AA400487F96 /* D9StudioSDK.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9ECF51B517549EE200487F96 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Resources/";
+			dstSubfolderSpec = 0;
+			files = (
+				9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */,
+				9ECF51C31754A0C900487F96 /* d9_button_normal.png in CopyFiles */,
+				9ECF51C41754A0C900487F96 /* d9_checkbox_false.png in CopyFiles */,
+				9ECF51C51754A0C900487F96 /* d9_checkbox_focus.png in CopyFiles */,
+				9ECF51C61754A0C900487F96 /* d9_checkbox_true.png in CopyFiles */,
+				9ECF51C71754A0C900487F96 /* d9_logo.png in CopyFiles */,
+				9ECF51C81754A0C900487F96 /* d9_password.png in CopyFiles */,
+				9ECF51C91754A0C900487F96 /* d9_progressbar_bg.jpg in CopyFiles */,
+				9ECF51CA1754A0C900487F96 /* d9_progressbar_bg2.png in CopyFiles */,
+				9ECF51CB1754A0C900487F96 /* d9_username.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9E3BF4961758AB5D006AE29D /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		9E3BF4971758AB5D006AE29D /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		9E3BF4981758AB5D006AE29D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
+		9E3BF49F1758AD9E006AE29D /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D9SDKUtil.h; path = ../D9SDKUtil.h; sourceTree = "<group>"; };
+		9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D9SDKUtil.m; path = ../D9SDKUtil.m; sourceTree = "<group>"; };
+		9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD9StudioSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9ECF519F17549A0E00487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
+		9ECF51A417549A0E00487F96 /* D9StudioSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9StudioSDK.h; sourceTree = "<group>"; };
+		9ECF51A617549A0E00487F96 /* D9StudioSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = D9StudioSDK.m; sourceTree = "<group>"; };
+		9ECF51B81754A0C100487F96 /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
+		9ECF51B91754A0C100487F96 /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
+		9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
+		9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
+		9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
+		9ECF51BD1754A0C100487F96 /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
+		9ECF51BE1754A0C100487F96 /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
+		9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
+		9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
+		9ECF51C11754A0C100487F96 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
+		9ECF51CC1754A88200487F96 /* D9LoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9LoginDialog.h; sourceTree = "<group>"; };
+		9ECF51CD1754A88200487F96 /* D9LoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9LoginDialog.m; sourceTree = "<group>"; };
+		9ECF51CF1754A8E200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9ECF519917549A0E00487F96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */,
+				9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E3BF4951758AB5D006AE29D /* CTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				9E3BF4961758AB5D006AE29D /* GTMBase64.h */,
+				9E3BF4971758AB5D006AE29D /* GTMBase64.m */,
+				9E3BF4981758AB5D006AE29D /* GTMDefines.h */,
+			);
+			path = CTMBase64;
+			sourceTree = "<group>";
+		};
+		9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */,
+				9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */,
+			);
+			path = SFHFKeychainUtils;
+			sourceTree = "<group>";
+		};
+		9ECF519317549A0D00487F96 = {
+			isa = PBXGroup;
+			children = (
+				9ECF51A117549A0E00487F96 /* D9StudioSDK */,
+				9ECF519E17549A0E00487F96 /* Frameworks */,
+				9ECF519D17549A0E00487F96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9ECF519D17549A0E00487F96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9ECF519E17549A0E00487F96 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9ECF51CF1754A8E200487F96 /* UIKit.framework */,
+				9ECF519F17549A0E00487F96 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9ECF51A117549A0E00487F96 /* D9StudioSDK */ = {
+			isa = PBXGroup;
+			children = (
+				9E3BF4951758AB5D006AE29D /* CTMBase64 */,
+				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
+				9ECF51B71754A0C100487F96 /* Resources */,
+				9ECF51A417549A0E00487F96 /* D9StudioSDK.h */,
+				9ECF51A617549A0E00487F96 /* D9StudioSDK.m */,
+				9ECF51A217549A0E00487F96 /* Supporting Files */,
+				9ECF51CC1754A88200487F96 /* D9LoginDialog.h */,
+				9ECF51CD1754A88200487F96 /* D9LoginDialog.m */,
+				9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */,
+				9E3BF49F1758AD9E006AE29D /* D9SDKUtil.h */,
+				9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */,
+			);
+			path = D9StudioSDK;
+			sourceTree = "<group>";
+		};
+		9ECF51A217549A0E00487F96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9ECF51B71754A0C100487F96 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9ECF51B81754A0C100487F96 /* d9_button_down.png */,
+				9ECF51B91754A0C100487F96 /* d9_button_normal.png */,
+				9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */,
+				9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */,
+				9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */,
+				9ECF51BD1754A0C100487F96 /* d9_logo.png */,
+				9ECF51BE1754A0C100487F96 /* d9_password.png */,
+				9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */,
+				9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */,
+				9ECF51C11754A0C100487F96 /* d9_username.png */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9ECF519B17549A0E00487F96 /* D9StudioSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9ECF51AA17549A0E00487F96 /* Build configuration list for PBXNativeTarget "D9StudioSDK" */;
+			buildPhases = (
+				9ECF519817549A0E00487F96 /* Sources */,
+				9ECF519917549A0E00487F96 /* Frameworks */,
+				9ECF519A17549A0E00487F96 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = D9StudioSDK;
+			productName = D9StudioSDK;
+			productReference = 9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9ECF519417549A0D00487F96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "朱 俊杰";
+			};
+			buildConfigurationList = 9ECF519717549A0D00487F96 /* Build configuration list for PBXProject "D9StudioSDK" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9ECF519317549A0D00487F96;
+			productRefGroup = 9ECF519D17549A0E00487F96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9ECF519B17549A0E00487F96 /* D9StudioSDK */,
+				9ECF51AD17549A3800487F96 /* D9StudioSDK-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9ECF51B117549A4000487F96 /* Build Static Libs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Static Libs";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos";
+		};
+		9ECF51B217549A6A00487F96 /* Build Universal Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Universal Framework";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\" &&\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" &&\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\" &&\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\" &&\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\" &&\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &&\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n# Generate universal binary for the device and simulator.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\nln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\nln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\nln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\nln -s \"Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9ECF519817549A0E00487F96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */,
+				9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */,
+				9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */,
+				9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */,
+				9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9ECF51A817549A0E00487F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9ECF51A917549A0E00487F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9ECF51AB17549A0E00487F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/D9StudioSDK.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "D9StudioSDK/D9StudioSDK-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9ECF51AC17549A0E00487F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/D9StudioSDK.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "D9StudioSDK/D9StudioSDK-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9ECF51AF17549A3800487F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9ECF51B017549A3800487F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9ECF519717549A0D00487F96 /* Build configuration list for PBXProject "D9StudioSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ECF51A817549A0E00487F96 /* Debug */,
+				9ECF51A917549A0E00487F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ECF51AA17549A0E00487F96 /* Build configuration list for PBXNativeTarget "D9StudioSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ECF51AB17549A0E00487F96 /* Debug */,
+				9ECF51AC17549A0E00487F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ECF51AF17549A3800487F96 /* Debug */,
+				9ECF51B017549A3800487F96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9ECF519417549A0D00487F96 /* Project object */;
+}
