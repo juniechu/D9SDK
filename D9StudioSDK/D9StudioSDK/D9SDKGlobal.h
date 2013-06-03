@@ -12,6 +12,23 @@
 #define __LOGIN_URL     @"http://imept.imobile-ent.com:8988/D9PayPlat/login.action";
 #define __REGIST_URL    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action";
 
+#define kD9SDKErrorDomain           @"D9SDKErrorDomain"
+#define kD9SDKErrorCodeKey          @"D9SDKErrorCodeKey"
 
+//#define kWBSDKAPIDomain             @"https://api.weibo.com/2/"
+
+typedef enum
+{
+	kD9ErrorCodeInterface	= 100,
+	kD9ErrorCodeSDK         = 101,
+}D9ErrorCode;
+
+typedef enum
+{
+	kD9SDKErrorCodeParseError       = 200,
+	kD9SDKErrorCodeRequestError     = 201,
+	kD9SDKErrorCodeAccessError      = 202,
+	kD9SDKErrorCodeAuthorizeError	= 203,
+}D9SDKErrorCode;
 
 #endif
