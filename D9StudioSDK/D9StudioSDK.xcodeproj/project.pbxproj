@@ -27,6 +27,8 @@
 		9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4971758AB5D006AE29D /* GTMBase64.m */; };
 		9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */; };
 		9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */; };
+		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
+		9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386D175C929900924B12 /* D9SDKUtil.m */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
@@ -96,6 +98,10 @@
 		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
 		9E3BF49F1758AD9E006AE29D /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D9SDKUtil.h; path = ../D9SDKUtil.h; sourceTree = "<group>"; };
 		9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D9SDKUtil.m; path = ../D9SDKUtil.m; sourceTree = "<group>"; };
+		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
+		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
+		9E92386C175C929900924B12 /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9SDKUtil.h; sourceTree = "<group>"; };
+		9E92386D175C929900924B12 /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9SDKUtil.m; sourceTree = "<group>"; };
 		9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD9StudioSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF519F17549A0E00487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -177,6 +183,10 @@
 		9ECF51A117549A0E00487F96 /* D9StudioSDK */ = {
 			isa = PBXGroup;
 			children = (
+				9E92386A175C929900924B12 /* D9Request.h */,
+				9E92386B175C929900924B12 /* D9Request.m */,
+				9E92386C175C929900924B12 /* D9SDKUtil.h */,
+				9E92386D175C929900924B12 /* D9SDKUtil.m */,
 				9E3BF4951758AB5D006AE29D /* CTMBase64 */,
 				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
 				9ECF51B71754A0C100487F96 /* Resources */,
@@ -305,6 +315,8 @@
 				9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */,
 				9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */,
 				9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */,
+				9E92386E175C929900924B12 /* D9Request.m in Sources */,
+				9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
