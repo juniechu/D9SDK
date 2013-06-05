@@ -8,3 +8,14 @@ DependentApp/DependentApp.xcodeproj/xcuserdata/
 # ignore svn files
 *.DS_Store
 *.svn
+
+#Ignore files build bu xcode
+*.scuserdata/
+*.DerivedData/
+*.mode*v*
+*.pbxuser
+*.xcbkptlist
+*.xcscheme
+*.xcworkspacedata
+*.xcuserstate
+xcschememanagement.plist
