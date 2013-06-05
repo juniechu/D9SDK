@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class D9LoginDialog;
+
+@protocol D9LoginDialogDelegate <NSObject>
+
+- (void) loginDialog:(D9LoginDialog *)dialog
+          withUsername:(NSString *)username
+            password:(NSString *)password;
+
+- (void) registDialog:(D9LoginDialog *)dialog
+           withUsername:(NSString *)username
+             password:(NSString *)password;
+
+@end
+
 @interface D9LoginDialog : UIView <UITextFieldDelegate> {
     
     UITextField * _usernameTextField;
@@ -31,6 +45,12 @@
     BOOL isRemember;
     BOOL isAuto;
     
+    id <D9LoginDialogDelegate> delegate;
 }
+
+@property (nonatomic, assign) id<D9LoginDialogDelegate> delegate;
+
+- (void)show:(BOOL)animated;
+- (void)hide:(BOOL)animated;
 
 @end

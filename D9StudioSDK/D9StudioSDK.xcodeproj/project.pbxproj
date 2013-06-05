@@ -26,9 +26,15 @@
 /* Begin PBXBuildFile section */
 		9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4971758AB5D006AE29D /* GTMBase64.m */; };
 		9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */; };
-		9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */; };
 		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
 		9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386D175C929900924B12 /* D9SDKUtil.m */; };
+		9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923873175C995100924B12 /* NSObject+SBJSON.m */; };
+		9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923875175C995100924B12 /* NSString+SBJSON.m */; };
+		9E923880175C995100924B12 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923877175C995100924B12 /* SBJSON.m */; };
+		9E923881175C995100924B12 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923879175C995100924B12 /* SBJsonBase.m */; };
+		9E923882175C995100924B12 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387B175C995100924B12 /* SBJsonParser.m */; };
+		9E923883175C995100924B12 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387D175C995100924B12 /* SBJsonWriter.m */; };
+		9E923886175C99B100924B12 /* D9Authorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923885175C99B100924B12 /* D9Authorize.m */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
@@ -96,12 +102,25 @@
 		9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
-		9E3BF49F1758AD9E006AE29D /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = D9SDKUtil.h; path = ../D9SDKUtil.h; sourceTree = "<group>"; };
-		9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = D9SDKUtil.m; path = ../D9SDKUtil.m; sourceTree = "<group>"; };
 		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
 		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
 		9E92386C175C929900924B12 /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9SDKUtil.h; sourceTree = "<group>"; };
 		9E92386D175C929900924B12 /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9SDKUtil.m; sourceTree = "<group>"; };
+		9E923871175C995100924B12 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		9E923872175C995100924B12 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		9E923873175C995100924B12 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		9E923874175C995100924B12 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		9E923875175C995100924B12 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		9E923876175C995100924B12 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		9E923877175C995100924B12 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		9E923878175C995100924B12 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		9E923879175C995100924B12 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		9E92387A175C995100924B12 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		9E92387B175C995100924B12 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		9E92387C175C995100924B12 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		9E92387D175C995100924B12 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		9E923884175C99B100924B12 /* D9Authorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Authorize.h; sourceTree = "<group>"; };
+		9E923885175C99B100924B12 /* D9Authorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Authorize.m; sourceTree = "<group>"; };
 		9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD9StudioSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF519F17549A0E00487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -154,6 +173,26 @@
 			path = SFHFKeychainUtils;
 			sourceTree = "<group>";
 		};
+		9E923870175C995100924B12 /* SBJSON */ = {
+			isa = PBXGroup;
+			children = (
+				9E923871175C995100924B12 /* JSON.h */,
+				9E923872175C995100924B12 /* NSObject+SBJSON.h */,
+				9E923873175C995100924B12 /* NSObject+SBJSON.m */,
+				9E923874175C995100924B12 /* NSString+SBJSON.h */,
+				9E923875175C995100924B12 /* NSString+SBJSON.m */,
+				9E923876175C995100924B12 /* SBJSON.h */,
+				9E923877175C995100924B12 /* SBJSON.m */,
+				9E923878175C995100924B12 /* SBJsonBase.h */,
+				9E923879175C995100924B12 /* SBJsonBase.m */,
+				9E92387A175C995100924B12 /* SBJsonParser.h */,
+				9E92387B175C995100924B12 /* SBJsonParser.m */,
+				9E92387C175C995100924B12 /* SBJsonWriter.h */,
+				9E92387D175C995100924B12 /* SBJsonWriter.m */,
+			);
+			path = SBJSON;
+			sourceTree = "<group>";
+		};
 		9ECF519317549A0D00487F96 = {
 			isa = PBXGroup;
 			children = (
@@ -183,21 +222,22 @@
 		9ECF51A117549A0E00487F96 /* D9StudioSDK */ = {
 			isa = PBXGroup;
 			children = (
+				9E923870175C995100924B12 /* SBJSON */,
+				9E3BF4951758AB5D006AE29D /* CTMBase64 */,
+				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
+				9ECF51A217549A0E00487F96 /* Supporting Files */,
+				9ECF51B71754A0C100487F96 /* Resources */,
 				9E92386A175C929900924B12 /* D9Request.h */,
 				9E92386B175C929900924B12 /* D9Request.m */,
 				9E92386C175C929900924B12 /* D9SDKUtil.h */,
 				9E92386D175C929900924B12 /* D9SDKUtil.m */,
-				9E3BF4951758AB5D006AE29D /* CTMBase64 */,
-				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
-				9ECF51B71754A0C100487F96 /* Resources */,
 				9ECF51A417549A0E00487F96 /* D9StudioSDK.h */,
 				9ECF51A617549A0E00487F96 /* D9StudioSDK.m */,
-				9ECF51A217549A0E00487F96 /* Supporting Files */,
 				9ECF51CC1754A88200487F96 /* D9LoginDialog.h */,
 				9ECF51CD1754A88200487F96 /* D9LoginDialog.m */,
 				9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */,
-				9E3BF49F1758AD9E006AE29D /* D9SDKUtil.h */,
-				9E3BF4A01758AD9E006AE29D /* D9SDKUtil.m */,
+				9E923884175C99B100924B12 /* D9Authorize.h */,
+				9E923885175C99B100924B12 /* D9Authorize.m */,
 			);
 			path = D9StudioSDK;
 			sourceTree = "<group>";
@@ -314,9 +354,15 @@
 				9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */,
 				9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */,
 				9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */,
-				9E3BF4A11758AD9F006AE29D /* D9SDKUtil.m in Sources */,
 				9E92386E175C929900924B12 /* D9Request.m in Sources */,
 				9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */,
+				9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */,
+				9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */,
+				9E923880175C995100924B12 /* SBJSON.m in Sources */,
+				9E923881175C995100924B12 /* SBJsonBase.m in Sources */,
+				9E923882175C995100924B12 /* SBJsonParser.m in Sources */,
+				9E923883175C995100924B12 /* SBJsonWriter.m in Sources */,
+				9E923886175C99B100924B12 /* D9Authorize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

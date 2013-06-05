@@ -263,20 +263,21 @@ static BOOL D9IsDeviceIPad() {
         
         
 
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        [window addSubview:self];
+//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//        [window addSubview:self];
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [super dealloc];
     [_usernameTextField release];
     [_passwordTextField release];
     [_lblRemember release];
     [_lblAuto release];
     [_loginBtn release];
+    
+    [super dealloc];
 }
 
 
@@ -354,6 +355,10 @@ static BOOL D9IsDeviceIPad() {
         
         [myDefault synchronize];
         
+        if ([delegate respondsToSelector:@selector(loginDialog:withUsername:password:)]) {
+            [delegate loginDialog:self withUsername:_usernameStr password:_passwordStr];
+        }
+        
         
     } else if (sender == _toRegBtn) {
         [_rememberPassword setHidden:YES];
@@ -380,7 +385,10 @@ static BOOL D9IsDeviceIPad() {
     } else if (sender == _regBtn) {
         if (![self isValid]) {
             // alert view
-            return;
+//            return;
+            if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
+                [delegate registDialog:self withUsername:_usernameStr password:_passwordStr];
+            }
         }
         
     } else if (sender == _randomBtn) {

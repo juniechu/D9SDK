@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@interface D9Authorize : NSObject
+#import "D9Request.h"
+#import "D9LoginDialog.h"
+
+@class D9Authorize;
+
+@protocol D9AuthorizeDelegate <NSObject>
+
+
+@end
+
+@interface D9Authorize : NSObject <D9LoginDialogDelegate, D9RequestDelegate> {
+    D9Request *request;
+}
 
 @end

@@ -8,8 +8,59 @@
 
 #import <Foundation/Foundation.h>
 
-@interface D9StudioSDK : NSObject
+#import "D9Request.h"
+#import "D9LoginDialog.h"
 
+@class D9StudioSDK;
+
+@protocol D9StudioSDKDelegate <NSObject>
+
+@optional
+
+// log in successfully
+- (void) d9SDKDidLogin:(D9StudioSDK *)d9engine;
+
+- (void) d9SDK:(D9StudioSDK *)d9engine didFailToLogInWithError:(NSError *)error;
+
+- (void) d9SDKDidLogOut:(D9StudioSDK *)d9engine;
+
+@end
+
+@interface D9StudioSDK : NSObject <D9LoginDialogDelegate, D9RequestDelegate> {
+    NSString    *appID;
+    NSString    *appKey;
+    
+    NSString    *userID;
+    
+    D9Request   *request;
+    
+    id<D9StudioSDKDelegate> delegate;
+}
+
+@property (nonatomic, retain) NSString *appID;
+@property (nonatomic, retain) NSString *appKey;
+@property (nonatomic, retain) NSString *userID;
+@property (nonatomic, retain) D9Request *request;
+@property (nonatomic, assign) id<D9StudioSDKDelegate> delegate;
+
+/*
+ * Initialize an instance with your client AppID and AppKey
+ */
+- (id) initWithAppID:(NSString *)appID andAppKey:(NSString *)appKey;
+
+/* log in method, open the login dialog.
+ * If succeed, d9SDKDidLogin will be called.
+ */
 - (void) login;
+
+/* Log out.
+ * If succeed, d9SDKDidLogOut will be called. 
+ */
+- (void) logout;
+
+/* 
+ *Check if user has logged in
+ */
+- (BOOL) isLoggedIn;
 
 @end
