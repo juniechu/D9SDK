@@ -40,8 +40,11 @@
     UIButton * _toRegBtn;
     UIButton * _toLogBtn;
     
-    NSString * _usernameStr;
-    NSString * _passwordStr;
+//    NSString * _usernameStr;
+//    NSString * _passwordStr;
+    NSString *userName;
+    NSString *passWord;
+    
     BOOL isRemember;
     BOOL isAuto;
     
@@ -49,8 +52,10 @@
 }
 
 @property (nonatomic, assign) id<D9LoginDialogDelegate> delegate;
+@property (nonatomic, retain) NSString *userName;
+@property (nonatomic, retain) NSString *passWord;
 
-- (void)show:(BOOL)animated;
-- (void)hide:(BOOL)animated;
+- (void) show:(BOOL)animated;
+- (void) hide:(BOOL)animated;
 
 @end

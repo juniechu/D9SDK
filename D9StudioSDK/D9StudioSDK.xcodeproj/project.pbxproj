@@ -24,21 +24,22 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF4971758AB5D006AE29D /* GTMBase64.m */; };
+		9E1D3A25175F1FDD00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A24175F1FDD00C9A58E /* Security.framework */; };
+		9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */; };
+		9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A33175F33C900C9A58E /* GTMBase64.m */; };
+		9E1D3A3F175F8B6900C9A58E /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
+		9E1D3A40175F8B6900C9A58E /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
+		9E1D3A41175F8B6900C9A58E /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
 		9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */; };
 		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
-		9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386D175C929900924B12 /* D9SDKUtil.m */; };
 		9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923873175C995100924B12 /* NSObject+SBJSON.m */; };
 		9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923875175C995100924B12 /* NSString+SBJSON.m */; };
 		9E923880175C995100924B12 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923877175C995100924B12 /* SBJSON.m */; };
 		9E923881175C995100924B12 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923879175C995100924B12 /* SBJsonBase.m */; };
 		9E923882175C995100924B12 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387B175C995100924B12 /* SBJsonParser.m */; };
 		9E923883175C995100924B12 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387D175C995100924B12 /* SBJsonWriter.m */; };
-		9E923886175C99B100924B12 /* D9Authorize.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923885175C99B100924B12 /* D9Authorize.m */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
-		9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
-		9ECF51B417549AA400487F96 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B81754A0C100487F96 /* d9_button_down.png */; };
 		9ECF51C31754A0C900487F96 /* d9_button_normal.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B91754A0C100487F96 /* d9_button_normal.png */; };
 		9ECF51C41754A0C900487F96 /* d9_checkbox_false.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */; };
@@ -54,23 +55,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9ECF519A17549A0E00487F96 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-				9ECF51A517549A0E00487F96 /* D9StudioSDK.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9ECF51B317549A8E00487F96 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
-				9ECF51B417549AA400487F96 /* D9StudioSDK.h in CopyFiles */,
+				9E1D3A3F175F8B6900C9A58E /* D9Request.h in CopyFiles */,
+				9E1D3A40175F8B6900C9A58E /* D9StudioSDK.h in CopyFiles */,
+				9E1D3A41175F8B6900C9A58E /* D9LoginDialog.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,16 +89,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9E3BF4961758AB5D006AE29D /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
-		9E3BF4971758AB5D006AE29D /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
-		9E3BF4981758AB5D006AE29D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		9E1D3A24175F1FDD00C9A58E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9E1D3A2E175F33A100C9A58E /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9SDKUtil.h; sourceTree = "<group>"; };
+		9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9SDKUtil.m; sourceTree = "<group>"; };
+		9E1D3A32175F33C900C9A58E /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		9E1D3A33175F33C900C9A58E /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		9E1D3A34175F33C900C9A58E /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
 		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
 		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
-		9E92386C175C929900924B12 /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9SDKUtil.h; sourceTree = "<group>"; };
-		9E92386D175C929900924B12 /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9SDKUtil.m; sourceTree = "<group>"; };
 		9E923871175C995100924B12 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		9E923872175C995100924B12 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		9E923873175C995100924B12 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -119,8 +113,6 @@
 		9E92387B175C995100924B12 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		9E92387C175C995100924B12 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		9E92387D175C995100924B12 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		9E923884175C99B100924B12 /* D9Authorize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Authorize.h; sourceTree = "<group>"; };
-		9E923885175C99B100924B12 /* D9Authorize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Authorize.m; sourceTree = "<group>"; };
 		9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD9StudioSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF519F17549A0E00487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -146,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1D3A25175F1FDD00C9A58E /* Security.framework in Frameworks */,
 				9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */,
 			);
@@ -154,12 +147,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E3BF4951758AB5D006AE29D /* CTMBase64 */ = {
+		9E1D3A31175F33C900C9A58E /* CTMBase64 */ = {
 			isa = PBXGroup;
 			children = (
-				9E3BF4961758AB5D006AE29D /* GTMBase64.h */,
-				9E3BF4971758AB5D006AE29D /* GTMBase64.m */,
-				9E3BF4981758AB5D006AE29D /* GTMDefines.h */,
+				9E1D3A32175F33C900C9A58E /* GTMBase64.h */,
+				9E1D3A33175F33C900C9A58E /* GTMBase64.m */,
+				9E1D3A34175F33C900C9A58E /* GTMDefines.h */,
 			);
 			path = CTMBase64;
 			sourceTree = "<group>";
@@ -213,6 +206,7 @@
 		9ECF519E17549A0E00487F96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E1D3A24175F1FDD00C9A58E /* Security.framework */,
 				9ECF51CF1754A8E200487F96 /* UIKit.framework */,
 				9ECF519F17549A0E00487F96 /* Foundation.framework */,
 			);
@@ -222,22 +216,20 @@
 		9ECF51A117549A0E00487F96 /* D9StudioSDK */ = {
 			isa = PBXGroup;
 			children = (
+				9E1D3A31175F33C900C9A58E /* CTMBase64 */,
 				9E923870175C995100924B12 /* SBJSON */,
-				9E3BF4951758AB5D006AE29D /* CTMBase64 */,
 				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
 				9ECF51A217549A0E00487F96 /* Supporting Files */,
 				9ECF51B71754A0C100487F96 /* Resources */,
 				9E92386A175C929900924B12 /* D9Request.h */,
 				9E92386B175C929900924B12 /* D9Request.m */,
-				9E92386C175C929900924B12 /* D9SDKUtil.h */,
-				9E92386D175C929900924B12 /* D9SDKUtil.m */,
+				9E1D3A2E175F33A100C9A58E /* D9SDKUtil.h */,
+				9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */,
 				9ECF51A417549A0E00487F96 /* D9StudioSDK.h */,
 				9ECF51A617549A0E00487F96 /* D9StudioSDK.m */,
 				9ECF51CC1754A88200487F96 /* D9LoginDialog.h */,
 				9ECF51CD1754A88200487F96 /* D9LoginDialog.m */,
 				9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */,
-				9E923884175C99B100924B12 /* D9Authorize.h */,
-				9E923885175C99B100924B12 /* D9Authorize.m */,
 			);
 			path = D9StudioSDK;
 			sourceTree = "<group>";
@@ -276,7 +268,6 @@
 			buildPhases = (
 				9ECF519817549A0E00487F96 /* Sources */,
 				9ECF519917549A0E00487F96 /* Frameworks */,
-				9ECF519A17549A0E00487F96 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -352,17 +343,16 @@
 			files = (
 				9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */,
 				9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */,
-				9E3BF49C1758AB5E006AE29D /* GTMBase64.m in Sources */,
 				9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */,
 				9E92386E175C929900924B12 /* D9Request.m in Sources */,
-				9E92386F175C929900924B12 /* D9SDKUtil.m in Sources */,
 				9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */,
 				9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */,
 				9E923880175C995100924B12 /* SBJSON.m in Sources */,
 				9E923881175C995100924B12 /* SBJsonBase.m in Sources */,
 				9E923882175C995100924B12 /* SBJsonParser.m in Sources */,
 				9E923883175C995100924B12 /* SBJsonWriter.m in Sources */,
-				9E923886175C99B100924B12 /* D9Authorize.m in Sources */,
+				9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */,
+				9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,7 +416,10 @@
 				DSTROOT = /tmp/D9StudioSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "D9StudioSDK/D9StudioSDK-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -438,7 +431,10 @@
 				DSTROOT = /tmp/D9StudioSDK.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "D9StudioSDK/D9StudioSDK-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -447,6 +443,7 @@
 		9ECF51AF17549A3800487F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -454,6 +451,7 @@
 		9ECF51B017549A3800487F96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -46,7 +46,7 @@
 /*
  * Initialize an instance with your client AppID and AppKey
  */
-- (id) initWithAppID:(NSString *)appID andAppKey:(NSString *)appKey;
+- (id) initWithAppID:(NSString *)theAppID andAppKey:(NSString *)theAppKey;
 
 /* log in method, open the login dialog.
  * If succeed, d9SDKDidLogin will be called.

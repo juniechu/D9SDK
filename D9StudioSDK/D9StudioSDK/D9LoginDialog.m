@@ -7,6 +7,8 @@
 //
 
 #import "D9LoginDialog.h"
+#import "D9SDKUtil.h"
+#import "D9SDKGlobal.h"
 
 static BOOL D9IsDeviceIPad() {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
@@ -17,27 +19,42 @@ static BOOL D9IsDeviceIPad() {
     return NO;
 }
 
+#define kD9DefaultUsername      @"D9Username"
+#define kD9DefaultPassword      @"D9Password"
+#define kD9DefaultRemember      @"D9Remember"
+#define kD9DefaultAuto          @"D9Auto"
+
 @interface D9LoginDialog (Private)
 - (void) checkboxClicked:(UIButton *)btn;
 - (void) resignKeyboard;
 - (void) btnClicked:(UIButton *)sender;
-- (void) getDefaultData;
-- (BOOL) isValid;
+//- (void) getDefaultData;
+- (BOOL) isInputValid;
+
+- (void) saveSettingToDefault;
+- (void) readSettingFromDefault;
+- (void) deleteSettingInDefault;
 @end
 
 @implementation D9LoginDialog
 
+@synthesize delegate;
+@synthesize userName;
+@synthesize passWord;
+
 - (id)init
 {
     self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
-    NSLog(@"D9LoginDialog init");
+    if (DEBUG_LOG) {
+        NSLog(@"D9LoginDialog init");
+    }
     if (self) {
         // Initialization code
         
         CGRect winRect = [UIScreen mainScreen].bounds;
         winSize = winRect.size;
         
-        [self getDefaultData];
+        [self readSettingFromDefault];
         
         // 背景
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:200 alpha:0.8];
@@ -54,11 +71,11 @@ static BOOL D9IsDeviceIPad() {
         // Head Logo
         UIImage * logoImage = [UIImage imageNamed:@"d9_logo.png"];
         if (!logoImage) {
-            NSLog(@"image not found!");
+            NSLog(@"Resource not found! Please add Resource into your project.");
         }
         UIImageView * logoView = [[UIImageView alloc] initWithImage:logoImage];
         [logoView setFrame:CGRectMake(10, 44, logoImage.size.width * 0.5, logoImage.size.height * 0.5)];
-
+        
         [self insertSubview:logoView belowSubview:resignBtn];
         [logoView release];
         
@@ -75,13 +92,12 @@ static BOOL D9IsDeviceIPad() {
         [_usernameTextField setBackgroundColor:[UIColor whiteColor]];
         [_usernameTextField setTextColor:[UIColor blackColor]];
         [_usernameTextField setDelegate:self];
+        //TODO: use NSLocalizedString() instead
         [_usernameTextField setPlaceholder:@"用户名："];
         [_usernameTextField setTextAlignment:NSTextAlignmentLeft];
         [_usernameTextField setFont:[UIFont fontWithName:@"Times New Roman" size:20]];
         [_usernameTextField setAdjustsFontSizeToFitWidth:NO];
-//        [_usernameTextField setClearsOnBeginEditing:YES];
         [_usernameTextField setBorderStyle:UITextBorderStyleNone];
-//        _usernameTextField setBackground:[UIImage image]
         [_usernameTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
         [_usernameTextField setLeftView:usernameView];
         [_usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
@@ -92,8 +108,8 @@ static BOOL D9IsDeviceIPad() {
         
         [self insertSubview:_usernameTextField aboveSubview:resignBtn];
         
-        if (_usernameStr) {
-            [_usernameTextField setText:_usernameStr];
+        if (userName) {
+            [_usernameTextField setText:userName];
         }
         
         // Pass Word
@@ -124,11 +140,11 @@ static BOOL D9IsDeviceIPad() {
         
         [passwordView release];
         
-//        [self addSubview:_passwordTextField];
+        //        [self addSubview:_passwordTextField];
         [self insertSubview:_passwordTextField aboveSubview:resignBtn];
         
-        if (isRemember && _passwordStr) {
-            [_passwordTextField setText:_passwordStr];
+        if (isRemember && passWord) {
+            [_passwordTextField setText:passWord];
         }
         
         // Remember Password
@@ -142,7 +158,6 @@ static BOOL D9IsDeviceIPad() {
         
         [_rememberPassword addTarget:self action:@selector(checkboxClicked:) forControlEvents:UIControlEventTouchUpInside];
         
-//        [self addSubview:_rememberPassword];
         [self insertSubview:_rememberPassword aboveSubview:resignBtn];
         
         if (isRemember) {
@@ -154,8 +169,8 @@ static BOOL D9IsDeviceIPad() {
         [_lblRemember setFont:[UIFont fontWithName:@"Times New Roman" size:13]];
         [_lblRemember setText:@"记住密码"];
         [_lblRemember setTextColor:[UIColor whiteColor]];
-//        [lblRemember setShadowColor:[UIColor colorWithWhite:0.1 alpha:0.8]];
-//        [lblRemember setShadowOffset:CGSizeMake(1.0, 1.0)];
+        //        [lblRemember setShadowColor:[UIColor colorWithWhite:0.1 alpha:0.8]];
+        //        [lblRemember setShadowOffset:CGSizeMake(1.0, 1.0)];
         [_lblRemember setTextAlignment:NSTextAlignmentLeft];
         
         [self insertSubview:_lblRemember belowSubview:resignBtn];
@@ -252,7 +267,7 @@ static BOOL D9IsDeviceIPad() {
         
         [_toLogBtn setTitle:@"已有账号了？点这里登录！" forState:UIControlStateNormal];
         [_toLogBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//        [_toLogBtn setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
+        //        [_toLogBtn setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
         
         [_toLogBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
         
@@ -260,22 +275,18 @@ static BOOL D9IsDeviceIPad() {
         
         [self insertSubview:_toLogBtn aboveSubview:resignBtn];
         [_toLogBtn setHidden:YES];
-        
-        
 
-//        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//        [window addSubview:self];
     }
     return self;
 }
 
 - (void) dealloc
 {
-    [_usernameTextField release];
-    [_passwordTextField release];
-    [_lblRemember release];
-    [_lblAuto release];
-    [_loginBtn release];
+    [_usernameTextField release], _usernameTextField = nil;
+    [_passwordTextField release], _passwordTextField = nil;
+    [_lblRemember release], _lblRemember = nil;
+    [_lblAuto release], _lblAuto = nil;
+    [_loginBtn release], _loginBtn = nil;
     
     [super dealloc];
 }
@@ -290,21 +301,6 @@ static BOOL D9IsDeviceIPad() {
 //}
 
 #pragma mark -- Private Method --
-
-- (void) getDefaultData
-{
-    NSUserDefaults *myDefault = [NSUserDefaults standardUserDefaults];
-    isRemember = [myDefault boolForKey:@"isRemember"];
-    isAuto = [myDefault boolForKey:@"isAuto"];
-    _usernameStr = [myDefault stringForKey:@"username"];
-    if (isRemember) {
-        _passwordStr = [myDefault stringForKey:@"password"];
-    }
-    
-    NSLog(@"%@, %@", _usernameStr, _passwordStr);
-    
-//    _loginURL = [[NSString alloc] initWithString:@"http://imept.imobile-ent.com:8988/D9PayPlat/login.action"];
-}
 
 - (void) checkboxClicked:(UIButton *)btn
 {
@@ -329,34 +325,27 @@ static BOOL D9IsDeviceIPad() {
 - (void) btnClicked:(UIButton *)sender
 {
     if (sender == _loginBtn) {
-        NSLog(@"Login btn pressed.");
+        if (DEBUG_LOG) {
+            NSLog(@"Login btn pressed.");
+        }
         
-        NSUserDefaults *myDefault = [NSUserDefaults standardUserDefaults];
+        self.userName = _usernameTextField.text;
+        self.passWord = _passwordTextField.text;
         
-        _usernameStr = _usernameTextField.text;
-        _passwordStr = _passwordTextField.text;
+        if (DEBUG_LOG) {
+            NSLog(@"%@, %@", userName, passWord);
+        }
         
-        NSLog(@"%@, %@", _usernameStr, _passwordStr);
-        
-        if (![self isValid]) {
-            NSLog(@"not valid!");
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:@"账号密码不能为空" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-            [alert show];
-            [alert autorelease];
+        if (![self isInputValid]) {
+            [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
             return;
         }
         
-        [myDefault setObject:_usernameStr forKey:@"username"];
-        if (isRemember) {
-            [myDefault setObject:_passwordStr forKey:@"password"];
-        }
-        [myDefault setBool:isRemember forKey:@"isRemember"];
-        [myDefault setBool:isAuto forKey:@"isAuto"];
-        
-        [myDefault synchronize];
+        [self saveSettingDefault];
         
         if ([delegate respondsToSelector:@selector(loginDialog:withUsername:password:)]) {
-            [delegate loginDialog:self withUsername:_usernameStr password:_passwordStr];
+            passWord = [passWord MD5EncodedString];
+            [delegate loginDialog:self withUsername:userName password:passWord];
         }
         
         
@@ -383,11 +372,12 @@ static BOOL D9IsDeviceIPad() {
         [_regBtn setHidden:YES];
         [_randomBtn setHidden:YES];
     } else if (sender == _regBtn) {
-        if (![self isValid]) {
+        if (![self isInputValid]) {
             // alert view
 //            return;
             if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
-                [delegate registDialog:self withUsername:_usernameStr password:_passwordStr];
+                passWord = [passWord MD5EncodedString];
+                [delegate registDialog:self withUsername:userName password:passWord];
             }
         }
         
@@ -396,12 +386,54 @@ static BOOL D9IsDeviceIPad() {
     }
 }
 
-- (BOOL) isValid
+- (BOOL) isInputValid
 {
-    if (!_usernameStr || !_passwordStr || [_usernameStr length] < 6 || [_passwordStr length] < 6) {
+    if (!userName || !passWord || [userName length] < 6 || [passWord length] < 6) {
         return NO;
     }
     return YES;
+}
+
+//- (NSString *)urlSchemeString
+//{
+//    return [NSString stringWithFormat:@"%@%@", kWBURLSchemePrefix, appKey];
+//}
+
+- (void) saveSettingDefault
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:userName forKey:kD9DefaultUsername];
+    if (isRemember) {
+        [userDefault setObject:passWord forKey:kD9DefaultPassword];
+    }
+    [userDefault setBool:isRemember forKey:kD9DefaultRemember];
+    [userDefault setBool:isAuto forKey:kD9DefaultAuto];
+    
+    [userDefault synchronize];
+}
+
+- (void) readSettingFromDefault
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    isRemember = [userDefault boolForKey:kD9DefaultRemember];
+    isAuto = [userDefault boolForKey:kD9DefaultAuto];
+    self.userName = [userDefault stringForKey:kD9DefaultUsername];
+    if (isRemember) {
+        self.passWord = [userDefault stringForKey:kD9DefaultPassword];
+    }
+    if (DEBUG_LOG) {
+        NSLog(@"D9LoginDialog: readSettingFromDefault: username=%@", userName);
+    }
+}
+
+- (void) deleteSettingInDefault
+{
+    self.userName = nil;
+    self.passWord = nil;
+    isRemember = false;
+    isAuto = false;
+
+    [self saveSettingDefault];
 }
 
 #pragma mark -- TextField Delegate --
@@ -414,6 +446,25 @@ static BOOL D9IsDeviceIPad() {
         [textField resignFirstResponder];
     }
     return YES;
+}
+
+#pragma mark -- D9LoginDialog Public Methods
+
+- (void) show:(BOOL)animated
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    if (!window) {
+        window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    }
+    [window addSubview:self];
+    
+    //TODO: animated action
+}
+
+- (void) hide:(BOOL)animated
+{
+    //TODO: animated action
+    [self removeFromSuperview];
 }
 
 @end

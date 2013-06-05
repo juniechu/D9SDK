@@ -10,11 +10,10 @@
 #import "D9LoginDialog.h"
 #import "SFHFKeychainUtils.h"
 #import "D9SDKGlobal.h"
-#import "D9SDKUtil.h"
 #import "D9Request.h"
+#import "D9SDKUtil.h"
 
-#define kD9URLSchemePrefix              @"D9_"
-#define kD9KeychainServiceNameSuffix    @"_D9StudioServiceName"
+
 #define kD9KeychainUserID               @"D9UserID"
 //#define kD9KeychainPassword             @"D9Password"
 
@@ -22,9 +21,9 @@
 
 - (NSString *)urlSchemeString;
 
-- (void) saveAuthorizeDataToKeychain;
-- (void) readAuthorizeDataFromKeychain;
-- (void) deleteAuthorizeDataInKeychain;
+- (void) saveUserIDToKeychain;
+- (void) readUserIDFromKeychain;
+- (void) deleteUserIDInKeychain;
 
 - (void) requestWithUsername:(NSString *)username password:(NSString *)password;
 
@@ -40,12 +39,12 @@
 
 #pragma mark - D9StudioSDK Life Circle
 
-- (id) initWithAppID:(NSString *)appID andAppKey:(NSString *)appKey {
+- (id) initWithAppID:(NSString *)theAppID andAppKey:(NSString *)theAppKey {
     if (self = [super init]) {
-        self.appID = appID;
-        self.appKey = appKey;
+        self.appID = theAppID;
+        self.appKey = theAppKey;
         
-        [self readAuthorizeDataFromKeychain];
+        [self readUserIDFromKeychain];
     }
     return self;
 }
@@ -73,7 +72,7 @@
     return [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appID];
 }
 
-- (void) saveAuthorizeDataToKeychain
+- (void) saveUserIDToKeychain
 {
     NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
     [SFHFKeychainUtils storeUsername:kD9KeychainUserID
@@ -83,20 +82,22 @@
                                error:nil];
 }
 
-- (void) readAuthorizeDataFromKeychain
+- (void) readUserIDFromKeychain
 {
     NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
     self.userID = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUserID
                                              andServiceName:serviceName
                                                       error:nil];
 }
-    
-- (void) deleteAuthorizeDataInKeychain
+
+- (void) deleteUserIDInKeychain
 {
     self.userID = nil;
     
     NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUserID andServiceName:serviceName error:nil];
+    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUserID
+                              andServiceName:serviceName
+                                       error:nil];
 }
 
 #pragma mark - D9StudioSDK Public Methods
@@ -116,7 +117,7 @@
 
 - (void) logout
 {
-    [self deleteAuthorizeDataInKeychain];
+    [self deleteUserIDInKeychain];
     
     if ([delegate respondsToSelector:@selector(d9SDKDidLogOut:)]) {
         [delegate d9SDKDidLogOut:self];
@@ -125,9 +126,80 @@
 
 - (BOOL) isLoggedIn
 {
-    return userID;
+    return (userID != nil);
 }
 
+#pragma mark - D9LoginDialogDelegate Methods
 
+- (void) loginDialog:(D9LoginDialog *)dialog
+        withUsername:(NSString *)username
+            password:(NSString *)password
+{
+    if (DEBUG_LOG) {
+        NSLog(@"pass word is:%@, length = %d", password, [password length]);
+    }
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, @"accountid",
+                            password, @"password", nil];
+    
+    [request disconnect];
+    
+    self.request = [D9Request requestWithURL:__LOGIN_URL
+                                  httpMethod:@"POST"
+                                      params:params
+                                postDataType:kD9RequestPostDataTypeNormal
+                            httpHeaderFields:nil
+                                    delegate:self];
+    [request connect];
+}
+
+- (void) registDialog:(D9LoginDialog *)dialog
+         withUsername:(NSString *)username
+             password:(NSString *)password
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, @"accountid",
+                            password, @"password", nil];
+    
+    [request disconnect];
+    
+    self.request = [D9Request requestWithURL:__REGIST_URL
+                                  httpMethod:@"POST"
+                                      params:params
+                                postDataType:kD9RequestPostDataTypeNormal
+                            httpHeaderFields:nil
+                                    delegate:self];
+    [request connect];
+}
+
+#pragma mark - D9RequestDelegate Methods
+- (void) request:(D9Request *)request didFinishLoadingWithResult:(id)result
+{
+    if (DEBUG_LOG) {
+        NSLog(@"didFinishLoadingWithResult:%@", result);
+    }
+    int resultCode = [(NSString *)result intValue];
+    
+    //TODO: If success, save username and password, d9SDKDidLogin:(D9StudioSDK *)d9engine;
+    if (resultCode == kD9LoginErrorPwd) {
+        [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
+    } else if (resultCode == kD9LoginErrorNil) {
+        [D9SDKUtil showAlertViewWithMsg:@"账户不存在"];
+    } else if (resultCode == kD9LoginErrorFail) {
+        [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
+    } else {
+        // success, save user custom setting
+        self.userID = result;
+        if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
+            [delegate d9SDKDidLogin:self];
+        }
+    }
+}
+
+- (void) request:(D9Request *)request didFailWithError:(NSError *)error
+{
+    if (DEBUG_LOG)
+    {
+        NSLog(@"D9StudioSDK: request difFailWithError.");
+    }
+}
 
 @end

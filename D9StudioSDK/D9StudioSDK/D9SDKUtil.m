@@ -87,3 +87,19 @@
 //
 //@end
 
+#import "UIKit/UIKit.h"
+
+@implementation D9SDKUtil
+
++ (void) showAlertViewWithMsg:(NSString *)msg
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误"
+                                                    message:msg
+                                                   delegate:self
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert autorelease];
+}
+
+@end

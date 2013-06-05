@@ -140,28 +140,39 @@
         [delegate request:self didReceiveRawData:data];
     }
 	
-	NSError* error = nil;
-	id result = [self parseJSONData:data error:&error];
-	
-	if (error)
-	{
-		[self failedWithError:error];
-	}
-	else
-	{
-        if ([delegate respondsToSelector:@selector(request:didFinishLoadingWithResult:)])
-		{
-            [delegate request:self didFinishLoadingWithResult:(result == nil ? data : result)];
-		}
-	}
+//	NSError* error = nil;
+//	id result = [self parseJSONData:data error:&error];
+//	
+//	if (error)
+//	{
+//		[self failedWithError:error];
+//	}
+//	else
+//	{
+//        if ([delegate respondsToSelector:@selector(request:didFinishLoadingWithResult:)])
+//		{
+//            [delegate request:self didFinishLoadingWithResult:(result == nil ? data : result)];
+//		}
+//	}
+    NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    id result = dataString;
+    if ([delegate respondsToSelector:@selector(request:didFinishLoadingWithResult:)])
+    {
+        [delegate request:self didFinishLoadingWithResult:result];
+    }
 }
 
 - (id)parseJSONData:(NSData *)data error:(NSError **)error
 {
 	
 	NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	SBJSON *jsonParser = [[SBJSON alloc]init];
-	
+    if (DEBUG_LOG) {
+        NSLog(@"parseJSONData:%@", dataString);
+    }
+    
+    // Parse Json result in the following.
+	SBJSON *jsonParser = [[SBJSON alloc] init];
+    
 	NSError *parseError = nil;
 	id result = [jsonParser objectWithString:dataString error:&parseError];
 	
@@ -189,7 +200,7 @@
 			}
 		}
 	}
-	
+
 	return result;
 }
 
@@ -296,6 +307,9 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    if (DEBUG_LOG) {
+        NSLog(@"D9Request:connection didReceiveResponse.");
+    }
 	responseData = [[NSMutableData alloc] init];
 	
 	if ([delegate respondsToSelector:@selector(request:didReceiveResponse:)])
@@ -306,6 +320,9 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    if (DEBUG_LOG) {
+        NSLog(@"D9Request:connection didReceiveData.");
+    }
 	[responseData appendData:data];
 }
 
@@ -317,6 +334,9 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)theConnection
 {
+    if (DEBUG_LOG) {
+        NSLog(@"D9Request:connection didFinishLoading.");
+    }
 	[self handleResponseData:responseData];
     
 	[responseData release];
@@ -329,6 +349,9 @@
 
 - (void)connection:(NSURLConnection *)theConnection didFailWithError:(NSError *)error
 {
+    if (DEBUG_LOG) {
+        NSLog(@"D9Request:connection didFailWithError.");
+    }
 	[self failedWithError:error];
 	
 	[responseData release];
