@@ -1,0 +1,10 @@
+# D9SDK ignore files
+build/
+D9StudioSDK.xcodeproj/project.xcworkspace/
+
+# Dependent ignore files
+DependentApp.xcodeproj/xcuserdata
+
+# ignore svn files
+.DS_Store
+.svn
