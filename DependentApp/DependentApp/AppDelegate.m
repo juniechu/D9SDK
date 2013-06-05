@@ -12,6 +12,8 @@
 
 - (void)dealloc
 {
+    [engine setDelegate:nil];
+    [engine release], engine = nil;
     [_window release];
     [super dealloc];
 }
@@ -21,14 +23,12 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     
-    D9StudioSDK *d9studio = [[[D9StudioSDK alloc] init] autorelease];
-   
+    engine = [[D9StudioSDK alloc] initWithAppID:@"10001" andAppKey:@"acda8980fajlj32"];
+    [engine setDelegate:self.window];
+    [engine login];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-     [d9studio login];
-    
     
     return YES;
 }

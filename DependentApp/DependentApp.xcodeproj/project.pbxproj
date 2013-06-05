@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A26175F1FEC00C9A58E /* Security.framework */; };
 		9E783A2C17551057009834F7 /* d9_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2217551057009834F7 /* d9_button_down.png */; };
 		9E783A2D17551057009834F7 /* d9_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2317551057009834F7 /* d9_button_normal.png */; };
 		9E783A2E17551057009834F7 /* d9_checkbox_false.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2417551057009834F7 /* d9_checkbox_false.png */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9E1D3A26175F1FEC00C9A58E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9E783A2217551057009834F7 /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
 		9E783A2317551057009834F7 /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
 		9E783A2417551057009834F7 /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */,
 				9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */,
 				9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */,
@@ -108,6 +111,7 @@
 		9ECF51E31755063200487F96 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E1D3A26175F1FEC00C9A58E /* Security.framework */,
 				9E783A6E1755E7B7009834F7 /* D9StudioSDK-iOS.framework */,
 				9ECF51E41755063200487F96 /* UIKit.framework */,
 				9ECF51E61755063200487F96 /* Foundation.framework */,
@@ -301,6 +305,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
 				INFOPLIST_FILE = "DependentApp/DependentApp-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -318,6 +323,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
 				INFOPLIST_FILE = "DependentApp/DependentApp-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
