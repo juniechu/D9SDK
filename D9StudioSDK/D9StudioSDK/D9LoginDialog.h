@@ -40,8 +40,6 @@
     UIButton * _toRegBtn;
     UIButton * _toLogBtn;
     
-//    NSString * _usernameStr;
-//    NSString * _passwordStr;
     NSString *userName;
     NSString *passWord;
     

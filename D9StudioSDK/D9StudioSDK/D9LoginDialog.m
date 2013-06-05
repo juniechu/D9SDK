@@ -286,19 +286,11 @@ static BOOL D9IsDeviceIPad() {
     [_passwordTextField release], _passwordTextField = nil;
     [_lblRemember release], _lblRemember = nil;
     [_lblAuto release], _lblAuto = nil;
-    [_loginBtn release], _loginBtn = nil;
+    [userName release], userName = nil;
+    [passWord release], passWord = nil;
     
     [super dealloc];
 }
-
-
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-//- (void)drawRect:(CGRect)rect
-//{
-//    // Drawing code
-//}
 
 #pragma mark -- Private Method --
 
@@ -373,8 +365,13 @@ static BOOL D9IsDeviceIPad() {
         [_randomBtn setHidden:YES];
     } else if (sender == _regBtn) {
         if (![self isInputValid]) {
-            // alert view
-//            return;
+            if (![self isInputValid]) {
+                [D9SDKUtil showAlertViewWithMsg:@"账号密码错误"];
+                return;
+            }
+            
+            [self saveSettingDefault];
+            
             if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
                 passWord = [passWord MD5EncodedString];
                 [delegate registDialog:self withUsername:userName password:passWord];
@@ -393,11 +390,6 @@ static BOOL D9IsDeviceIPad() {
     }
     return YES;
 }
-
-//- (NSString *)urlSchemeString
-//{
-//    return [NSString stringWithFormat:@"%@%@", kWBURLSchemePrefix, appKey];
-//}
 
 - (void) saveSettingDefault
 {

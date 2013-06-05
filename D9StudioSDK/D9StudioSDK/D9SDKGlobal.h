@@ -20,8 +20,6 @@
 
 #define DEBUG_LOG       1
 
-//#define kWBSDKAPIDomain             @"https://api.weibo.com/2/"
-
 typedef enum
 {
 	kD9ErrorCodeInterface	= 100,

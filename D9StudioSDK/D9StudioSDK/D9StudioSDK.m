@@ -15,7 +15,6 @@
 
 
 #define kD9KeychainUserID               @"D9UserID"
-//#define kD9KeychainPassword             @"D9Password"
 
 @interface D9StudioSDK (Private)
 
@@ -199,6 +198,10 @@
     if (DEBUG_LOG)
     {
         NSLog(@"D9StudioSDK: request difFailWithError.");
+    }
+    self.userID = nil;
+    if ([delegate respondsToSelector:@selector(d9SDK:didFailToLogInWithError:)]) {
+        [delegate d9SDK:self didFailToLogInWithError:error];
     }
 }
 
