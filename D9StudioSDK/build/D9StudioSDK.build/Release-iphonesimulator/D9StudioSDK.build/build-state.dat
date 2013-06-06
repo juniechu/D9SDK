@@ -1,458 +1,0 @@
-TD9StudioSDK
-v5
-r1
-cCheck dependencies
-cProcessPCH /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth D9StudioSDK/D9StudioSDK-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLibtool /Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a normal i386
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
-c00000000518340A50000000000000110
-t1367556261
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c00000000513952E100000000003DDFA0
-t1362711265
-s4054944
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h
-c00000000513952E000000000000015F7
-t1362711264
-s5623
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Security.framework/Security
-c00000000513952E3000000000006E360
-t1362711267
-s451424
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c00000000513952E60000000000AB6230
-t1362711270
-s11231792
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.h
-c0000000051AFF28C000000000000157B
-t1370485388
-s5499
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m
-c0000000051AFF28C0000000000005BD2
-t1370485388
-s23506
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMDefines.h
-c0000000051AFF28C000000000000324A
-t1370485388
-s12874
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.h
-c0000000051AFF28C0000000000000518
-t1370485388
-s1304
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m
-c0000000051B0630F00000000000049BB
-t1370514191
-s18875
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.h
-c0000000051AFF28C000000000000097B
-t1370485388
-s2427
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m
-c0000000051B057050000000000002BB7
-t1370511109
-s11191
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKGlobal.h
-c0000000051B05009000000000000088A
-t1370509321
-s2186
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.h
-c0000000051B027AC0000000000000374
-t1370498988
-s884
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m
-c0000000051B041780000000000001995
-t1370505592
-s6549
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK-Prefix.pch
-c0000000051AFF28C00000000000000A3
-t1370485388
-s163
-i<Foundation/Foundation.h>
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.h
-c0000000051B0495D0000000000000596
-t1370507613
-s1430
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m
-c0000000051B049DE0000000000001EDD
-t1370507742
-s7901
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/JSON.h
-c0000000051AFF28C00000000000008F9
-t1370485388
-s2297
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.h
-c0000000051AFF28C0000000000000A01
-t1370485388
-s2561
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m
-c0000000051AFF28C000000000000089E
-t1370485388
-s2206
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.h
-c0000000051AFF28C0000000000000916
-t1370485388
-s2326
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m
-c0000000051AFF28C000000000000087D
-t1370485388
-s2173
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.h
-c0000000051AFF28C0000000000000AED
-t1370485388
-s2797
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m
-c0000000051AFF28C0000000000001ABC
-t1370485388
-s6844
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.h
-c0000000051AFF28C0000000000000B82
-t1370485388
-s2946
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m
-c0000000051AFF28C0000000000000AC1
-t1370485388
-s2753
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.h
-c0000000051AFF28C0000000000000C0B
-t1370485388
-s3083
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m
-c0000000051AFF28C00000000000036D0
-t1370485388
-s14032
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.h
-c0000000051AFF28C0000000000001140
-t1370485388
-s4416
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m
-c0000000051AFF28C0000000000001F26
-t1370485388
-s7974
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.h
-c0000000051AFF28C0000000000000753
-t1370485388
-s1875
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m
-c0000000051AFF28C0000000000003A97
-t1370485388
-s14999
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.h
-c00000000000000000000000000000000
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m
-c0000000051B02A8700000000000005F3
-t1370499719
-s1523
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.LinkFileList
-c0000000051B0632D00000000000006C6
-t1370514221
-s1734
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o
-t2
-s0
-
-N/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.o
-t2
-s0
-
-N/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a
-t2
-s0
-
-N/var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth
-t2
-s0
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies5456dfad9a60b741^1211fead9a60b741^---0#1#0#--18"Check dependencies36"29B69F21-CE95-414D-9F65-6F7933E4B635-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.446780
-e392207022.925389
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m8a3a73ae9a60b741^3fe5ecae9a60b741^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m0000000000000000^3546"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o D9StudioSDK/D9LoginDialog.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9LoginDialog.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9LoginDialog.o36"B6E2A0FE-03BD-4747-A121-0C0D487BFAD5-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.447357
-e392207022.780478
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.mc95673ae9a60b741^c119c8ae9a60b741^---0#0#0#-19%DVTDocumentLocation2@83"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m0000000000000000^3522"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o D9StudioSDK/D9Request.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9Request.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9Request.o36"2938A1C3-C197-4406-87ED-774B93643D5E-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.972673
-e392207023.288813
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection75"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m1daaf9ae9a60b741^349cfaaf9a60b741^---0#0#0#-19%DVTDocumentLocation2@83"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m0000000000000000^3522"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o D9StudioSDK/D9SDKUtil.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9SDKUtil.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9SDKUtil.o36"24A3DCBE-2219-4F02-8334-F7FCAB0A2B21-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.446798
-e392207022.748950
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection77"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m583a73ae9a60b741^67babfae9a60b741^---0#0#0#-19%DVTDocumentLocation2@85"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m0000000000000000^3534"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o D9StudioSDK/D9StudioSDK.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.o36"D8B518EF-07A6-4FAF-8D5F-972DD146D4A7-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207023.012487
-e392207023.225146
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.ma4e203af9a60b741^9a98faaf9a60b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m0000000000000000^3542"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o D9StudioSDK/CTMBase64/GTMBase64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/CTMBase64/GTMBase64.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/GTMBase64.o36"611C5A9C-AB48-4FB1-A6DB-B1FD491FDB7B-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.750295
-e392207022.886714
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m7cb8c0ae9a60b741^ea59e4ae9a60b741^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m0000000000000000^3572"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o D9StudioSDK/SBJSON/NSObject+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSObject+SBJSON.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSObject+SBJSON.o36"10897684-4AF1-4EF4-9E0A-48042629AC43-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.785983
-e392207022.886080
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.mcd01caae9a60b741^6bd5e2ae9a60b741^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m0000000000000000^3572"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o D9StudioSDK/SBJSON/NSString+SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/NSString+SBJSON.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/NSString+SBJSON.o36"8327C3A0-6428-4E62-9F5D-2CB65E510BB6-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.812699
-e392207022.971344
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection79"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m4da0d0ae9a60b741^6d7575af9a60b741^---0#0#0#-19%DVTDocumentLocation2@87"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m0000000000000000^3518"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o D9StudioSDK/SBJSON/SBJSON.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJSON.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJSON.o36"EAD660E6-971A-41E2-A587-F94DF801EAC0-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.887387
-e392207023.011136
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.ma9d9e3ae9a60b741^bf7d75af9a60b741^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m0000000000000000^3542"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o D9StudioSDK/SBJSON/SBJsonBase.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonBase.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonBase.o36"B6823DB9-89A7-4895-8230-8911E3EFC0BE-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.890349
-e392207023.169543
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.mfdc1e4ae9a60b741^348675af9a60b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m0000000000000000^3554"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o D9StudioSDK/SBJSON/SBJsonParser.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonParser.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonParser.o36"9EBE74DD-AB69-4F0C-97D4-D07DF06509F7-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.926713
-e392207023.126748
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.me5d5edae9a60b741^b68375af9a60b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m0000000000000000^3554"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o D9StudioSDK/SBJSON/SBJsonWriter.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SBJSON/SBJsonWriter.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SBJsonWriter.o36"911B30F9-E82A-403E-A377-AB81D6F05772-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207022.447350
-e392207022.809402
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection101"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m8a5573ae9a60b741^f2ebcfae9a60b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m0000000000000000^3606"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/SFHFKeychainUtils/SFHFKeychainUtils.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/SFHFKeychainUtils.o36"CD9724D6-C951-41A6-81A0-735058C72AF4-
-
-CCompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.o /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392198145.487927
-e392198145.850821
-r1
-xCompileC
-xbuild/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.o
-x/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m2a527d017860b741^969760027860b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m0000000000000000^3582"CompileC build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.o D9StudioSDK/UIDevice+MacAddress.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -include /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch -MMD -MT dependencies -MF /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.d --serialize-diagnostics /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/UIDevice+MacAddress.m -o /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/UIDevice+MacAddress.o36"7D09A8B3-68DE-40FC-9A9D-28DCF3C29BC0-
-
-CLibtool /Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a normal i386
-s392207023.295618
-e392207023.333617
-r1
-xLibtool
-x/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a
-xnormal
-xi386
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified, -all_load invalid
-o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection168"Libtool /Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a normal i386452e4caf9a60b741^a4a9faaf9a60b741^-297"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified, -all_load invalid/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#0#--1039"Libtool /Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a normal i386    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv IPHONEOS_DEPLOYMENT_TARGET 6.1    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -L/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator -filelist /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/Objects-normal/i386/D9StudioSDK.LinkFileList -ObjC -all_load -framework Security -framework UIKit -framework Foundation -o /Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/libD9StudioSDK.a36"75F47528-F48D-4731-9463-BA54C3BDC7E9-
-
-CProcessPCH /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth D9StudioSDK/D9StudioSDK-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s392207021.998300
-e392207022.439704
-r1
-xProcessPCH
-x/var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth
-xD9StudioSDK/D9StudioSDK-Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Precompile D9StudioSDK/D9StudioSDK-Prefix.pchf81c00ae9a60b741^378e70ae9a60b741^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK-Prefix.pch0000000000000000^3527"ProcessPCH /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth D9StudioSDK/D9StudioSDK-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/juniechu/Documents/D9SDK/D9StudioSDK    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=6.1 -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-generated-files.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-own-target-headers.hmap -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-all-target-headers.hmap -iquote /Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/D9StudioSDK-project-headers.hmap -I/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources/i386 -I/Users/juniechu/Documents/D9SDK/D9StudioSDK/build/D9StudioSDK.build/Release-iphonesimulator/D9StudioSDK.build/DerivedSources -F/Users/juniechu/Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphonesimulator --serialize-diagnostics /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.dia -c /Users/juniechu/Documents/D9SDK/D9StudioSDK/D9StudioSDK/D9StudioSDK-Prefix.pch -o /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/j2/c5lghd8x67j8l_49k6mdwx8m0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/D9StudioSDK-Prefix-baejzbkbmsrkedhfajcbziivksyn/D9StudioSDK-Prefix.pch.d36"13430B56-44A6-4F04-AE81-1549D75A66D3-
-
