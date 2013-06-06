@@ -45,7 +45,9 @@
 {
     [url release], url = nil;
     [httpMethod release], httpMethod = nil;
-    [params release], params = nil;
+//    if (params) {
+//        [params release], params = nil;
+//    }
     [httpHeaderFields release], httpHeaderFields = nil;
     
     [responseData release];
@@ -308,7 +310,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     if (DEBUG_LOG) {
-        NSLog(@"D9Request:connection didReceiveResponse.");
+//        NSLog(@"D9Request:connection didReceiveResponse.");
     }
 	responseData = [[NSMutableData alloc] init];
 	
@@ -321,7 +323,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (DEBUG_LOG) {
-        NSLog(@"D9Request:connection didReceiveData.");
+//        NSLog(@"D9Request:connection didReceiveData.");
     }
 	[responseData appendData:data];
 }
@@ -335,31 +337,21 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)theConnection
 {
     if (DEBUG_LOG) {
-        NSLog(@"D9Request:connection didFinishLoading.");
+//        NSLog(@"D9Request:connection didFinishLoading.");
     }
 	[self handleResponseData:responseData];
     
-	[responseData release];
-	responseData = nil;
-    
-    [connection cancel];
-	[connection release];
-	connection = nil;
+	[self disconnect];
 }
 
 - (void)connection:(NSURLConnection *)theConnection didFailWithError:(NSError *)error
 {
     if (DEBUG_LOG) {
-        NSLog(@"D9Request:connection didFailWithError.");
+//        NSLog(@"D9Request:connection didFailWithError.");
     }
 	[self failedWithError:error];
 	
-	[responseData release];
-	responseData = nil;
-    
-    [connection cancel];
-	[connection release];
-	connection = nil;
+	[self disconnect];
 }
 
 @end

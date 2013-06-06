@@ -34,6 +34,8 @@
     
     D9Request   *request;
     
+    int         sceneType;
+    
     id<D9StudioSDKDelegate> delegate;
 }
 

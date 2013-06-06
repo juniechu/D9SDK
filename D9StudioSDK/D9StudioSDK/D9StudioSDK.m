@@ -16,6 +16,11 @@
 
 #define kD9KeychainUserID               @"D9UserID"
 
+typedef enum {
+    kD9LoginScene       = 0,
+    kD9RegistScene      = 1,
+}kD9Scene;
+
 @interface D9StudioSDK (Private)
 
 - (NSString *)urlSchemeString;
@@ -106,6 +111,9 @@
     if ([self isLoggedIn])
     {
         // 已经登陆
+        if (DEBUG_LOG) {
+            NSLog(@"D9StudioSDK:Is logged in.");
+        }
     }
     // 未登陆，进行登陆操作
     D9LoginDialog *loginView = [[D9LoginDialog alloc] init];
@@ -137,8 +145,8 @@
     if (DEBUG_LOG) {
         NSLog(@"pass word is:%@, length = %d", password, [password length]);
     }
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, @"accountid",
-                            password, @"password", nil];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
+                            password, kD9Password, nil];
     
     [request disconnect];
     
@@ -149,14 +157,35 @@
                             httpHeaderFields:nil
                                     delegate:self];
     [request connect];
+    
+    sceneType = kD9LoginScene;
 }
 
 - (void) registDialog:(D9LoginDialog *)dialog
          withUsername:(NSString *)username
              password:(NSString *)password
 {
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, @"accountid",
-                            password, @"password", nil];
+    NSString *ipAddress = [D9SDKUtil getIPAddress];
+    NSString *macAddress = [D9SDKUtil getMacAddress];
+    NSString *phoneType = [[UIDevice currentDevice] model];
+    NSString *phonePattern = [[UIDevice currentDevice] systemVersion];
+    if (DEBUG_LOG) {
+        NSLog(@"D9StudioSDK: ip address = %@, mac address = %@", ipAddress, macAddress);
+        NSLog(@"D9StudioSDK: phone type = %@, phone pattern = %@", phoneType, phonePattern);
+        NSLog(@"pass word is:%@, length = %d", password, [password length]);
+
+    }
+    
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
+                            password, kD9Password,
+                            @"", kD9RegistMail,
+                            __RegistType, kD9RegistType,
+                            ipAddress, kD9PhoneIP,
+                            macAddress, kD9PhoneMac,
+                            phoneType, kD9PhoneType,
+                            phonePattern, kD9PhonePattern,
+                            nil];
     
     [request disconnect];
     
@@ -167,6 +196,8 @@
                             httpHeaderFields:nil
                                     delegate:self];
     [request connect];
+    
+    sceneType = kD9RegistScene;
 }
 
 #pragma mark - D9RequestDelegate Methods
@@ -177,18 +208,42 @@
     }
     int resultCode = [(NSString *)result intValue];
     
-    //TODO: If success, save username and password, d9SDKDidLogin:(D9StudioSDK *)d9engine;
-    if (resultCode == kD9LoginErrorPwd) {
-        [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
-    } else if (resultCode == kD9LoginErrorNil) {
-        [D9SDKUtil showAlertViewWithMsg:@"账户不存在"];
-    } else if (resultCode == kD9LoginErrorFail) {
-        [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
-    } else {
-        // success, save user custom setting
-        self.userID = result;
-        if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
-            [delegate d9SDKDidLogin:self];
+    if (sceneType == kD9LoginScene) {
+        
+        //TODO: If success, save username and password, d9SDKDidLogin:(D9StudioSDK *)d9engine;
+        if (resultCode == kD9LoginErrorPwd) {
+            [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
+        } else if (resultCode == kD9LoginErrorNil) {
+            [D9SDKUtil showAlertViewWithMsg:@"账户不存在"];
+        } else if (resultCode == kD9LoginErrorFail) {
+            [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
+        } else {
+            // success, save user custom setting
+            self.userID = result;
+            if (DEBUG_LOG) {
+                NSLog(@"D9StudioSDK:userID=%@", userID);
+            }
+            if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
+                [delegate d9SDKDidLogin:self];
+            }
+        }
+    } else if (sceneType == kD9RegistScene) {
+
+        if (resultCode == kD9LoginErrorPwd) {
+            [D9SDKUtil showAlertViewWithMsg:@"账号已经存在"];
+        } else if (resultCode == kD9LoginErrorNil) {
+            [D9SDKUtil showAlertViewWithMsg:@"提交参数有误"];
+        } else if (resultCode == kD9LoginErrorFail) {
+            [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
+        } else {
+            // success, save user custom setting
+            self.userID = result;
+            if (DEBUG_LOG) {
+                NSLog(@"D9StudioSDK:userID=%@", userID);
+            }
+            if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
+                [delegate d9SDKDidLogin:self];
+            }
         }
     }
 }

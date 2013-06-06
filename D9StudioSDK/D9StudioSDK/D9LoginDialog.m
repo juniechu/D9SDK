@@ -10,25 +10,17 @@
 #import "D9SDKUtil.h"
 #import "D9SDKGlobal.h"
 
-static BOOL D9IsDeviceIPad() {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 30200
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        return YES;
-    }
-#endif
-    return NO;
-}
-
 #define kD9DefaultUsername      @"D9Username"
 #define kD9DefaultPassword      @"D9Password"
 #define kD9DefaultRemember      @"D9Remember"
 #define kD9DefaultAuto          @"D9Auto"
 
+#define kFontTimes              @"Times New Roman"
+
 @interface D9LoginDialog (Private)
 - (void) checkboxClicked:(UIButton *)btn;
 - (void) resignKeyboard;
 - (void) btnClicked:(UIButton *)sender;
-//- (void) getDefaultData;
 - (BOOL) isInputValid;
 
 - (void) saveSettingToDefault;
@@ -95,7 +87,7 @@ static BOOL D9IsDeviceIPad() {
         //TODO: use NSLocalizedString() instead
         [_usernameTextField setPlaceholder:@"用户名："];
         [_usernameTextField setTextAlignment:NSTextAlignmentLeft];
-        [_usernameTextField setFont:[UIFont fontWithName:@"Times New Roman" size:20]];
+        [_usernameTextField setFont:[UIFont fontWithName:kFontTimes size:20]];
         [_usernameTextField setAdjustsFontSizeToFitWidth:NO];
         [_usernameTextField setBorderStyle:UITextBorderStyleNone];
         [_usernameTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
@@ -127,7 +119,7 @@ static BOOL D9IsDeviceIPad() {
         [_passwordTextField setDelegate:self];
         [_passwordTextField setPlaceholder:@"密码："];
         [_passwordTextField setTextAlignment:NSTextAlignmentLeft];
-        [_passwordTextField setFont:[UIFont fontWithName:@"Times New Roman" size:20]];
+        [_passwordTextField setFont:[UIFont fontWithName:kFontTimes size:20]];
         [_passwordTextField setAdjustsFontSizeToFitWidth:NO];
         [_passwordTextField setClearsOnBeginEditing:YES];
         [_passwordTextField setBorderStyle:UITextBorderStyleNone];
@@ -166,7 +158,7 @@ static BOOL D9IsDeviceIPad() {
         
         _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
         [_lblRemember setBackgroundColor:[UIColor clearColor]];
-        [_lblRemember setFont:[UIFont fontWithName:@"Times New Roman" size:13]];
+        [_lblRemember setFont:[UIFont fontWithName:kFontTimes size:13]];
         [_lblRemember setText:@"记住密码"];
         [_lblRemember setTextColor:[UIColor whiteColor]];
         //        [lblRemember setShadowColor:[UIColor colorWithWhite:0.1 alpha:0.8]];
@@ -174,7 +166,6 @@ static BOOL D9IsDeviceIPad() {
         [_lblRemember setTextAlignment:NSTextAlignmentLeft];
         
         [self insertSubview:_lblRemember belowSubview:resignBtn];
-        
         
         
         // Auto Login
@@ -195,7 +186,7 @@ static BOOL D9IsDeviceIPad() {
         
         _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
         [_lblAuto setBackgroundColor:[UIColor clearColor]];
-        [_lblAuto setFont:[UIFont fontWithName:@"Times New Roman" size:13]];
+        [_lblAuto setFont:[UIFont fontWithName:kFontTimes size:13]];
         [_lblAuto setText:@"自动登陆"];
         [_lblAuto setTextColor:[UIColor whiteColor]];
         [_lblAuto setTextAlignment:NSTextAlignmentLeft];
@@ -209,7 +200,7 @@ static BOOL D9IsDeviceIPad() {
         
         [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_loginBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
+        [_loginBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
         
         [_loginBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
@@ -227,7 +218,7 @@ static BOOL D9IsDeviceIPad() {
         [_toRegBtn setTitle:@"还没账号？快来这里注册！" forState:UIControlStateNormal];
         [_toRegBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
-        [_toRegBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
+        [_toRegBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
         [_toRegBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -240,10 +231,12 @@ static BOOL D9IsDeviceIPad() {
         
         [_regBtn setTitle:@"注册" forState:UIControlStateNormal];
         [_regBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_regBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
+        [_regBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
         [_regBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
         [_regBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_down.png"] forState:UIControlStateSelected];
+        
+        [_regBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
         [self insertSubview:_regBtn aboveSubview:resignBtn];
         [_regBtn setHidden:YES];
@@ -254,10 +247,13 @@ static BOOL D9IsDeviceIPad() {
         [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
         [_randomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_randomBtn setTitle:@"随机账号" forState:UIControlStateNormal];
-        [_randomBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
+        [_randomBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
         [_randomBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
         [_randomBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_down.png"] forState:UIControlStateSelected];
+        
+        [_randomBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
         [self insertSubview:_randomBtn aboveSubview:resignBtn];
         [_randomBtn setHidden:YES];
         
@@ -267,9 +263,8 @@ static BOOL D9IsDeviceIPad() {
         
         [_toLogBtn setTitle:@"已有账号了？点这里登录！" forState:UIControlStateNormal];
         [_toLogBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        //        [_toLogBtn setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
         
-        [_toLogBtn.titleLabel setFont:[UIFont fontWithName:@"Times New Roman" size:15]];
+        [_toLogBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
         [_toLogBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -316,6 +311,9 @@ static BOOL D9IsDeviceIPad() {
 
 - (void) btnClicked:(UIButton *)sender
 {
+    if (DEBUG_LOG) {
+        NSLog(@"btn clicked.");
+    }
     if (sender == _loginBtn) {
         if (DEBUG_LOG) {
             NSLog(@"Login btn pressed.");
@@ -332,11 +330,13 @@ static BOOL D9IsDeviceIPad() {
             [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
             return;
         }
-        
+        if ([passWord length] != 32) {
+            passWord = [passWord MD5EncodedString];
+        }
         [self saveSettingDefault];
         
         if ([delegate respondsToSelector:@selector(loginDialog:withUsername:password:)]) {
-            passWord = [passWord MD5EncodedString];
+            
             [delegate loginDialog:self withUsername:userName password:passWord];
         }
         
@@ -364,19 +364,23 @@ static BOOL D9IsDeviceIPad() {
         [_regBtn setHidden:YES];
         [_randomBtn setHidden:YES];
     } else if (sender == _regBtn) {
-        if (![self isInputValid]) {
-            if (![self isInputValid]) {
-                [D9SDKUtil showAlertViewWithMsg:@"账号密码错误"];
-                return;
-            }
-            
-            [self saveSettingDefault];
-            
-            if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
-                passWord = [passWord MD5EncodedString];
-                [delegate registDialog:self withUsername:userName password:passWord];
-            }
+        if (DEBUG_LOG) {
+            NSLog(@"regist button pressed.");
         }
+        
+        if (![self isInputValid]) {
+            [D9SDKUtil showAlertViewWithMsg:@"账号密码错误"];
+            return;
+        }
+        if ([passWord length] != 32) {
+            passWord = [passWord MD5EncodedString];
+        }
+        [self saveSettingDefault];
+        
+        if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
+            [delegate registDialog:self withUsername:userName password:passWord];
+        }
+
         
     } else if (sender == _randomBtn) {
         

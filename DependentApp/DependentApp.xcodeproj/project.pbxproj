@@ -18,7 +18,7 @@
 		9E783A3417551057009834F7 /* d9_progressbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */; };
 		9E783A3517551057009834F7 /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2B17551057009834F7 /* d9_username.png */; };
 		9E783A3A1755110A009834F7 /* d9_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2717551057009834F7 /* d9_logo.png */; };
-		9E783A6F1755E7B7009834F7 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E783A6E1755E7B7009834F7 /* D9StudioSDK-iOS.framework */; };
+		9EBB6B53176076250065E861 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */; };
 		9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E41755063200487F96 /* UIKit.framework */; };
 		9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E61755063200487F96 /* Foundation.framework */; };
 		9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E81755063200487F96 /* CoreGraphics.framework */; };
@@ -42,7 +42,7 @@
 		9E783A2917551057009834F7 /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
 		9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
 		9E783A2B17551057009834F7 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
-		9E783A6E1755E7B7009834F7 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-eehcmlyuwupgjhfxclweryfqkoaj/Build/Products/Release-iphoneuniversal/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
+		9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
 		9ECF51E11755063200487F96 /* DependentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF51E41755063200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9ECF51E61755063200487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -63,11 +63,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBB6B53176076250065E861 /* D9StudioSDK-iOS.framework in Frameworks */,
 				9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */,
 				9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */,
 				9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */,
-				9E783A6F1755E7B7009834F7 /* D9StudioSDK-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +94,7 @@
 		9ECF51D81755063200487F96 = {
 			isa = PBXGroup;
 			children = (
+				9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */,
 				9ECF51EA1755063200487F96 /* DependentApp */,
 				9ECF51E31755063200487F96 /* Frameworks */,
 				9ECF51E21755063200487F96 /* Products */,
@@ -112,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				9E1D3A26175F1FEC00C9A58E /* Security.framework */,
-				9E783A6E1755E7B7009834F7 /* D9StudioSDK-iOS.framework */,
 				9ECF51E41755063200487F96 /* UIKit.framework */,
 				9ECF51E61755063200487F96 /* Foundation.framework */,
 				9ECF51E81755063200487F96 /* CoreGraphics.framework */,
@@ -301,6 +301,7 @@
 					"\"$(SRCROOT)/../../../Desktop\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-eehcmlyuwupgjhfxclweryfqkoaj/Build/Products/Release-iphoneuniversal\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
@@ -319,6 +320,7 @@
 					"\"$(SRCROOT)/../../../Desktop\"",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-eehcmlyuwupgjhfxclweryfqkoaj/Build/Products/Release-iphoneuniversal\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
