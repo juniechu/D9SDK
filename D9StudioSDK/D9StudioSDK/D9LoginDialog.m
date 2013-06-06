@@ -311,6 +311,7 @@
 
 - (void) btnClicked:(UIButton *)sender
 {
+    [_passwordTextField setSecureTextEntry:YES];
     if (DEBUG_LOG) {
         NSLog(@"btn clicked.");
     }
@@ -383,7 +384,27 @@
 
         
     } else if (sender == _randomBtn) {
+        NSString *randomName = @"u";
+        NSString *randomWord = @"";
         
+        for (int i = 0; i < 6; i++) {
+            int value = arc4random() % 10;
+            randomName = [randomName stringByAppendingFormat:@"%d", value];
+        }
+        
+        for (int i = 0; i < 6; i++) {
+            int value = arc4random() % 10;
+            randomWord = [randomWord stringByAppendingFormat:@"%d", value];
+        }
+        
+        if (DEBUG_LOG) {
+            NSLog(@"random name = %@, word = %@", randomName, randomWord);
+        }
+        
+        _usernameTextField.text = randomName;
+        _passwordTextField.text = randomWord;
+        
+        [_passwordTextField setSecureTextEntry:NO];
     }
 }
 
