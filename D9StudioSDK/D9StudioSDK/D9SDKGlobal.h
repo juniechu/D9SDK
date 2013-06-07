@@ -20,8 +20,6 @@
 #define kD9SDKErrorDomain               @"D9SDKErrorDomain"
 #define kD9SDKErrorCodeKey              @"D9SDKErrorCodeKey"
 
-//#define kD9URLSchemePrefix              @"D9_"
-//#define kD9KeychainServiceNameSuffix    @"_D9StudioServiceName"
 
 #define DEBUG_LOG       1
 
@@ -35,6 +33,21 @@
 #define kD9PhoneMac                     @"phonemac"
 #define kD9PhoneType                    @"phonetype"
 #define kD9PhonePattern                 @"phonepattern"
+#define kD9AppID                        @"AppId"
+#define kD9UID                          @"Uid"
+#define kD9RoleID                       @"RoleId"
+#define kD9GoodsID                      @"GoodsId"
+#define kD9GoodsCount                   @"GoodsCount"
+#define kD9GoodsName                    @"GoodsName"
+#define kD9TotalMoney                   @"TotalMoney"
+#define kD9Currency                     @"Currency"
+#define kD9PayDescription               @"PayDescription"
+#define kD9ClientOrderID                @"ClientOrderId"
+#define kD9PayPhoneType                 @"PayPhoneType"
+#define kD9PayPhonePattern              @"PayPhonePattern"
+#define kD9PayPhoneMac                  @"PayPhoneMac"
+#define kD9Sign                         @"Sign"
+
 
 #define kD9StopIndicatorNotification    @"D9StopIndicator"
 

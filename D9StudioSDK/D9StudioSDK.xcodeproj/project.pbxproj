@@ -24,6 +24,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		052350D61762410900A12EDA /* D9PayWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 052350D51762410900A12EDA /* D9PayWebView.m */; };
 		9E1D3A25175F1FDD00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A24175F1FDD00C9A58E /* Security.framework */; };
 		9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */; };
 		9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A33175F33C900C9A58E /* GTMBase64.m */; };
@@ -88,6 +89,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		052350D41762410900A12EDA /* D9PayWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9PayWebView.h; sourceTree = "<group>"; };
+		052350D51762410900A12EDA /* D9PayWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9PayWebView.m; sourceTree = "<group>"; };
 		9E1D3A24175F1FDD00C9A58E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9E1D3A2E175F33A100C9A58E /* D9SDKUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9SDKUtil.h; sourceTree = "<group>"; };
 		9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9SDKUtil.m; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				9ECF51CC1754A88200487F96 /* D9LoginDialog.h */,
 				9ECF51CD1754A88200487F96 /* D9LoginDialog.m */,
 				9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */,
+				052350D41762410900A12EDA /* D9PayWebView.h */,
+				052350D51762410900A12EDA /* D9PayWebView.m */,
 			);
 			path = D9StudioSDK;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				9E923883175C995100924B12 /* SBJsonWriter.m in Sources */,
 				9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */,
 				9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */,
+				052350D61762410900A12EDA /* D9PayWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
