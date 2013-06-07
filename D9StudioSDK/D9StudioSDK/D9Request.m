@@ -293,6 +293,9 @@
     }
     
     connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    if (DEBUG_LOG) {
+        NSLog(@"start connection.");
+    }
 }
 
 - (void) disconnect
@@ -310,7 +313,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     if (DEBUG_LOG) {
-//        NSLog(@"D9Request:connection didReceiveResponse.");
+        NSLog(@"D9Request:connection didReceiveResponse.");
     }
 	responseData = [[NSMutableData alloc] init];
 	
@@ -323,7 +326,7 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (DEBUG_LOG) {
-//        NSLog(@"D9Request:connection didReceiveData.");
+        NSLog(@"D9Request:connection didReceiveData.");
     }
 	[responseData appendData:data];
 }
@@ -337,7 +340,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)theConnection
 {
     if (DEBUG_LOG) {
-//        NSLog(@"D9Request:connection didFinishLoading.");
+        NSLog(@"D9Request:connection didFinishLoading.");
     }
 	[self handleResponseData:responseData];
     
@@ -347,11 +350,12 @@
 - (void)connection:(NSURLConnection *)theConnection didFailWithError:(NSError *)error
 {
     if (DEBUG_LOG) {
-//        NSLog(@"D9Request:connection didFailWithError.");
+        NSLog(@"D9Request:connection didFailWithError.");
     }
 	[self failedWithError:error];
 	
 	[self disconnect];
 }
+
 
 @end

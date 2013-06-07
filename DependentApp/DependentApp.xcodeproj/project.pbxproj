@@ -19,6 +19,7 @@
 		9E783A3517551057009834F7 /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2B17551057009834F7 /* d9_username.png */; };
 		9E783A3A1755110A009834F7 /* d9_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2717551057009834F7 /* d9_logo.png */; };
 		9EBB6B53176076250065E861 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */; };
+		9EBB6B5F1761BB400065E861 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBB6B5E1761BB400065E861 /* MainViewController.m */; };
 		9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E41755063200487F96 /* UIKit.framework */; };
 		9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E61755063200487F96 /* Foundation.framework */; };
 		9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E81755063200487F96 /* CoreGraphics.framework */; };
@@ -43,6 +44,8 @@
 		9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
 		9E783A2B17551057009834F7 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
+		9EBB6B5D1761BB400065E861 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		9EBB6B5E1761BB400065E861 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9ECF51E11755063200487F96 /* DependentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF51E41755063200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9ECF51E61755063200487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -127,6 +130,8 @@
 				9ECF51F31755063200487F96 /* AppDelegate.h */,
 				9ECF51F41755063200487F96 /* AppDelegate.m */,
 				9ECF51EB1755063200487F96 /* Supporting Files */,
+				9EBB6B5D1761BB400065E861 /* MainViewController.h */,
+				9EBB6B5E1761BB400065E861 /* MainViewController.m */,
 			);
 			path = DependentApp;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			files = (
 				9ECF51F11755063200487F96 /* main.m in Sources */,
 				9ECF51F51755063200487F96 /* AppDelegate.m in Sources */,
+				9EBB6B5F1761BB400065E861 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -46,6 +46,8 @@
     BOOL isRemember;
     BOOL isAuto;
     
+    UIActivityIndicatorView *indicatorView;
+    
     id <D9LoginDialogDelegate> delegate;
 }
 

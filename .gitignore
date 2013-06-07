@@ -1,6 +1,6 @@
 # D9SDK ignore files
-D9StudioSDK/D9StudioSDK.xcodeproj/xcuserdata/
 D9StudioSDK/build/
+D9StudioSDK/D9StudioSDK.xcodeproj/xcuserdata/
 
 # Dependent ignore files
 DependentApp/DependentApp.xcodeproj/xcuserdata/

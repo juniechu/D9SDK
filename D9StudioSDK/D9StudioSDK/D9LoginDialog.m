@@ -26,6 +26,8 @@
 - (void) saveSettingToDefault;
 - (void) readSettingFromDefault;
 - (void) deleteSettingInDefault;
+
+- (void) stopIndicatorAnimat;
 @end
 
 @implementation D9LoginDialog
@@ -270,7 +272,20 @@
         
         [self insertSubview:_toLogBtn aboveSubview:resignBtn];
         [_toLogBtn setHidden:YES];
+        
+        indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [indicatorView setCenter:CGPointMake(160, 240)];
+        [self addSubview:indicatorView];
 
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(stopIndicatorAnimat)
+                                                     name:kD9StopIndicatorNotification
+                                                   object:nil];
+        
+        if (isAuto) {
+            [self performSelector:@selector(btnClicked:) withObject:_loginBtn afterDelay:0.5];
+        }
+        
     }
     return self;
 }
@@ -283,6 +298,13 @@
     [_lblAuto release], _lblAuto = nil;
     [userName release], userName = nil;
     [passWord release], passWord = nil;
+    
+    [indicatorView release], indicatorView = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kD9StopIndicatorNotification
+                                                  object:nil];
+    
+    delegate = nil;
     
     [super dealloc];
 }
@@ -316,6 +338,7 @@
         NSLog(@"btn clicked.");
     }
     if (sender == _loginBtn) {
+        [indicatorView startAnimating];
         if (DEBUG_LOG) {
             NSLog(@"Login btn pressed.");
         }
@@ -365,6 +388,8 @@
         [_regBtn setHidden:YES];
         [_randomBtn setHidden:YES];
     } else if (sender == _regBtn) {
+        [indicatorView startAnimating];
+        
         if (DEBUG_LOG) {
             NSLog(@"regist button pressed.");
         }
@@ -453,6 +478,16 @@
     [self saveSettingDefault];
 }
 
+- (void) stopIndicatorAnimat
+{
+    if (DEBUG_LOG) {
+        NSLog(@"stop indicator notificaton received.");
+    }
+    if (indicatorView) {
+        [indicatorView stopAnimating];
+    }
+}
+
 #pragma mark -- TextField Delegate --
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
@@ -474,6 +509,12 @@
         window = [[UIApplication sharedApplication].windows objectAtIndex:0];
     }
     [window addSubview:self];
+    [window bringSubviewToFront:self];
+    if (window.rootViewController.view) {
+        [window.rootViewController.view addSubview:self];
+        [window.rootViewController.view bringSubviewToFront:self];
+    }
+    
     
     //TODO: animated action
 }

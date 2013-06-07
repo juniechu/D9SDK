@@ -20,8 +20,8 @@
 #define kD9SDKErrorDomain               @"D9SDKErrorDomain"
 #define kD9SDKErrorCodeKey              @"D9SDKErrorCodeKey"
 
-#define kD9URLSchemePrefix              @"D9_"
-#define kD9KeychainServiceNameSuffix    @"_D9StudioServiceName"
+//#define kD9URLSchemePrefix              @"D9_"
+//#define kD9KeychainServiceNameSuffix    @"_D9StudioServiceName"
 
 #define DEBUG_LOG       1
 
@@ -35,6 +35,8 @@
 #define kD9PhoneMac                     @"phonemac"
 #define kD9PhoneType                    @"phonetype"
 #define kD9PhonePattern                 @"phonepattern"
+
+#define kD9StopIndicatorNotification    @"D9StopIndicator"
 
 typedef enum
 {

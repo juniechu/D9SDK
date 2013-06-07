@@ -27,7 +27,6 @@
 		9E1D3A25175F1FDD00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A24175F1FDD00C9A58E /* Security.framework */; };
 		9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */; };
 		9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A33175F33C900C9A58E /* GTMBase64.m */; };
-		9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */; };
 		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
 		9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923873175C995100924B12 /* NSObject+SBJSON.m */; };
 		9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923875175C995100924B12 /* NSString+SBJSON.m */; };
@@ -35,9 +34,9 @@
 		9E923881175C995100924B12 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923879175C995100924B12 /* SBJsonBase.m */; };
 		9E923882175C995100924B12 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387B175C995100924B12 /* SBJsonParser.m */; };
 		9E923883175C995100924B12 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387D175C995100924B12 /* SBJsonWriter.m */; };
-		9EBB6B54176081C20065E861 /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
-		9EBB6B55176081C20065E861 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
-		9EBB6B56176081C20065E861 /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
+		9EBB6B691761E69A0065E861 /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
+		9EBB6B6A1761E69A0065E861 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
+		9EBB6B6B1761E69A0065E861 /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
 		9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B81754A0C100487F96 /* d9_button_down.png */; };
@@ -61,9 +60,9 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
-				9EBB6B54176081C20065E861 /* D9Request.h in CopyFiles */,
-				9EBB6B55176081C20065E861 /* D9StudioSDK.h in CopyFiles */,
-				9EBB6B56176081C20065E861 /* D9LoginDialog.h in CopyFiles */,
+				9EBB6B691761E69A0065E861 /* D9Request.h in CopyFiles */,
+				9EBB6B6A1761E69A0065E861 /* D9StudioSDK.h in CopyFiles */,
+				9EBB6B6B1761E69A0065E861 /* D9LoginDialog.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +94,6 @@
 		9E1D3A32175F33C900C9A58E /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		9E1D3A33175F33C900C9A58E /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		9E1D3A34175F33C900C9A58E /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
 		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
 		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
@@ -157,15 +154,6 @@
 			path = CTMBase64;
 			sourceTree = "<group>";
 		};
-		9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */ = {
-			isa = PBXGroup;
-			children = (
-				9E3BF49A1758AB5E006AE29D /* SFHFKeychainUtils.h */,
-				9E3BF49B1758AB5E006AE29D /* SFHFKeychainUtils.m */,
-			);
-			path = SFHFKeychainUtils;
-			sourceTree = "<group>";
-		};
 		9E923870175C995100924B12 /* SBJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +206,6 @@
 			children = (
 				9E1D3A31175F33C900C9A58E /* CTMBase64 */,
 				9E923870175C995100924B12 /* SBJSON */,
-				9E3BF4991758AB5E006AE29D /* SFHFKeychainUtils */,
 				9ECF51A217549A0E00487F96 /* Supporting Files */,
 				9ECF51B71754A0C100487F96 /* Resources */,
 				9E92386A175C929900924B12 /* D9Request.h */,
@@ -343,7 +330,6 @@
 			files = (
 				9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */,
 				9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */,
-				9E3BF49D1758AB5E006AE29D /* SFHFKeychainUtils.m in Sources */,
 				9E92386E175C929900924B12 /* D9Request.m in Sources */,
 				9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */,
 				9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */,

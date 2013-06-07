@@ -8,13 +8,13 @@
 
 #import "D9StudioSDK.h"
 #import "D9LoginDialog.h"
-#import "SFHFKeychainUtils.h"
 #import "D9SDKGlobal.h"
 #import "D9Request.h"
 #import "D9SDKUtil.h"
 
 
 #define kD9KeychainUserID               @"D9UserID"
+#define kD9KeychainAuto                 @"D9AutoLogin"
 
 typedef enum {
     kD9LoginScene       = 0,
@@ -23,11 +23,9 @@ typedef enum {
 
 @interface D9StudioSDK (Private)
 
-- (NSString *)urlSchemeString;
-
-- (void) saveUserIDToKeychain;
-- (void) readUserIDFromKeychain;
-- (void) deleteUserIDInKeychain;
+- (void) saveToKeychain;
+- (void) readFromKeychain;
+- (void) deleteInKeychain;
 
 - (void) requestWithUsername:(NSString *)username password:(NSString *)password;
 
@@ -48,7 +46,7 @@ typedef enum {
         self.appID = theAppID;
         self.appKey = theAppKey;
         
-        [self readUserIDFromKeychain];
+        [self readFromKeychain];
     }
     return self;
 }
@@ -64,6 +62,9 @@ typedef enum {
     [request disconnect];
     [request release], request = nil;
     
+    [loginView setDelegate:nil];
+    [loginView release], loginView = nil;
+    
     delegate = nil;
     
     [super dealloc];
@@ -71,37 +72,25 @@ typedef enum {
 
 #pragma mark - D9StudioSDK Private Methods
 
-- (NSString *)urlSchemeString
+- (void) saveToKeychain
 {
-    return [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appID];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setObject:userID forKey:kD9KeychainUserID];
+    
+    [userDefault synchronize];
 }
 
-- (void) saveUserIDToKeychain
+- (void) readFromKeychain
 {
-    NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    [SFHFKeychainUtils storeUsername:kD9KeychainUserID
-                         andPassword:userID
-                      forServiceName:serviceName
-                      updateExisting:YES
-                               error:nil];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    self.userID = [userDefault stringForKey:kD9KeychainUserID];
 }
 
-- (void) readUserIDFromKeychain
-{
-    NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    self.userID = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUserID
-                                             andServiceName:serviceName
-                                                      error:nil];
-}
-
-- (void) deleteUserIDInKeychain
+- (void) deleteInKeychain
 {
     self.userID = nil;
     
-    NSString * serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUserID
-                              andServiceName:serviceName
-                                       error:nil];
+    [self saveToKeychain];
 }
 
 #pragma mark - D9StudioSDK Public Methods
@@ -116,15 +105,15 @@ typedef enum {
         }
     }
     // 未登陆，进行登陆操作
-    D9LoginDialog *loginView = [[D9LoginDialog alloc] init];
+    loginView = [[D9LoginDialog alloc] init];
     [loginView setDelegate:self];
     [loginView show:YES];
-    [loginView autorelease];
+
 }
 
 - (void) logout
 {
-    [self deleteUserIDInKeychain];
+    [self deleteInKeychain];
     
     if ([delegate respondsToSelector:@selector(d9SDKDidLogOut:)]) {
         [delegate d9SDKDidLogOut:self];
@@ -200,6 +189,7 @@ typedef enum {
     sceneType = kD9RegistScene;
 }
 
+
 #pragma mark - D9RequestDelegate Methods
 - (void) request:(D9Request *)request didFinishLoadingWithResult:(id)result
 {
@@ -208,9 +198,12 @@ typedef enum {
     }
     int resultCode = [(NSString *)result intValue];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:kD9StopIndicatorNotification
+                                                        object:nil];
+    
     if (sceneType == kD9LoginScene) {
         
-        //TODO: If success, save username and password, d9SDKDidLogin:(D9StudioSDK *)d9engine;
+        // If success, save username and password, 
         if (resultCode == kD9LoginErrorPwd) {
             [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
         } else if (resultCode == kD9LoginErrorNil) {
@@ -223,9 +216,12 @@ typedef enum {
             if (DEBUG_LOG) {
                 NSLog(@"D9StudioSDK:userID=%@", userID);
             }
+            [self saveToKeychain];
             if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
                 [delegate d9SDKDidLogin:self];
             }
+            
+            [loginView hide:YES];
         }
     } else if (sceneType == kD9RegistScene) {
 
@@ -241,9 +237,12 @@ typedef enum {
             if (DEBUG_LOG) {
                 NSLog(@"D9StudioSDK:userID=%@", userID);
             }
+            [self saveToKeychain];
             if ([delegate respondsToSelector:@selector(d9SDKDidLogin:)]) {
                 [delegate d9SDKDidLogin:self];
             }
+            
+            [loginView hide:YES];
         }
     }
 }

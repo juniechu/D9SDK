@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainViewController.h"
 #import <D9StudioSDK-iOS/D9StudioSDK.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, D9StudioSDKDelegate> {
+    MainViewController *mainViewController;
     D9StudioSDK *engine;
 }
 

@@ -36,6 +36,8 @@
     
     int         sceneType;
     
+    D9LoginDialog *loginView;
+    
     id<D9StudioSDKDelegate> delegate;
 }
 
@@ -44,6 +46,7 @@
 @property (nonatomic, retain) NSString *userID;
 @property (nonatomic, retain) D9Request *request;
 @property (nonatomic, assign) id<D9StudioSDKDelegate> delegate;
+//@property (nonatomic, retain) D9LoginDialog * loginView;
 
 /*
  * Initialize an instance with your client AppID and AppKey
