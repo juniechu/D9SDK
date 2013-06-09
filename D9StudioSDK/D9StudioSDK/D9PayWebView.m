@@ -232,6 +232,11 @@
 		window = [[UIApplication sharedApplication].windows objectAtIndex:0];
 	}
   	[window addSubview:self];
+    [window bringSubviewToFront:self];
+    if (window.rootViewController.view) {
+        [window.rootViewController.view addSubview:self];
+        [window.rootViewController.view bringSubviewToFront:self];
+    }
     
     if (animated)
     {
@@ -300,7 +305,8 @@
 - (void)webView:(UIWebView *)aWebView didFailLoadWithError:(NSError *)error
 {
     [indicatorView stopAnimating];
-    [self closePayView:YES];
+    NSLog(@"WebView Did Fail Load With Error:%@", [error description]);
+    [self closePayView:NO];
 }
 
 - (BOOL)webView:(UIWebView *)aWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType

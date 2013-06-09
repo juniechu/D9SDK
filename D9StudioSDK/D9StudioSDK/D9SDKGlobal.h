@@ -16,6 +16,7 @@
 // 测试环境
 #define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"
 #define __REGIST_URL                    @"http://paytest.gamed9.com:8080/D9PayPlat/register.action"
+#define __PAY_URL                       @"http://paytest.gamed9.com:8080/D9PayPlat/order.action"
 
 #define kD9SDKErrorDomain               @"D9SDKErrorDomain"
 #define kD9SDKErrorCodeKey              @"D9SDKErrorCodeKey"
@@ -23,7 +24,8 @@
 
 #define DEBUG_LOG       1
 
-#define __RegistType                    @"1"    //0：手机端快速注册，1：手机端注册，2:web端快速注册，3：web端注册
+#define __RegistType                    @"1"    // 0：手机端快速注册，1：手机端注册，2:web端快速注册，3：web端注册
+#define __PayCurrenty                   @"CNY"  // CNY: 人民币
 
 #define kD9AccountID                    @"accountid"
 #define kD9Password                     @"password"

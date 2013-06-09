@@ -12,9 +12,9 @@
 
 - (void)dealloc
 {
-    [engine setDelegate:nil];
-    [engine release];
-    engine = nil;
+//    [engine setDelegate:nil];
+//    [engine release];
+//    engine = nil;
     [_window release];
     [super dealloc];
 }
@@ -27,13 +27,13 @@
     mainViewController = [[[MainViewController alloc] init] autorelease];
     self.window.rootViewController  = mainViewController;
     
-    engine = [[D9StudioSDK alloc] initWithAppID:@"11111" andAppKey:@"22222"];
-    [engine setDelegate:self];
-    [engine login];
+//    engine = [[D9StudioSDK alloc] initWithAppID:@"11111" andAppKey:@"22222"];
+//    [engine setDelegate:self];
+//    [engine login];
     
-    if ([engine isLoggedIn]) {
-        NSLog(@"Dependent App engine UserID is:%@", engine.userID);
-    }
+//    if ([engine isLoggedIn]) {
+//        NSLog(@"Dependent App engine UserID is:%@", engine.userID);
+//    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -68,20 +68,20 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark -- D9StudioSDK Delegate Methods
-- (void) d9SDKDidLogin:(D9StudioSDK *)d9engine
-{
-    NSLog(@"Dependent App: D9StudioSDK Logged in.");
-}
-
-- (void) d9SDKDidLogOut:(D9StudioSDK *)d9engine
-{
-    
-}
-
-- (void) d9SDK:(D9StudioSDK *)d9engine didFailToLogInWithError:(NSError *)error
-{
-    
-}
+//#pragma mark -- D9StudioSDK Delegate Methods
+//- (void) d9SDKDidLogin:(D9StudioSDK *)d9engine
+//{
+//    NSLog(@"Dependent App: D9StudioSDK Logged in.");
+//}
+//
+//- (void) d9SDKDidLogOut:(D9StudioSDK *)d9engine
+//{
+//    
+//}
+//
+//- (void) d9SDK:(D9StudioSDK *)d9engine didFailToLogInWithError:(NSError *)error
+//{
+//    
+//}
 
 @end

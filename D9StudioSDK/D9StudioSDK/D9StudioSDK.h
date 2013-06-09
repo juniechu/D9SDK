@@ -64,11 +64,17 @@
 - (void) logout;
 
 /* 
- *Check if user has logged in
+ * Check if user has logged in
  */
 - (BOOL) isLoggedIn;
 
 /* 
  */
+- (void) enterPayViewWithRoleId:(NSString *)roleID
+                     andGoodsId:(NSString *)goodsId
+                    andGoodsCnt:(NSString *)goodsCnt
+                   andGoodsName:(NSString *)goodsName
+                  andTotalMoney:(NSString *)totalMoney
+                      andPayDes:(NSString *)payDescription;
 
 @end

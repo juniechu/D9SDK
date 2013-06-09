@@ -11,7 +11,8 @@
 #import "D9SDKGlobal.h"
 #import "D9Request.h"
 #import "D9SDKUtil.h"
-
+#import "D9PayWebView.h"
+#import "DataSigner.h"
 
 #define kD9KeychainUserID               @"D9UserID"
 #define kD9KeychainAuto                 @"D9AutoLogin"
@@ -27,7 +28,7 @@ typedef enum {
 - (void) readFromKeychain;
 - (void) deleteInKeychain;
 
-- (void) requestWithUsername:(NSString *)username password:(NSString *)password;
+- (NSString *) generateUniqueOrderId;
 
 @end
 
@@ -93,6 +94,16 @@ typedef enum {
     [self saveToKeychain];
 }
 
+- (NSString *) generateUniqueOrderId
+{
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    long long dTime = [[NSNumber numberWithDouble:time] longLongValue];
+    NSString *curTime = [NSString stringWithFormat:@"%llu", dTime];
+    
+    NSString * clientOrderId = [NSString stringWithFormat:@"%@_%@", curTime, self.userID];
+    return clientOrderId;
+}
+
 #pragma mark - D9StudioSDK Public Methods
 
 - (void) login
@@ -123,6 +134,61 @@ typedef enum {
 - (BOOL) isLoggedIn
 {
     return (userID != nil);
+}
+
+- (void) enterPayViewWithRoleId:(NSString *)roleID
+                     andGoodsId:(NSString *)goodsId
+                    andGoodsCnt:(NSString *)goodsCnt
+                   andGoodsName:(NSString *)goodsName
+                  andTotalMoney:(NSString *)totalMoney
+                      andPayDes:(NSString *)payDescription
+{
+    D9PayWebView *payView = [[[D9PayWebView alloc] init] autorelease];
+    NSString *urlString = __PAY_URL;
+    NSString *paramString = @"";
+    paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, self.appID];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, self.userID];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9RoleID, roleID];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9GoodsID, goodsId];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9GoodsCount, goodsCnt];
+    // urf-8 encode goods name
+    goodsName = [goodsName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9GoodsName, goodsName];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9TotalMoney, totalMoney];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9Currency, __PayCurrenty];
+    if (payDescription) {
+        // pay description is not must.
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayDescription, payDescription];
+    }
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, [self generateUniqueOrderId]];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, [[UIDevice currentDevice] model]];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, [[UIDevice currentDevice] systemVersion]];
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, [D9SDKUtil getMacAddress]];
+    
+    if (DEBUG_LOG) {
+        NSLog(@"D9StudioSDK: pay Param is:%@", paramString);
+        paramString = @"AppId=100001&Uid=10000001&RoleId=2&GoodsId=100001-1&Currency=CNY&TotalMoney=0.01&GoodsCount=1&GoodsName=%E9%92%BB%E7%9F%B3&ClientOrderId=1234567890&PayDescription=1-2-3-test&PayPhoneType=android&PayPhonePattern=5.0&PayPhoneMac=12-34-56-78";
+//        paramString = @"AppId=100001&Uid=10000001&RoleId=2&GoodsId=100001-1&Currency=CNY&TotalMoney=0.01&GoodsCount=1&GoodsName=钻石&ClientOrderId=1234567890&PayDescription=1-2-3-test&PayPhoneType=android&PayPhonePattern=5.0&PayPhoneMac=12-34-56-78";
+    }
+    
+    //获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode
+    NSString *privateKey = @"MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBANg4Vz5qc/IsOPum4DRV872BThifPtf5Dx2t/CnXf3v0qDc4IjPJwk6zawXWVn7KmTTatyvhw6CoXnJYHyBG74xwgRYD7gCIwpLddSxK0Y6iuiq1vhlEVFOWhpLvRtmNkG92ZiOdEPIpZZEgkurWEfBgdIu0v1nmm2oFsc4i7r0/AgMBAAECgYB2Y4MBnfAWbbhVsi2Y+mcXIDHOsYMLZkesjJNBpckb6f4hHg88JADMbtjuvUlm6y+wDQG2eUtQMGBmY3HHjo+iZ3oCzbqrkiYRKcIj3Sbvrnveu75n3BBwp7VgzRTl06qhkYvtY6VUhlUq+9dbNKuN6htjQniJFqjESmvosUV54QJBAP/jCCbt3siTFEO5fpiFGCShWbc3zecI7BzVIhumLgaa5cEykSQlps7Dv3POcPrOfAcf5/V/gpHWml1whqWyL2MCQQDYUNGCurjYWBtS2osWPd/z9JhS3rtEPMnW2ZZ6J2XsQpPO9YqoCrYyWuzc5EW4Zp8VqVq82pGQvTMOKDO7zSd1AkASEOJbdUHcYV315hvFAuiQdX/TCrKT1DJvWrDcyN/JAZilCj/rEGl1gaZ7s6CQZJGnIx6KW6VJTKB7Zl1rR2hHAkB349sq7Jh0d+i09CFwc1zDlkYyb/Y0rMhlhvVKwLlRx9iqNRbjagRvRkvPZclqmZ4EYHfFAhL5uJMqfoelx9/dAkAx0qffJLCyoOGF/EFD++6RLubofhdRcpwMgaDDj2LXmz8a95PK2/VDrzWlORj7A6Uv1pNY+EFYI2rTB8p5xiT3";
+    
+//	id<DataSigner> signer = CreateRSADataSigner([[NSBundle mainBundle] objectForInfoDictionaryKey:@"RSA private key"]);
+    id<DataSigner> signer = CreateRSADataSigner(privateKey);
+	NSString *signedString = [signer signString:paramString];
+    
+    paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9Sign, signedString];
+    
+    urlString = [urlString stringByAppendingFormat:@"?%@", paramString];
+    
+    if (DEBUG_LOG) {
+        NSLog(@"D9StudioSDK: url string is:%@", urlString);
+    }
+    NSString *encodedString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:encodedString];
+    [payView loadRequestWithURL:url];
+    [payView showPayView:NO];
 }
 
 #pragma mark - D9LoginDialogDelegate Methods
