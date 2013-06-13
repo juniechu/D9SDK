@@ -309,8 +309,8 @@
     [self closePayView:NO];
 }
 
-- (BOOL)webView:(UIWebView *)aWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
+//- (BOOL)webView:(UIWebView *)aWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+//{
 //    NSRange range = [request.URL.absoluteString rangeOfString:@"code="];
 //    
 //    if (range.location != NSNotFound)
@@ -322,7 +322,7 @@
 //            [delegate authorizeWebView:self didReceiveAuthorizeCode:code];
 //        }
 //    }
-    
-    return YES;
-}
+//
+//    return YES;
+//}
 @end

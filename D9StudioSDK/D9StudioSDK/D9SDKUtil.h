@@ -35,5 +35,6 @@
 + (void) showAlertViewWithMsg:(NSString *)msg;
 + (NSString *) getIPAddress;
 + (NSString *) getMacAddress;
++ (NSString *) toUTF8ConvertString:(NSString *) uglyString;
 
 @end

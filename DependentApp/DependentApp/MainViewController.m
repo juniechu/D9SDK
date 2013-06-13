@@ -60,7 +60,7 @@
     [self.view addSubview:lblMain];
     [lblMain release];
 
-    engine = [[D9StudioSDK alloc] initWithAppID:@"11111" andAppKey:@"22222"];
+    engine = [[D9StudioSDK alloc] initWithAppID:@"100001" andAppKey:@""];
     [engine setDelegate:self];
     [engine login];
     
@@ -84,7 +84,7 @@
 #pragma mark -- Private
 - (void) payBtnClick
 {
-    [engine enterPayViewWithRoleId:engine.userID andGoodsId:@"100001" andGoodsCnt:@"2" andGoodsName:@"钻石" andTotalMoney:@"0.01" andPayDes:@""];
+    [engine enterPayViewWithRoleId:@"45" andGoodsId:@"100001-1" andGoodsCnt:@"1000" andGoodsName:@"钻石" andTotalMoney:@"31" andPayDes:@"fix bug next time"];
 }
 
 #pragma mark -- D9StudioSDK Delegate Methods

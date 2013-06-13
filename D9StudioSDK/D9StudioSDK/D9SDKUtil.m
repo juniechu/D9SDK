@@ -195,15 +195,28 @@
     memcpy(&macAddress, socketStruct->sdl_data + socketStruct->sdl_nlen, 6);
     
     // Read from char array into a string object, into traditional Mac address format
-    NSString *macAddressString = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+    NSString *macAddressString = [NSString stringWithFormat:@"%02X-%02X-%02X-%02X-%02X-%02X",
                                   macAddress[0], macAddress[1], macAddress[2],
                                   macAddress[3], macAddress[4], macAddress[5]];
-    NSLog(@"Mac Address: %@", macAddressString);
     
     // Release the buffer memory
     free(msgBuffer);
     
     return macAddressString;
+}
+
++ (NSString *) toUTF8ConvertString:(NSString *)uglyString
+{
+    // convert blank, etc. charactor to UTF8
+    NSMutableString * uglyMutableString = [[NSMutableString alloc] initWithString:uglyString];
+    NSRange range = [uglyMutableString rangeOfString:@" "];
+    while (!(range.location == NSNotFound && range.length == 0)) {
+        [uglyMutableString replaceCharactersInRange:range withString:@"-"];
+        range = [uglyMutableString rangeOfString:@" "];
+    }
+    
+    NSString * cleanString = [NSString stringWithString:uglyMutableString];
+    return cleanString;
 }
 
 @end

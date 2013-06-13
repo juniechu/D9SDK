@@ -111,7 +111,6 @@
     }
 	
 	free(sig);
-    NSLog(@"sign string:%@",signedString);
     return signedString;
 }
 
