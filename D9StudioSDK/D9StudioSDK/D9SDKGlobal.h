@@ -52,6 +52,9 @@
 #define kD9PayPhoneMac                  @"PayPhoneMac"
 #define kD9Sign                         @"Sign"
 
+#define kD9ScreenHeight                 [[UIScreen mainScreen] bounds].size.height
+#define kD9ScreenWidth                  [[UIScreen mainScreen] bounds].size.width
+
 
 #define kD9StopIndicatorNotification    @"D9StopIndicator"
 

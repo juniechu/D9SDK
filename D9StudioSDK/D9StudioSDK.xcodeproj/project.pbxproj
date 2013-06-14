@@ -50,16 +50,6 @@
 		9EBB6C451764575E0065E861 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBB6C441764575E0065E861 /* libcrypto.a */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
-		9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B81754A0C100487F96 /* d9_button_down.png */; };
-		9ECF51C31754A0C900487F96 /* d9_button_normal.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51B91754A0C100487F96 /* d9_button_normal.png */; };
-		9ECF51C41754A0C900487F96 /* d9_checkbox_false.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */; };
-		9ECF51C51754A0C900487F96 /* d9_checkbox_focus.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */; };
-		9ECF51C61754A0C900487F96 /* d9_checkbox_true.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */; };
-		9ECF51C71754A0C900487F96 /* d9_logo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BD1754A0C100487F96 /* d9_logo.png */; };
-		9ECF51C81754A0C900487F96 /* d9_password.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BE1754A0C100487F96 /* d9_password.png */; };
-		9ECF51C91754A0C900487F96 /* d9_progressbar_bg.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */; };
-		9ECF51CA1754A0C900487F96 /* d9_progressbar_bg2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */; };
-		9ECF51CB1754A0C900487F96 /* d9_username.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51C11754A0C100487F96 /* d9_username.png */; };
 		9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51CD1754A88200487F96 /* D9LoginDialog.m */; };
 		9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51CF1754A8E200487F96 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -83,16 +73,6 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Resources/";
 			dstSubfolderSpec = 0;
 			files = (
-				9ECF51C21754A0C900487F96 /* d9_button_down.png in CopyFiles */,
-				9ECF51C31754A0C900487F96 /* d9_button_normal.png in CopyFiles */,
-				9ECF51C41754A0C900487F96 /* d9_checkbox_false.png in CopyFiles */,
-				9ECF51C51754A0C900487F96 /* d9_checkbox_focus.png in CopyFiles */,
-				9ECF51C61754A0C900487F96 /* d9_checkbox_true.png in CopyFiles */,
-				9ECF51C71754A0C900487F96 /* d9_logo.png in CopyFiles */,
-				9ECF51C81754A0C900487F96 /* d9_password.png in CopyFiles */,
-				9ECF51C91754A0C900487F96 /* d9_progressbar_bg.jpg in CopyFiles */,
-				9ECF51CA1754A0C900487F96 /* d9_progressbar_bg2.png in CopyFiles */,
-				9ECF51CB1754A0C900487F96 /* d9_username.png in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +88,7 @@
 		9E1D3A33175F33C900C9A58E /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		9E1D3A34175F33C900C9A58E /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9SDKGlobal.h; sourceTree = "<group>"; };
+		9E5F9D351769CE6E00CEB444 /* D9Dialog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = D9Dialog.bundle; sourceTree = "<group>"; };
 		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
 		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
 		9E923871175C995100924B12 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -222,16 +203,6 @@
 		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
 		9ECF51A417549A0E00487F96 /* D9StudioSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = D9StudioSDK.h; sourceTree = "<group>"; };
 		9ECF51A617549A0E00487F96 /* D9StudioSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = D9StudioSDK.m; sourceTree = "<group>"; };
-		9ECF51B81754A0C100487F96 /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
-		9ECF51B91754A0C100487F96 /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
-		9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
-		9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
-		9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
-		9ECF51BD1754A0C100487F96 /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
-		9ECF51BE1754A0C100487F96 /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
-		9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
-		9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
-		9ECF51C11754A0C100487F96 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9ECF51CC1754A88200487F96 /* D9LoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9LoginDialog.h; sourceTree = "<group>"; };
 		9ECF51CD1754A88200487F96 /* D9LoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9LoginDialog.m; sourceTree = "<group>"; };
 		9ECF51CF1754A8E200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -461,16 +432,7 @@
 		9ECF51B71754A0C100487F96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9ECF51B81754A0C100487F96 /* d9_button_down.png */,
-				9ECF51B91754A0C100487F96 /* d9_button_normal.png */,
-				9ECF51BA1754A0C100487F96 /* d9_checkbox_false.png */,
-				9ECF51BB1754A0C100487F96 /* d9_checkbox_focus.png */,
-				9ECF51BC1754A0C100487F96 /* d9_checkbox_true.png */,
-				9ECF51BD1754A0C100487F96 /* d9_logo.png */,
-				9ECF51BE1754A0C100487F96 /* d9_password.png */,
-				9ECF51BF1754A0C100487F96 /* d9_progressbar_bg.jpg */,
-				9ECF51C01754A0C100487F96 /* d9_progressbar_bg2.png */,
-				9ECF51C11754A0C100487F96 /* d9_username.png */,
+				9E5F9D351769CE6E00CEB444 /* D9Dialog.bundle */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;

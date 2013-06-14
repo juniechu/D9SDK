@@ -8,6 +8,7 @@
 
 #import "D9PayWebView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "D9SDKGlobal.h"
 
 @interface D9PayWebView (Private)
 
@@ -33,21 +34,21 @@
 
 - (id)init
 {
-    if (self = [super initWithFrame:CGRectMake(0, 0, 320, 480)])
+    if (self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)])
     {
         // background settings
         [self setBackgroundColor:[UIColor clearColor]];
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         
         // add the panel view
-        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 30, 300, 440)];
+        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 40)];
         [panelView setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.55]];
         [[panelView layer] setMasksToBounds:NO]; // very important
         [[panelView layer] setCornerRadius:10.0];
         [self addSubview:panelView];
         
         // add the conainer view
-        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 280, 420)];
+        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 60)];
         [[containerView layer] setBorderColor:[UIColor colorWithRed:0. green:0. blue:0. alpha:0.7].CGColor];
         [[containerView layer] setBorderWidth:1.0];
         

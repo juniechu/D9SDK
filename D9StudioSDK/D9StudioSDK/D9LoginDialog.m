@@ -351,7 +351,6 @@
         }
         
         if (![self isInputValid]) {
-            [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
             return;
         }
         if ([passWord length] != 32) {
@@ -395,7 +394,6 @@
         }
         
         if (![self isInputValid]) {
-            [D9SDKUtil showAlertViewWithMsg:@"账号密码错误"];
             return;
         }
         if ([passWord length] != 32) {
@@ -435,7 +433,12 @@
 
 - (BOOL) isInputValid
 {
-    if (!userName || !passWord || [userName length] < 6 || [passWord length] < 6) {
+    if (!userName || !passWord) {
+        [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
+        return NO;
+    }
+    if ([userName length] < 6 || [passWord length] < 6) {
+        [D9SDKUtil showAlertViewWithMsg:@"账号密码不能少于6个字符"];
         return NO;
     }
     return YES;
