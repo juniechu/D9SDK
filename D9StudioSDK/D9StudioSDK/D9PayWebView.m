@@ -34,34 +34,35 @@
 
 - (id)init
 {
-    if (self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)])
+    if (self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)])
     {
+        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenHeight, kD9ScreenWidth);
         // background settings
         [self setBackgroundColor:[UIColor clearColor]];
         [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         
         // add the panel view
-        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 40)];
+        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
         [panelView setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.55]];
         [[panelView layer] setMasksToBounds:NO]; // very important
         [[panelView layer] setCornerRadius:10.0];
         [self addSubview:panelView];
         
         // add the conainer view
-        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 60)];
+        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
         [[containerView layer] setBorderColor:[UIColor colorWithRed:0. green:0. blue:0. alpha:0.7].CGColor];
         [[containerView layer] setBorderWidth:1.0];
         
         
         // add the web view
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, 280, 390)];
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
 		[webView setDelegate:self];
 		[containerView addSubview:webView];
         
         [panelView addSubview:containerView];
         
         indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [indicatorView setCenter:CGPointMake(160, 240)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
         [self addSubview:indicatorView];
     }
     return self;
@@ -97,22 +98,24 @@
     
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        [self setFrame:CGRectMake(0, 0, 480, 320)];
-        [panelView setFrame:CGRectMake(10, 30, 460, 280)];
-        [containerView setFrame:CGRectMake(10, 10, 440, 260)];
-        [webView setFrame:CGRectMake(0, 0, 440, 260)];
-        [indicatorView setCenter:CGPointMake(240, 160)];
+        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        [self setFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
+        [panelView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
+        [containerView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        [webView setFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
     }
     else
     {
-        [self setFrame:CGRectMake(0, 0, 320, 480)];
-        [panelView setFrame:CGRectMake(10, 30, 300, 440)];
-        [containerView setFrame:CGRectMake(10, 10, 280, 420)];
-        [webView setFrame:CGRectMake(0, 0, 280, 420)];
-        [indicatorView setCenter:CGPointMake(160, 240)];
+        NSLog(@"Portain Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        [self setFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)];
+        [panelView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 20)];
+        [containerView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
+        [webView setFrame:CGRectMake(0, 0, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
     }
     
-    [self setCenter:CGPointMake(160, 240)];
+    [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
     
     [self setTransform:[self transformForOrientation:orientation]];
     

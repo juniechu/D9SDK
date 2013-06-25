@@ -13,6 +13,7 @@
 @interface MainViewController ()
 
 - (void) payBtnClick;
+- (void) logoutClick;
 
 @end
 
@@ -57,7 +58,13 @@
     [payBtn setFrame:btnFram];
     [payBtn addTarget:self action:@selector(payBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [logoutBtn setTitle:@"登出" forState:UIControlStateNormal];
+    CGRect logoutFram = CGRectMake(120, 80, 80, 44);
+    [logoutBtn setFrame:logoutFram];
+    [logoutBtn addTarget:self action:@selector(logoutClick) forControlEvents:UIControlEventTouchUpInside];
     
+    [self.view addSubview:logoutBtn];
     [self.view addSubview:payBtn];
     [self.view addSubview:lblMain];
     [lblMain release];
@@ -89,6 +96,11 @@
     [engine enterPayViewWithRoleId:@"45" andGoodsId:@"100001-1" andGoodsCnt:@"1000" andGoodsName:@"钻石" andTotalMoney:@"31" andPayDes:@"fix bug next time"];
 }
 
+- (void) logoutClick
+{
+    [engine logout];
+}
+
 #pragma mark -- D9StudioSDK Delegate Methods
 - (void) d9SDKDidLogin:(D9StudioSDK *)d9engine
 {
@@ -97,7 +109,7 @@
 
 - (void) d9SDKDidLogOut:(D9StudioSDK *)d9engine
 {
-    
+    NSLog(@"engine logout");
 }
 
 - (void) d9SDK:(D9StudioSDK *)d9engine didFailToLogInWithError:(NSError *)error

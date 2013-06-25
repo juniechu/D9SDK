@@ -47,6 +47,7 @@
     BOOL isAuto;
     
     UIActivityIndicatorView *indicatorView;
+    UIInterfaceOrientation previousOrientation;
     
     id <D9LoginDialogDelegate> delegate;
 }

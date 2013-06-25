@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A26175F1FEC00C9A58E /* Security.framework */; };
-		9E783A2C17551057009834F7 /* d9_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2217551057009834F7 /* d9_button_down.png */; };
-		9E783A2D17551057009834F7 /* d9_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2317551057009834F7 /* d9_button_normal.png */; };
-		9E783A2E17551057009834F7 /* d9_checkbox_false.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2417551057009834F7 /* d9_checkbox_false.png */; };
-		9E783A2F17551057009834F7 /* d9_checkbox_focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2517551057009834F7 /* d9_checkbox_focus.png */; };
-		9E783A3017551057009834F7 /* d9_checkbox_true.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2617551057009834F7 /* d9_checkbox_true.png */; };
-		9E783A3217551057009834F7 /* d9_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2817551057009834F7 /* d9_password.png */; };
-		9E783A3317551057009834F7 /* d9_progressbar_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2917551057009834F7 /* d9_progressbar_bg.jpg */; };
-		9E783A3417551057009834F7 /* d9_progressbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */; };
-		9E783A3517551057009834F7 /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2B17551057009834F7 /* d9_username.png */; };
-		9E783A3A1755110A009834F7 /* d9_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E783A2717551057009834F7 /* d9_logo.png */; };
-		9EBB6B53176076250065E861 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */; };
+		9E42695717795098009947BD /* d9_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694D17795098009947BD /* d9_button_down.png */; };
+		9E42695817795098009947BD /* d9_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694E17795098009947BD /* d9_button_normal.png */; };
+		9E42695917795098009947BD /* d9_checkbox_false.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694F17795098009947BD /* d9_checkbox_false.png */; };
+		9E42695A17795098009947BD /* d9_checkbox_focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695017795098009947BD /* d9_checkbox_focus.png */; };
+		9E42695B17795098009947BD /* d9_checkbox_true.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695117795098009947BD /* d9_checkbox_true.png */; };
+		9E42695C17795098009947BD /* d9_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695217795098009947BD /* d9_logo.png */; };
+		9E42695D17795098009947BD /* d9_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695317795098009947BD /* d9_password.png */; };
+		9E42695E17795098009947BD /* d9_progressbar_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695417795098009947BD /* d9_progressbar_bg.jpg */; };
+		9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695517795098009947BD /* d9_progressbar_bg2.png */; };
+		9E42696017795098009947BD /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695617795098009947BD /* d9_username.png */; };
 		9EBB6B5F1761BB400065E861 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBB6B5E1761BB400065E861 /* MainViewController.m */; };
+		9EBC79CA1779779A00E61955 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */; };
 		9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E41755063200487F96 /* UIKit.framework */; };
 		9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E61755063200487F96 /* Foundation.framework */; };
 		9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E81755063200487F96 /* CoreGraphics.framework */; };
@@ -33,19 +33,19 @@
 
 /* Begin PBXFileReference section */
 		9E1D3A26175F1FEC00C9A58E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9E783A2217551057009834F7 /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
-		9E783A2317551057009834F7 /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
-		9E783A2417551057009834F7 /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
-		9E783A2517551057009834F7 /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
-		9E783A2617551057009834F7 /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
-		9E783A2717551057009834F7 /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
-		9E783A2817551057009834F7 /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
-		9E783A2917551057009834F7 /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
-		9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
-		9E783A2B17551057009834F7 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
-		9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
+		9E42694D17795098009947BD /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
+		9E42694E17795098009947BD /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
+		9E42694F17795098009947BD /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
+		9E42695017795098009947BD /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
+		9E42695117795098009947BD /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
+		9E42695217795098009947BD /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
+		9E42695317795098009947BD /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
+		9E42695417795098009947BD /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
+		9E42695517795098009947BD /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
+		9E42695617795098009947BD /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9EBB6B5D1761BB400065E861 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EBB6B5E1761BB400065E861 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Desktop/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
 		9ECF51E11755063200487F96 /* DependentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF51E41755063200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9ECF51E61755063200487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,30 +66,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EBB6B53176076250065E861 /* D9StudioSDK-iOS.framework in Frameworks */,
 				9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */,
 				9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */,
 				9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */,
+				9EBC79CA1779779A00E61955 /* D9StudioSDK-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9E783A2117551057009834F7 /* Resources */ = {
+		9E42694C17795098009947BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9E783A2217551057009834F7 /* d9_button_down.png */,
-				9E783A2317551057009834F7 /* d9_button_normal.png */,
-				9E783A2417551057009834F7 /* d9_checkbox_false.png */,
-				9E783A2517551057009834F7 /* d9_checkbox_focus.png */,
-				9E783A2617551057009834F7 /* d9_checkbox_true.png */,
-				9E783A2717551057009834F7 /* d9_logo.png */,
-				9E783A2817551057009834F7 /* d9_password.png */,
-				9E783A2917551057009834F7 /* d9_progressbar_bg.jpg */,
-				9E783A2A17551057009834F7 /* d9_progressbar_bg2.png */,
-				9E783A2B17551057009834F7 /* d9_username.png */,
+				9E42694D17795098009947BD /* d9_button_down.png */,
+				9E42694E17795098009947BD /* d9_button_normal.png */,
+				9E42694F17795098009947BD /* d9_checkbox_false.png */,
+				9E42695017795098009947BD /* d9_checkbox_focus.png */,
+				9E42695117795098009947BD /* d9_checkbox_true.png */,
+				9E42695217795098009947BD /* d9_logo.png */,
+				9E42695317795098009947BD /* d9_password.png */,
+				9E42695417795098009947BD /* d9_progressbar_bg.jpg */,
+				9E42695517795098009947BD /* d9_progressbar_bg2.png */,
+				9E42695617795098009947BD /* d9_username.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 		9ECF51D81755063200487F96 = {
 			isa = PBXGroup;
 			children = (
-				9EBB6B52176076250065E861 /* D9StudioSDK-iOS.framework */,
+				9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */,
 				9ECF51EA1755063200487F96 /* DependentApp */,
 				9ECF51E31755063200487F96 /* Frameworks */,
 				9ECF51E21755063200487F96 /* Products */,
@@ -126,7 +126,7 @@
 		9ECF51EA1755063200487F96 /* DependentApp */ = {
 			isa = PBXGroup;
 			children = (
-				9E783A2117551057009834F7 /* Resources */,
+				9E42694C17795098009947BD /* Resources */,
 				9ECF51F31755063200487F96 /* AppDelegate.h */,
 				9ECF51F41755063200487F96 /* AppDelegate.m */,
 				9ECF51EB1755063200487F96 /* Supporting Files */,
@@ -205,16 +205,16 @@
 				9ECF51F71755063200487F96 /* Default.png in Resources */,
 				9ECF51F91755063200487F96 /* Default@2x.png in Resources */,
 				9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */,
-				9E783A2C17551057009834F7 /* d9_button_down.png in Resources */,
-				9E783A2D17551057009834F7 /* d9_button_normal.png in Resources */,
-				9E783A2E17551057009834F7 /* d9_checkbox_false.png in Resources */,
-				9E783A2F17551057009834F7 /* d9_checkbox_focus.png in Resources */,
-				9E783A3017551057009834F7 /* d9_checkbox_true.png in Resources */,
-				9E783A3217551057009834F7 /* d9_password.png in Resources */,
-				9E783A3317551057009834F7 /* d9_progressbar_bg.jpg in Resources */,
-				9E783A3417551057009834F7 /* d9_progressbar_bg2.png in Resources */,
-				9E783A3517551057009834F7 /* d9_username.png in Resources */,
-				9E783A3A1755110A009834F7 /* d9_logo.png in Resources */,
+				9E42695717795098009947BD /* d9_button_down.png in Resources */,
+				9E42695817795098009947BD /* d9_button_normal.png in Resources */,
+				9E42695917795098009947BD /* d9_checkbox_false.png in Resources */,
+				9E42695A17795098009947BD /* d9_checkbox_focus.png in Resources */,
+				9E42695B17795098009947BD /* d9_checkbox_true.png in Resources */,
+				9E42695C17795098009947BD /* d9_logo.png in Resources */,
+				9E42695D17795098009947BD /* d9_password.png in Resources */,
+				9E42695E17795098009947BD /* d9_progressbar_bg.jpg in Resources */,
+				9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */,
+				9E42696017795098009947BD /* d9_username.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +308,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-eehcmlyuwupgjhfxclweryfqkoaj/Build/Products/Release-iphoneuniversal\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Debug-iphoneuniversal\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
@@ -331,6 +332,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-eehcmlyuwupgjhfxclweryfqkoaj/Build/Products/Release-iphoneuniversal\"",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Release-iphoneuniversal\"",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/D9StudioSDK-bwtwskzzjqcwtxbiybjjlhechdwa/Build/Products/Debug-iphoneuniversal\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";

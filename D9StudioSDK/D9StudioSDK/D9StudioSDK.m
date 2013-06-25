@@ -28,6 +28,8 @@ typedef enum {
 - (void) readFromKeychain;
 - (void) deleteInKeychain;
 
+- (void) deleteLoginData;
+
 - (NSString *) generateUniqueOrderId;
 
 - (NSString *) getRSASignithRoleId:(NSString *)roleID
@@ -99,6 +101,15 @@ typedef enum {
     self.userID = nil;
     
     [self saveToKeychain];
+}
+
+- (void) deleteLoginData
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+
+    [userDefault setBool:false forKey:kD9DefaultAuto];
+    
+    [userDefault synchronize];
 }
 
 - (NSString *) generateUniqueOrderId
@@ -189,7 +200,8 @@ typedef enum {
 - (void) logout
 {
     [self deleteInKeychain];
-    
+
+    [self deleteLoginData];
     if ([delegate respondsToSelector:@selector(d9SDKDidLogOut:)]) {
         [delegate d9SDKDidLogOut:self];
     }
@@ -294,6 +306,7 @@ typedef enum {
     NSString *phoneType = [[UIDevice currentDevice] model];
     NSString *phonePattern = [[UIDevice currentDevice] systemVersion];
     if (DEBUG_LOG) {
+        NSLog(@"D9StudioSDK: username = [%@], password = [%@]", username, password);
         NSLog(@"D9StudioSDK: ip address = %@, mac address = %@", ipAddress, macAddress);
         NSLog(@"D9StudioSDK: phone type = %@, phone pattern = %@", phoneType, phonePattern);
         NSLog(@"pass word is:%@, length = %d", password, [password length]);

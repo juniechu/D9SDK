@@ -13,7 +13,6 @@
 #define kD9DefaultUsername      @"D9Username"
 #define kD9DefaultPassword      @"D9Password"
 #define kD9DefaultRemember      @"D9Remember"
-#define kD9DefaultAuto          @"D9Auto"
 
 #define kFontTimes              @"Times New Roman"
 
@@ -38,23 +37,29 @@
 
 - (id)init
 {
-    self = [super initWithFrame:[[UIScreen mainScreen] bounds]];
+    self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
     if (DEBUG_LOG) {
-        NSLog(@"D9LoginDialog init");
+        NSLog(@"First:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        NSLog(@"D9LoginDialog init, changed?");
     }
     if (self) {
         // Initialization code
         
-        CGRect winRect = [UIScreen mainScreen].bounds;
+        CGRect winRect = CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth);
         winSize = winRect.size;
+        if (DEBUG_LOG) {
+            NSLog(@"Second:width:[%f], height[%f]", winSize.width, winSize.height);
+        }
+
         
         [self readSettingFromDefault];
+        isRemember = true;
         
         // 背景
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:200 alpha:0.8];
         self.autoresizesSubviews = YES;
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.contentMode = UIViewContentModeRedraw;
+//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        self.contentMode = UIViewContentModeRedraw;
         
         // button to resign keyborad
         UIButton * resignBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -68,7 +73,7 @@
             NSLog(@"Resource not found! Please add Resource into your project.");
         }
         UIImageView * logoView = [[UIImageView alloc] initWithImage:logoImage];
-        [logoView setFrame:CGRectMake(10, 44, logoImage.size.width * 0.5, logoImage.size.height * 0.5)];
+        [logoView setFrame:CGRectMake(10, 10, logoImage.size.width * 0.5, logoImage.size.height * 0.5)];
         
         [self insertSubview:logoView belowSubview:resignBtn];
         [logoView release];
@@ -82,7 +87,9 @@
         [usernameView addSubview:usernameImageView];
         [usernameImageView release];
         
-        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 150, 230, 30)];
+        // landscape
+//        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 150, 230, 30)];
+        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 70, 230, 30)];
         [_usernameTextField setBackgroundColor:[UIColor whiteColor]];
         [_usernameTextField setTextColor:[UIColor blackColor]];
         [_usernameTextField setDelegate:self];
@@ -97,6 +104,8 @@
         [_usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
         [_usernameTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [_usernameTextField setReturnKeyType:UIReturnKeyNext];
+        [_usernameTextField.window makeKeyWindow];
+        [_usernameTextField.window makeKeyAndVisible];
         
         [usernameView release];
         
@@ -115,7 +124,8 @@
         [passwordView addSubview:passwordImageView];
         [passwordImageView release];
         
-        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 190, 230, 30)];
+//        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 190, 230, 30)];
+        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 110, 230, 30)];
         [_passwordTextField setBackgroundColor:[UIColor whiteColor]];
         [_passwordTextField setTextColor:[UIColor blackColor]];
         [_passwordTextField setDelegate:self];
@@ -143,7 +153,8 @@
         
         // Remember Password
         _rememberPassword = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGRect rememberCheckboxRect = CGRectMake(45, 230, 15, 15);
+//        CGRect rememberCheckboxRect = CGRectMake(45, 230, 15, 15);
+        CGRect rememberCheckboxRect = CGRectMake(125, 150, 15, 15);
         [_rememberPassword setFrame:rememberCheckboxRect];
         
         [_rememberPassword setImage:[UIImage imageNamed:@"d9_checkbox_false.png"] forState:UIControlStateNormal];
@@ -158,7 +169,8 @@
             [_rememberPassword setSelected:YES];
         }
         
-        _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
+//        _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
+        _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
         [_lblRemember setBackgroundColor:[UIColor clearColor]];
         [_lblRemember setFont:[UIFont fontWithName:kFontTimes size:13]];
         [_lblRemember setText:@"记住密码"];
@@ -172,7 +184,8 @@
         
         // Auto Login
         _autoLogin = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 230, 15, 15);
+//        CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 230, 15, 15);
+        CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 150, 15, 15);
         [_autoLogin setFrame:autoCheckboxRect];
         
         [_autoLogin setImage:[UIImage imageNamed:@"d9_checkbox_false.png"] forState:UIControlStateNormal];
@@ -186,7 +199,8 @@
             [_autoLogin setSelected:YES];
         }
         
-        _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
+//        _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
+        _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
         [_lblAuto setBackgroundColor:[UIColor clearColor]];
         [_lblAuto setFont:[UIFont fontWithName:kFontTimes size:13]];
         [_lblAuto setText:@"自动登陆"];
@@ -197,7 +211,8 @@
         
         // Login Button
         _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
+//        [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
+        [_loginBtn setFrame:CGRectMake(125, 185, 230, 40)];
         
         
         [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
@@ -215,7 +230,8 @@
         
         // To Register Button
         _toRegBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_toRegBtn setFrame:CGRectMake(60, 335, 200, 20)];
+//        [_toRegBtn setFrame:CGRectMake(60, 335, 200, 20)];
+        [_toRegBtn setFrame:CGRectMake(140, 255, 200, 20)];
         
         [_toRegBtn setTitle:@"还没账号？快来这里注册！" forState:UIControlStateNormal];
         [_toRegBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -229,7 +245,8 @@
         
         // Register Button
         _regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
+//        [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
+        [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
         
         [_regBtn setTitle:@"注册" forState:UIControlStateNormal];
         [_regBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -246,7 +263,8 @@
         
         // Random Button
         _randomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
+//        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
+        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 160, winSize.width * 0.5 - 130, 40)];
         [_randomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_randomBtn setTitle:@"随机账号" forState:UIControlStateNormal];
         [_randomBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
@@ -274,7 +292,8 @@
         [_toLogBtn setHidden:YES];
         
         indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [indicatorView setCenter:CGPointMake(160, 240)];
+//        [indicatorView setCenter:CGPointMake(160, 240)];
+        [indicatorView setCenter:CGPointMake(240, 160)];
         [self addSubview:indicatorView];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -392,6 +411,8 @@
         if (DEBUG_LOG) {
             NSLog(@"regist button pressed.");
         }
+        self.userName = _usernameTextField.text;
+        self.passWord = _passwordTextField.text;
         
         if (![self isInputValid]) {
             return;
@@ -475,7 +496,7 @@
 {
     self.userName = nil;
     self.passWord = nil;
-    isRemember = false;
+    isRemember = true;
     isAuto = false;
 
     [self saveSettingDefault];
@@ -528,4 +549,95 @@
     [self removeFromSuperview];
 }
 
+- (UIInterfaceOrientation)currentOrientation
+{
+    NSLog(@"current orientation.");
+    return [UIApplication sharedApplication].statusBarOrientation;
+}
+
+- (void)sizeToFitOrientation:(UIInterfaceOrientation)orientation
+{
+    [self setTransform:CGAffineTransformIdentity];
+    
+    NSLog(@"size to fit orientation.");
+    
+    if (UIInterfaceOrientationIsLandscape(orientation))
+    {
+        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        [self setFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
+//        [panelView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
+//        [containerView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+//        [webView setFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
+    }
+    else
+    {
+        NSLog(@"Portain Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        [self setFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)];
+//        [panelView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 20)];
+//        [containerView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
+//        [webView setFrame:CGRectMake(0, 0, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
+    }
+    
+    [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
+    
+    [self setTransform:[self transformForOrientation:orientation]];
+    
+    previousOrientation = orientation;
+}
+
+- (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
+{
+    //	if (orientation == UIInterfaceOrientationLandscapeLeft)
+    //    {
+    //		return CGAffineTransformMakeRotation(-M_PI / 2);
+    //	}
+    //    else if (orientation == UIInterfaceOrientationLandscapeRight)
+    //    {
+    //		return CGAffineTransformMakeRotation(M_PI / 2);
+    //	}
+    //    else if (orientation == UIInterfaceOrientationPortraitUpsideDown)
+    //    {
+    //		return CGAffineTransformMakeRotation(-M_PI);
+    //	}
+    //    else
+    //    {
+    NSLog(@"transform for orientation.");
+    return CGAffineTransformIdentity;
+    //	}
+}
+
+- (BOOL)shouldRotateToOrientation:(UIInterfaceOrientation)orientation
+{
+	if (orientation == previousOrientation)
+    {
+		return NO;
+	}
+    else
+    {
+		return orientation == UIInterfaceOrientationLandscapeLeft
+		|| orientation == UIInterfaceOrientationLandscapeRight
+		|| orientation == UIInterfaceOrientationPortrait
+		|| orientation == UIInterfaceOrientationPortraitUpsideDown;
+	}
+    return YES;
+}
+
+#pragma mark - UIDeviceOrientationDidChangeNotification Methods
+
+- (void)deviceOrientationDidChange:(id)object
+{
+	UIInterfaceOrientation orientation = [self currentOrientation];
+	if ([self shouldRotateToOrientation:orientation])
+    {
+        NSTimeInterval duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        
+		[UIView beginAnimations:nil context:nil];
+		[UIView setAnimationDuration:duration];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[self sizeToFitOrientation:orientation];
+		[UIView commitAnimations];
+	}
+}
 @end

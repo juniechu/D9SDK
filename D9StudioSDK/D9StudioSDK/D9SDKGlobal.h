@@ -10,12 +10,12 @@
 #define D9StudioSDK_D9SDKGlobal_h
 
 // 正式环境
-//#define __LOGIN_URL                     @"http://imept.imobile-ent.com:8988/D9PayPlat/login.action"
-//#define __REGIST_URL                    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action"
+#define __LOGIN_URL                     @"http://imept.imobile-ent.com:8988/D9PayPlat/login.action"
+#define __REGIST_URL                    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action"
 
 // 测试环境
-#define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"
-#define __REGIST_URL                    @"http://paytest.gamed9.com:8080/D9PayPlat/register.action"
+//#define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"
+//#define __REGIST_URL                    @"http://paytest.gamed9.com:8080/D9PayPlat/register.action"
 #define __PAY_URL                       @"http://paytest.gamed9.com:8080/D9PayPlat/order.action"
 
 #define kD9SDKErrorDomain               @"D9SDKErrorDomain"
@@ -55,6 +55,8 @@
 #define kD9ScreenHeight                 [[UIScreen mainScreen] bounds].size.height
 #define kD9ScreenWidth                  [[UIScreen mainScreen] bounds].size.width
 
+
+#define kD9DefaultAuto          @"D9Auto"
 
 #define kD9StopIndicatorNotification    @"D9StopIndicator"
 
