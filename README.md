@@ -4,11 +4,19 @@ D9StudioSDK 为登陆支付的framework
 
 ---
 
+2013年 7月 1日 星期一 14时53分25秒 CST
+
+1. 存储账户密码由NSUserDefault改为Keychain
+
+2. 登陆支持横屏
+
+---
+
 2013年 6月16日 星期二 18时03分10秒 CST
 
 1. 图片资源生成Bundle
 
--2. 本地化NSLocalize
+2. 本地化NSLocalize (不予实现)
 
 3. Secret Key由第三方传入
 
@@ -24,13 +32,13 @@ D9StudioSDK 为登陆支付的framework
 
 1. 充值界面适配iPhone5
 
--2. Secret Key由第三方传入
+2. Secret Key由第三方传入
 
--3. 图片资源生成Bundle
+3. 图片资源生成Bundle
 
--4. 文字本地化NSLocalize
+4. 文字本地化NSLocalize
 
--5. 坐标位置优化
+5. 坐标位置优化
 
 6. 输入错误检查
 
@@ -39,3 +47,5 @@ D9StudioSDK 为登陆支付的framework
 8. 旋转横竖屏
 
 9. 输入优化
+
+10. 存储账户密码由NSUserDefaults改为KeyChains

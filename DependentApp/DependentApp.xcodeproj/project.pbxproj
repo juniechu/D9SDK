@@ -19,7 +19,6 @@
 		9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695517795098009947BD /* d9_progressbar_bg2.png */; };
 		9E42696017795098009947BD /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695617795098009947BD /* d9_username.png */; };
 		9EBB6B5F1761BB400065E861 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBB6B5E1761BB400065E861 /* MainViewController.m */; };
-		9EBC79CA1779779A00E61955 /* D9StudioSDK-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */; };
 		9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E41755063200487F96 /* UIKit.framework */; };
 		9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E61755063200487F96 /* Foundation.framework */; };
 		9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E81755063200487F96 /* CoreGraphics.framework */; };
@@ -29,6 +28,7 @@
 		9ECF51F71755063200487F96 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F61755063200487F96 /* Default.png */; };
 		9ECF51F91755063200487F96 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F81755063200487F96 /* Default@2x.png */; };
 		9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51FA1755063200487F96 /* Default-568h@2x.png */; };
+		9EE3E75C178180BD00990E4D /* D9StudioSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,6 @@
 		9E42695617795098009947BD /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9EBB6B5D1761BB400065E861 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EBB6B5E1761BB400065E861 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "D9StudioSDK-iOS.framework"; path = "../../../Desktop/D9StudioSDK-iOS.framework"; sourceTree = "<group>"; };
 		9ECF51E11755063200487F96 /* DependentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF51E41755063200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9ECF51E61755063200487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,6 +58,7 @@
 		9ECF51F61755063200487F96 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9ECF51F81755063200487F96 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9ECF51FA1755063200487F96 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D9StudioSDK_iOS.framework; path = ../../../Desktop/D9StudioSDK_iOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 				9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */,
 				9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */,
-				9EBC79CA1779779A00E61955 /* D9StudioSDK-iOS.framework in Frameworks */,
+				9EE3E75C178180BD00990E4D /* D9StudioSDK_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		9ECF51D81755063200487F96 = {
 			isa = PBXGroup;
 			children = (
-				9EBC79C91779779A00E61955 /* D9StudioSDK-iOS.framework */,
+				9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */,
 				9ECF51EA1755063200487F96 /* DependentApp */,
 				9ECF51E31755063200487F96 /* Frameworks */,
 				9ECF51E21755063200487F96 /* Products */,

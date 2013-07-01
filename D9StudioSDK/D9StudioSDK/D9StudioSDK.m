@@ -191,7 +191,7 @@ typedef enum {
         }
     }
     // 未登陆，进行登陆操作
-    loginView = [[D9LoginDialog alloc] init];
+    loginView = [[D9LoginDialog alloc] initWithAppID:self.appID];
     [loginView setDelegate:self];
     [loginView show:YES];
 

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		9ECF51AD17549A3800487F96 /* D9StudioSDK-iOS */ = {
+		9ECF51AD17549A3800487F96 /* D9StudioSDK_iOS */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK-iOS" */;
+			buildConfigurationList = 9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK_iOS" */;
 			buildPhases = (
 				9ECF51B117549A4000487F96 /* Build Static Libs */,
 				9ECF51B217549A6A00487F96 /* Build Universal Framework */,
@@ -18,7 +18,7 @@
 			);
 			dependencies = (
 			);
-			name = "D9StudioSDK-iOS";
+			name = D9StudioSDK_iOS;
 			productName = "D9StudioSDK-iOS";
 		};
 /* End PBXAggregateTarget section */
@@ -55,13 +55,14 @@
 		9EBC79B817795B6100E61955 /* d9_progressbar_bg.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AE17795B3100E61955 /* d9_progressbar_bg.jpg */; };
 		9EBC79B917795B6100E61955 /* d9_progressbar_bg2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AF17795B3100E61955 /* d9_progressbar_bg2.png */; };
 		9EBC79BA17795B6100E61955 /* d9_username.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79B017795B3100E61955 /* d9_username.png */; };
-		9EBC79C61779753F00E61955 /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
-		9EBC79C71779753F00E61955 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
-		9EBC79C81779753F00E61955 /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
 		9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51CD1754A88200487F96 /* D9LoginDialog.m */; };
 		9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51CF1754A8E200487F96 /* UIKit.framework */; };
+		9EE3E74E1781576900990E4D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3E74D1781576900990E4D /* SFHFKeychainUtils.m */; };
+		9EE3E75617817D9A00990E4D /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
+		9EE3E75717817D9A00990E4D /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
+		9EE3E75817817D9A00990E4D /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -71,9 +72,9 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
-				9EBC79C61779753F00E61955 /* D9Request.h in CopyFiles */,
-				9EBC79C71779753F00E61955 /* D9StudioSDK.h in CopyFiles */,
-				9EBC79C81779753F00E61955 /* D9LoginDialog.h in CopyFiles */,
+				9EE3E75617817D9A00990E4D /* D9Request.h in CopyFiles */,
+				9EE3E75717817D9A00990E4D /* D9StudioSDK.h in CopyFiles */,
+				9EE3E75817817D9A00990E4D /* D9LoginDialog.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +236,8 @@
 		9ECF51CC1754A88200487F96 /* D9LoginDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9LoginDialog.h; sourceTree = "<group>"; };
 		9ECF51CD1754A88200487F96 /* D9LoginDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9LoginDialog.m; sourceTree = "<group>"; };
 		9ECF51CF1754A8E200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9EE3E74C1781576900990E4D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		9EE3E74D1781576900990E4D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -430,6 +433,7 @@
 		9ECF51A117549A0E00487F96 /* D9StudioSDK */ = {
 			isa = PBXGroup;
 			children = (
+				9EE3E74B1781576900990E4D /* SFHFKeychainUtils */,
 				9EBB6B6F1764302A0065E861 /* Utilities */,
 				9E1D3A31175F33C900C9A58E /* CTMBase64 */,
 				9E923870175C995100924B12 /* SBJSON */,
@@ -475,6 +479,15 @@
 			path = Resources;
 			sourceTree = SOURCE_ROOT;
 		};
+		9EE3E74B1781576900990E4D /* SFHFKeychainUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9EE3E74C1781576900990E4D /* SFHFKeychainUtils.h */,
+				9EE3E74D1781576900990E4D /* SFHFKeychainUtils.m */,
+			);
+			path = SFHFKeychainUtils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -516,7 +529,7 @@
 			projectRoot = "";
 			targets = (
 				9ECF519B17549A0E00487F96 /* D9StudioSDK */,
-				9ECF51AD17549A3800487F96 /* D9StudioSDK-iOS */,
+				9ECF51AD17549A3800487F96 /* D9StudioSDK_iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -577,6 +590,7 @@
 				9EBB6BEF17643EE10065E861 /* openssl_wrapper.m in Sources */,
 				9EBB6BF017643EE10065E861 /* RSADataSigner.m in Sources */,
 				9EBB6BF117643EE10065E861 /* RSADataVerifier.m in Sources */,
+				9EE3E74E1781576900990E4D /* SFHFKeychainUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +691,7 @@
 		9ECF51AF17549A3800487F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = v1.1;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -685,6 +700,7 @@
 		9ECF51B017549A3800487F96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = v1.1;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -711,7 +727,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK-iOS" */ = {
+		9ECF51AE17549A3800487F96 /* Build configuration list for PBXAggregateTarget "D9StudioSDK_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9ECF51AF17549A3800487F96 /* Debug */,

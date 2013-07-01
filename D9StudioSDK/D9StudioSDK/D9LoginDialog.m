@@ -9,9 +9,13 @@
 #import "D9LoginDialog.h"
 #import "D9SDKUtil.h"
 #import "D9SDKGlobal.h"
+#import "SFHFKeychainUtils.h"
 
-#define kD9DefaultUsername      @"D9Username"
-#define kD9DefaultPassword      @"D9Password"
+#define kD9URLSchemePrefix              @"D9_"
+#define kD9KeychainServiceNameSuffix    @"_ServiceName"
+#define kD9KeychainUsername             @"D9Username"
+#define kD9keychainPassword             @"D9Password"
+
 #define kD9DefaultRemember      @"D9Remember"
 
 #define kFontTimes              @"Times New Roman"
@@ -26,7 +30,15 @@
 - (void) readSettingFromDefault;
 - (void) deleteSettingInDefault;
 
+- (NSString *) urlSchemeString;
+- (void) saveAccountDataToKeychain;
+- (void) readAccountDataFromKeychain;
+- (void) deleteAccountDataInKeychain;
+
 - (void) stopIndicatorAnimat;
+
+- (void) addObservers;
+- (void) removeObservers;
 @end
 
 @implementation D9LoginDialog
@@ -34,8 +46,9 @@
 @synthesize delegate;
 @synthesize userName;
 @synthesize passWord;
+@synthesize d9AppID;
 
-- (id)init
+- (id)initWithAppID:(NSString *)appID
 {
     self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
     if (DEBUG_LOG) {
@@ -44,13 +57,13 @@
     }
     if (self) {
         // Initialization code
+        self.d9AppID = appID;
         
         CGRect winRect = CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth);
         winSize = winRect.size;
         if (DEBUG_LOG) {
             NSLog(@"Second:width:[%f], height[%f]", winSize.width, winSize.height);
         }
-
         
         [self readSettingFromDefault];
         isRemember = true;
@@ -58,11 +71,9 @@
         // 背景
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:200 alpha:0.8];
         self.autoresizesSubviews = YES;
-//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        self.contentMode = UIViewContentModeRedraw;
         
         // button to resign keyborad
-        UIButton * resignBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        resignBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [resignBtn setFrame:winRect];
         [resignBtn addTarget:self action:@selector(resignKeyboard) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:resignBtn];
@@ -88,7 +99,6 @@
         [usernameImageView release];
         
         // landscape
-//        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 150, 230, 30)];
         _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 70, 230, 30)];
         [_usernameTextField setBackgroundColor:[UIColor whiteColor]];
         [_usernameTextField setTextColor:[UIColor blackColor]];
@@ -465,13 +475,61 @@
     return YES;
 }
 
+- (NSString *) urlSchemeString
+{
+    return [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, d9AppID];
+}
+
+- (void) saveAccountDataToKeychain
+{
+    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    [SFHFKeychainUtils storeUsername:kD9KeychainUsername
+                         andPassword:self.userName
+                      forServiceName:serviceName
+                      updateExisting:YES
+                               error:nil];
+    
+    [SFHFKeychainUtils storeUsername:kD9keychainPassword
+                         andPassword:self.passWord
+                      forServiceName:serviceName
+                      updateExisting:YES
+                               error:nil];
+}
+
+- (void) readAccountDataFromKeychain
+{
+    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    self.userName = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUsername
+                                               andServiceName:serviceName
+                                                        error:nil];
+    
+    self.passWord = [SFHFKeychainUtils getPasswordForUsername:kD9keychainPassword
+                                               andServiceName:serviceName
+                                                        error:nil];
+}
+
+- (void) deleteAccountDataInKeychain
+{
+    self.userName = nil;
+    self.passWord = nil;
+    
+    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUsername
+                              andServiceName:serviceName
+                                       error:nil];
+    [SFHFKeychainUtils deleteItemForUsername:kD9keychainPassword
+                              andServiceName:serviceName
+                                       error:nil];
+}
+
 - (void) saveSettingDefault
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:userName forKey:kD9DefaultUsername];
-    if (isRemember) {
-        [userDefault setObject:passWord forKey:kD9DefaultPassword];
-    }
+
+    [self saveAccountDataToKeychain];
     [userDefault setBool:isRemember forKey:kD9DefaultRemember];
     [userDefault setBool:isAuto forKey:kD9DefaultAuto];
     
@@ -483,10 +541,8 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     isRemember = [userDefault boolForKey:kD9DefaultRemember];
     isAuto = [userDefault boolForKey:kD9DefaultAuto];
-    self.userName = [userDefault stringForKey:kD9DefaultUsername];
-    if (isRemember) {
-        self.passWord = [userDefault stringForKey:kD9DefaultPassword];
-    }
+
+    [self readAccountDataFromKeychain];
     if (DEBUG_LOG) {
         NSLog(@"D9LoginDialog: readSettingFromDefault: username=%@", userName);
     }
@@ -494,12 +550,15 @@
 
 - (void) deleteSettingInDefault
 {
-    self.userName = nil;
-    self.passWord = nil;
+    [self deleteAccountDataInKeychain];
     isRemember = true;
     isAuto = false;
 
-    [self saveSettingDefault];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    [userDefault setBool:isRemember forKey:kD9DefaultRemember];
+    [userDefault setBool:isAuto forKey:kD9DefaultAuto];
+    
+    [userDefault synchronize];
 }
 
 - (void) stopIndicatorAnimat
@@ -510,6 +569,21 @@
     if (indicatorView) {
         [indicatorView stopAnimating];
     }
+}
+
+- (void) addObservers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+}
+
+- (void) removeObservers
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIDeviceOrientationDidChangeNotification
+                                                  object:nil];
 }
 
 #pragma mark -- TextField Delegate --
@@ -528,6 +602,8 @@
 
 - (void) show:(BOOL)animated
 {
+    [self sizeToFitOrientation:[self currentOrientation]];
+    
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     if (!window) {
         window = [[UIApplication sharedApplication].windows objectAtIndex:0];
@@ -539,83 +615,109 @@
         [window.rootViewController.view bringSubviewToFront:self];
     }
     
-    
     //TODO: animated action
+    
+    [self addObservers];
 }
 
 - (void) hide:(BOOL)animated
 {
+    [self removeObservers];
     //TODO: animated action
     [self removeFromSuperview];
 }
 
 - (UIInterfaceOrientation)currentOrientation
 {
-    NSLog(@"current orientation.");
     return [UIApplication sharedApplication].statusBarOrientation;
 }
 
 - (void)sizeToFitOrientation:(UIInterfaceOrientation)orientation
 {
-    [self setTransform:CGAffineTransformIdentity];
-    
-    NSLog(@"size to fit orientation.");
+//    [self setTransform:CGAffineTransformIdentity];
+//    CGRect screenFrame = [UIScreen mainScreen].applicationFrame;
+//    CGPoint screenCenter = CGPointMake(
+//                                       screenFrame.origin.x + ceil(screenFrame.size.width / 2),
+//                                       screenFrame.origin.y + ceil(screenFrame.size.height / 2));
     
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        NSLog(@"land scape.");
         [self setFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
-//        [panelView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
-//        [containerView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
-//        [webView setFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
-        [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
+        
+        winSize = [self frame].size;
+        
+        [resignBtn setFrame:[self frame]];
+        [_usernameTextField setFrame:CGRectMake(125, 70, 230, 30)];
+        [_passwordTextField setFrame:CGRectMake(125, 110, 230, 30)];
+        [_rememberPassword setFrame:CGRectMake(125, 150, 15, 15)];
+        [_lblRemember setFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
+        [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 150, 15, 15)];
+        [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
+        [_loginBtn setFrame:CGRectMake(125, 185, 230, 40)];
+        [_toRegBtn setFrame:CGRectMake(140, 255, 200, 20)];
+        [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
+        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 160, winSize.width * 0.5 - 130, 40)];
+        [_toLogBtn setFrame:[_toRegBtn frame]];
+        [indicatorView setCenter:CGPointMake(240, 160)];
+        [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
     else
     {
-        NSLog(@"Portain Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        NSLog(@"protrait.");
         [self setFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)];
-//        [panelView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 20)];
-//        [containerView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
-//        [webView setFrame:CGRectMake(0, 0, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
-        [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
+        
+        winSize = [self frame].size;
+        
+        [resignBtn setFrame:[self frame]];
+        [_usernameTextField setFrame:CGRectMake(45, 150, 230, 30)];
+        [_passwordTextField setFrame:CGRectMake(45, 190, 230, 30)];
+        [_rememberPassword setFrame:CGRectMake(45, 230, 15, 15)];
+        [_lblRemember setFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
+        [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 230, 15, 15)];
+        [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
+        [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
+        [_toRegBtn setFrame:CGRectMake(60, 335, 200, 20)];
+        [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
+        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
+        [_toLogBtn setFrame:[_toRegBtn frame]];
+        [indicatorView setCenter:CGPointMake(160, 240)];
+        [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
-    
-    [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
-    
-    [self setTransform:[self transformForOrientation:orientation]];
+//    [self setCenter:screenCenter];
+//    [self setTransform:[self transformForOrientation:orientation]];
     
     previousOrientation = orientation;
 }
 
-- (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
-{
-    //	if (orientation == UIInterfaceOrientationLandscapeLeft)
-    //    {
-    //		return CGAffineTransformMakeRotation(-M_PI / 2);
-    //	}
-    //    else if (orientation == UIInterfaceOrientationLandscapeRight)
-    //    {
-    //		return CGAffineTransformMakeRotation(M_PI / 2);
-    //	}
-    //    else if (orientation == UIInterfaceOrientationPortraitUpsideDown)
-    //    {
-    //		return CGAffineTransformMakeRotation(-M_PI);
-    //	}
-    //    else
-    //    {
-    NSLog(@"transform for orientation.");
-    return CGAffineTransformIdentity;
-    //	}
-}
+//- (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
+//{
+//    if (orientation == UIInterfaceOrientationLandscapeLeft) {
+//        NSLog(@"land scape left");
+////        return CGAffineTransformIdentity;
+////        return CGAffineTransformMakeRotation(0);
+//        return CGAffineTransformMakeRotation(-M_PI / 2);
+//    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+//        NSLog(@"land scape right");
+////        return CGAffineTransformMakeRotation(-M_PI);
+//        return CGAffineTransformMakeRotation(M_PI / 2);
+//    }
+//    else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
+//        NSLog(@"portrait upside down");
+////        return CGAffineTransformMakeRotation(M_PI / 2);
+//        return CGAffineTransformMakeRotation(-M_PI);
+//    } else {
+//        NSLog(@"portrait");
+////        return CGAffineTransformMakeRotation(-M_PI / 2);
+//        return CGAffineTransformIdentity;
+//    }
+//}
 
 - (BOOL)shouldRotateToOrientation:(UIInterfaceOrientation)orientation
 {
-	if (orientation == previousOrientation)
-    {
+	if (orientation == previousOrientation) {
 		return NO;
-	}
-    else
-    {
+	} else {
 		return orientation == UIInterfaceOrientationLandscapeLeft
 		|| orientation == UIInterfaceOrientationLandscapeRight
 		|| orientation == UIInterfaceOrientationPortrait
@@ -629,8 +731,7 @@
 - (void)deviceOrientationDidChange:(id)object
 {
 	UIInterfaceOrientation orientation = [self currentOrientation];
-	if ([self shouldRotateToOrientation:orientation])
-    {
+	if ([self shouldRotateToOrientation:orientation]) {
         NSTimeInterval duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
         
 		[UIView beginAnimations:nil context:nil];

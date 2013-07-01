@@ -24,38 +24,41 @@
 
 @interface D9LoginDialog : UIView <UITextFieldDelegate> {
     
-    UITextField * _usernameTextField;
-    UITextField * _passwordTextField;
-    UIButton * _rememberPassword;
-    UIButton * _autoLogin;
-    UILabel * _lblRemember;
-    UILabel * _lblAuto;
+    UITextField* _usernameTextField;
+    UITextField* _passwordTextField;
+    UIButton* _rememberPassword;
+    UIButton* _autoLogin;
+    UILabel* _lblRemember;
+    UILabel* _lblAuto;
     
     CGSize winSize;
+    UIButton* resignBtn;
     
-    UIButton * _loginBtn;
-    UIButton * _regBtn;
-    UIButton * _randomBtn;
+    UIButton* _loginBtn;
+    UIButton* _regBtn;
+    UIButton* _randomBtn;
     
-    UIButton * _toRegBtn;
-    UIButton * _toLogBtn;
+    UIButton* _toRegBtn;
+    UIButton* _toLogBtn;
     
-    NSString *userName;
-    NSString *passWord;
+    NSString* userName;
+    NSString* passWord;
     
     BOOL isRemember;
     BOOL isAuto;
     
-    UIActivityIndicatorView *indicatorView;
+    UIActivityIndicatorView* indicatorView;
     UIInterfaceOrientation previousOrientation;
     
     id <D9LoginDialogDelegate> delegate;
 }
 
 @property (nonatomic, assign) id<D9LoginDialogDelegate> delegate;
-@property (nonatomic, retain) NSString *userName;
-@property (nonatomic, retain) NSString *passWord;
+@property (nonatomic, retain) NSString* userName;
+@property (nonatomic, retain) NSString* passWord;
+@property (nonatomic, retain) NSString* d9AppID;
 
+- (id) initWithAppID:(NSString *)appID;
 - (void) show:(BOOL)animated;
 - (void) hide:(BOOL)animated;
 
