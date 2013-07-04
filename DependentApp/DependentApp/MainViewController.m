@@ -43,7 +43,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
@@ -68,7 +67,7 @@
     [self.view addSubview:payBtn];
     [self.view addSubview:lblMain];
     [lblMain release];
-
+    
     engine = [[D9StudioSDK alloc] initWithAppID:@"100001" andAppKey:kD9AppKey];
     [engine setDelegate:self];
     [engine login];
@@ -114,6 +113,18 @@
 
 - (void) d9SDK:(D9StudioSDK *)d9engine didFailToLogInWithError:(NSError *)error
 {
+    
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+//    return YES;
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+	}
+    return UIInterfaceOrientationIsLandscape(interfaceOrientation);
     
 }
 

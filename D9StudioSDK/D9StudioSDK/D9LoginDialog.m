@@ -114,8 +114,9 @@
         [_usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
         [_usernameTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [_usernameTextField setReturnKeyType:UIReturnKeyNext];
-        [_usernameTextField.window makeKeyWindow];
-        [_usernameTextField.window makeKeyAndVisible];
+        [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+//        [_usernameTextField.window makeKeyWindow];
+//        [_usernameTextField.window makeKeyAndVisible];
         
         [usernameView release];
         
@@ -629,12 +630,13 @@
 
 - (UIInterfaceOrientation)currentOrientation
 {
+//    return [[UIDevice currentDevice] orientation];
     return [UIApplication sharedApplication].statusBarOrientation;
 }
 
 - (void)sizeToFitOrientation:(UIInterfaceOrientation)orientation
 {
-//    [self setTransform:CGAffineTransformIdentity];
+    [self setTransform:CGAffineTransformIdentity];
 //    CGRect screenFrame = [UIScreen mainScreen].applicationFrame;
 //    CGPoint screenCenter = CGPointMake(
 //                                       screenFrame.origin.x + ceil(screenFrame.size.width / 2),
@@ -648,18 +650,22 @@
         winSize = [self frame].size;
         
         [resignBtn setFrame:[self frame]];
-        [_usernameTextField setFrame:CGRectMake(125, 70, 230, 30)];
-        [_passwordTextField setFrame:CGRectMake(125, 110, 230, 30)];
-        [_rememberPassword setFrame:CGRectMake(125, 150, 15, 15)];
-        [_lblRemember setFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
-        [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 150, 15, 15)];
-        [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
-        [_loginBtn setFrame:CGRectMake(125, 185, 230, 40)];
-        [_toRegBtn setFrame:CGRectMake(140, 255, 200, 20)];
-        [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
-        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 160, winSize.width * 0.5 - 130, 40)];
-        [_toLogBtn setFrame:[_toRegBtn frame]];
-        [indicatorView setCenter:CGPointMake(240, 160)];
+//        if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+            [_usernameTextField setFrame:CGRectMake(125, 70, kD9ScreenHeight-2*125, 30)];
+            [_passwordTextField setFrame:CGRectMake(125, 110, kD9ScreenHeight-2*125, 30)];
+            [_rememberPassword setFrame:CGRectMake(125, 150, 15, 15)];
+            [_lblRemember setFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
+            [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 150, 15, 15)];
+            [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
+            [_loginBtn setFrame:CGRectMake(125, 185, kD9ScreenHeight-2*125, 40)];
+            [_toRegBtn setFrame:CGRectMake(kD9ScreenHeight * 0.5 - 100, 255, 200, 20)];
+            [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
+            [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 160, winSize.width * 0.5 - 130, 40)];
+            [_toLogBtn setFrame:[_toRegBtn frame]];
+            [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
+//        } else {
+        
+//        }
         [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
     else
@@ -670,37 +676,39 @@
         winSize = [self frame].size;
         
         [resignBtn setFrame:[self frame]];
-        [_usernameTextField setFrame:CGRectMake(45, 150, 230, 30)];
-        [_passwordTextField setFrame:CGRectMake(45, 190, 230, 30)];
+        [_usernameTextField setFrame:CGRectMake(45, 150, kD9ScreenWidth-2*45, 30)];
+        [_passwordTextField setFrame:CGRectMake(45, 190, kD9ScreenWidth-2*45, 30)];
         [_rememberPassword setFrame:CGRectMake(45, 230, 15, 15)];
         [_lblRemember setFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
         [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 230, 15, 15)];
         [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
         [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
-        [_toRegBtn setFrame:CGRectMake(60, 335, 200, 20)];
+        [_toRegBtn setFrame:CGRectMake(kD9ScreenWidth * 0.5 - 100, 335, 200, 20)];
         [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
         [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
         [_toLogBtn setFrame:[_toRegBtn frame]];
-        [indicatorView setCenter:CGPointMake(160, 240)];
+        [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
         [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
 //    [self setCenter:screenCenter];
-//    [self setTransform:[self transformForOrientation:orientation]];
+    [self setTransform:[self transformForOrientation:orientation]];
     
     previousOrientation = orientation;
 }
 
-//- (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
-//{
+- (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
+{
 //    if (orientation == UIInterfaceOrientationLandscapeLeft) {
 //        NSLog(@"land scape left");
 ////        return CGAffineTransformIdentity;
 ////        return CGAffineTransformMakeRotation(0);
-//        return CGAffineTransformMakeRotation(-M_PI / 2);
+////        return CGAffineTransformMakeRotation(-M_PI / 2);
+//        return CGAffineTransformIdentity;
 //    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
 //        NSLog(@"land scape right");
 ////        return CGAffineTransformMakeRotation(-M_PI);
-//        return CGAffineTransformMakeRotation(M_PI / 2);
+////        return CGAffineTransformMakeRotation(M_PI / 2);
+//        return CGAffineTransformIdentity;
 //    }
 //    else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
 //        NSLog(@"portrait upside down");
@@ -709,9 +717,9 @@
 //    } else {
 //        NSLog(@"portrait");
 ////        return CGAffineTransformMakeRotation(-M_PI / 2);
-//        return CGAffineTransformIdentity;
+        return CGAffineTransformIdentity;
 //    }
-//}
+}
 
 - (BOOL)shouldRotateToOrientation:(UIInterfaceOrientation)orientation
 {

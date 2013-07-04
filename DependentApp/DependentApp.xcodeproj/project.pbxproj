@@ -28,7 +28,7 @@
 		9ECF51F71755063200487F96 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F61755063200487F96 /* Default.png */; };
 		9ECF51F91755063200487F96 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F81755063200487F96 /* Default@2x.png */; };
 		9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51FA1755063200487F96 /* Default-568h@2x.png */; };
-		9EE3E75C178180BD00990E4D /* D9StudioSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */; };
+		9EDB32D7178442DB00FF92CF /* D9StudioSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +58,7 @@
 		9ECF51F61755063200487F96 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		9ECF51F81755063200487F96 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9ECF51FA1755063200487F96 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D9StudioSDK_iOS.framework; path = ../../../Desktop/D9StudioSDK_iOS.framework; sourceTree = "<group>"; };
+		9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D9StudioSDK_iOS.framework; path = ../../../Desktop/D9StudioSDK_iOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +70,7 @@
 				9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */,
 				9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */,
 				9ECF51E91755063200487F96 /* CoreGraphics.framework in Frameworks */,
-				9EE3E75C178180BD00990E4D /* D9StudioSDK_iOS.framework in Frameworks */,
+				9EDB32D7178442DB00FF92CF /* D9StudioSDK_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 		9ECF51D81755063200487F96 = {
 			isa = PBXGroup;
 			children = (
-				9EE3E75B178180BD00990E4D /* D9StudioSDK_iOS.framework */,
+				9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */,
 				9ECF51EA1755063200487F96 /* DependentApp */,
 				9ECF51E31755063200487F96 /* Frameworks */,
 				9ECF51E21755063200487F96 /* Products */,
@@ -313,12 +313,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
 				INFOPLIST_FILE = "DependentApp/DependentApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../D9StudioSDK/D9StudioSDK\"",
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -337,12 +339,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DependentApp/DependentApp-Prefix.pch";
 				INFOPLIST_FILE = "DependentApp/DependentApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../D9StudioSDK/D9StudioSDK\"",
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
