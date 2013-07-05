@@ -29,6 +29,10 @@
 		9ECF51F91755063200487F96 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F81755063200487F96 /* Default@2x.png */; };
 		9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51FA1755063200487F96 /* Default-568h@2x.png */; };
 		9EDB32D7178442DB00FF92CF /* D9StudioSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */; };
+		9EFE228A178672A8008EAA0C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2286178672A8008EAA0C /* icon.png */; };
+		9EFE228B178672A8008EAA0C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2287178672A8008EAA0C /* icon@2x.png */; };
+		9EFE228C178672A8008EAA0C /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2288178672A8008EAA0C /* icon72.png */; };
+		9EFE228D178672A8008EAA0C /* icon72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2289178672A8008EAA0C /* icon72@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		9ECF51F81755063200487F96 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9ECF51FA1755063200487F96 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D9StudioSDK_iOS.framework; path = ../../../Desktop/D9StudioSDK_iOS.framework; sourceTree = "<group>"; };
+		9EFE2286178672A8008EAA0C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		9EFE2287178672A8008EAA0C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		9EFE2288178672A8008EAA0C /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		9EFE2289178672A8008EAA0C /* icon72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon72@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 		9ECF51EA1755063200487F96 /* DependentApp */ = {
 			isa = PBXGroup;
 			children = (
+				9EFE22851786729C008EAA0C /* icon */,
 				9E42694C17795098009947BD /* Resources */,
 				9ECF51F31755063200487F96 /* AppDelegate.h */,
 				9ECF51F41755063200487F96 /* AppDelegate.m */,
@@ -148,6 +157,17 @@
 				9ECF51FA1755063200487F96 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EFE22851786729C008EAA0C /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				9EFE2286178672A8008EAA0C /* icon.png */,
+				9EFE2287178672A8008EAA0C /* icon@2x.png */,
+				9EFE2288178672A8008EAA0C /* icon72.png */,
+				9EFE2289178672A8008EAA0C /* icon72@2x.png */,
+			);
+			name = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +235,10 @@
 				9E42695E17795098009947BD /* d9_progressbar_bg.jpg in Resources */,
 				9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */,
 				9E42696017795098009947BD /* d9_username.png in Resources */,
+				9EFE228A178672A8008EAA0C /* icon.png in Resources */,
+				9EFE228B178672A8008EAA0C /* icon@2x.png in Resources */,
+				9EFE228C178672A8008EAA0C /* icon72.png in Resources */,
+				9EFE228D178672A8008EAA0C /* icon72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +326,8 @@
 		9ECF51FF1755063200487F96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: He Yunpeng (T6ST4259D8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: He Yunpeng (T6ST4259D8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Desktop\"",
@@ -320,6 +346,8 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "B1A4DBE3-4762-49D2-A448-639DC8F272D1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B1A4DBE3-4762-49D2-A448-639DC8F272D1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -328,6 +356,8 @@
 		9ECF52001755063200487F96 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: He Yunpeng";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: He Yunpeng";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Desktop\"",
@@ -346,6 +376,8 @@
 				);
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "A730FCD4-7710-4889-89CF-5C836F13D4C4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A730FCD4-7710-4889-89CF-5C836F13D4C4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

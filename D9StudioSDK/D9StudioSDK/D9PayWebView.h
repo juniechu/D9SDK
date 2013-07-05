@@ -17,6 +17,7 @@
     
     UIInterfaceOrientation previousOrientation;
     
+    UIButton* closeBtn;
 }
 
 - (void) loadRequestWithURL:(NSURL *)url;

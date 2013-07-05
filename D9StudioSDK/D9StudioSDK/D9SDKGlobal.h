@@ -12,11 +12,12 @@
 // 正式环境
 #define __LOGIN_URL                     @"http://imept.imobile-ent.com:8988/D9PayPlat/login.action"
 #define __REGIST_URL                    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action"
+#define __PAY_URL                       @"http://imept.imobile-ent.com:8988/D9PayPlat/order.action"
 
 // 测试环境
 //#define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"
 //#define __REGIST_URL                    @"http://paytest.gamed9.com:8080/D9PayPlat/register.action"
-#define __PAY_URL                       @"http://paytest.gamed9.com:8080/D9PayPlat/order.action"
+//#define __PAY_URL                       @"http://paytest.gamed9.com:8080/D9PayPlat/order.action"
 
 #define kD9SDKErrorDomain               @"D9SDKErrorDomain"
 #define kD9SDKErrorCodeKey              @"D9SDKErrorCodeKey"

@@ -36,26 +36,28 @@
 {
     if (self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)])
     {
-        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenHeight, kD9ScreenWidth);
+        if (DEBUG_LOG) {
+            NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenHeight, kD9ScreenWidth);
+        }
         // background settings
         [self setBackgroundColor:[UIColor clearColor]];
-        [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+//        [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         
         // add the panel view
-        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
+        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20 - 22)];
         [panelView setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.55]];
         [[panelView layer] setMasksToBounds:NO]; // very important
         [[panelView layer] setCornerRadius:10.0];
         [self addSubview:panelView];
         
         // add the conainer view
-        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 22)];
         [[containerView layer] setBorderColor:[UIColor colorWithRed:0. green:0. blue:0. alpha:0.7].CGColor];
         [[containerView layer] setBorderWidth:1.0];
         
         
         // add the web view
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 22)];
 		[webView setDelegate:self];
 		[containerView addSubview:webView];
         
@@ -64,6 +66,23 @@
         indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
         [self addSubview:indicatorView];
+        
+        closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//        UIImage* closeImg = [UIImage imageNamed:@"d9_button_close_ipone.png"];
+        
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+//            closeImg = [UIImage imageNamed:@"d9_button_close_ipad.png"];
+//            
+//        } else {
+//            closeImg = [UIImage imageNamed:@"d9_button_close_iphone.png"];
+//        }
+        [closeBtn setFrame:CGRectMake(kD9ScreenHeight - 30, 0, 30, 30)];
+//        [closeBtn setImage:closeImg forState:UIControlStateNormal];
+//        [closeBtn setImage:closeImg forState:UIControlStateSelected];
+        
+        [closeBtn addTarget:self action:@selector(closePayView:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:closeBtn];
+//        [closeImg release];
     }
     return self;
 }
@@ -98,24 +117,32 @@
     
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        if (DEBUG_LOG) {
+            NSLog(@"Land Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        }
         [self setFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
-        [panelView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20)];
-        [containerView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
-        [webView setFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40)];
+        [panelView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20 - 22)];
+        [containerView setFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 22)];
+        [webView setFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 24)];
+        [closeBtn setFrame:CGRectMake(kD9ScreenHeight - 30, 0, 30, 30)];
         [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
+        [self setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
     }
     else
     {
-        NSLog(@"Portain Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        if (DEBUG_LOG) {
+            NSLog(@"Portain Scape:width:[%f], height[%f]", kD9ScreenWidth, kD9ScreenHeight);
+        }
         [self setFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)];
-        [panelView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 20)];
-        [containerView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
-        [webView setFrame:CGRectMake(0, 0, kD9ScreenWidth - 40, kD9ScreenHeight - 40)];
+        [panelView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 20, kD9ScreenHeight - 20 - 22)];
+        [containerView setFrame:CGRectMake(10, 10, kD9ScreenWidth - 40, kD9ScreenHeight - 40 - 22)];
+        [webView setFrame:CGRectMake(0, 0, kD9ScreenWidth - 40, kD9ScreenHeight - 40 - 22)];
         [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
+        [closeBtn setFrame:CGRectMake(kD9ScreenWidth - 30, 0, 30, 30)];
+        [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
     }
     
-    [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
+//    [self setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
     
     [self setTransform:[self transformForOrientation:orientation]];
     
@@ -124,22 +151,22 @@
 
 - (CGAffineTransform)transformForOrientation:(UIInterfaceOrientation)orientation
 {
-	if (orientation == UIInterfaceOrientationLandscapeLeft)
-    {
-		return CGAffineTransformMakeRotation(-M_PI / 2);
-	}
-    else if (orientation == UIInterfaceOrientationLandscapeRight)
-    {
-		return CGAffineTransformMakeRotation(M_PI / 2);
-	}
-    else if (orientation == UIInterfaceOrientationPortraitUpsideDown)
-    {
-		return CGAffineTransformMakeRotation(-M_PI);
-	}
-    else
-    {
+//	if (orientation == UIInterfaceOrientationLandscapeLeft)
+//    {
+//		return CGAffineTransformMakeRotation(-M_PI / 2);
+//	}
+//    else if (orientation == UIInterfaceOrientationLandscapeRight)
+//    {
+//		return CGAffineTransformMakeRotation(M_PI / 2);
+//	}
+//    else if (orientation == UIInterfaceOrientationPortraitUpsideDown)
+//    {
+//		return CGAffineTransformMakeRotation(-M_PI);
+//	}
+//    else
+//    {
 		return CGAffineTransformIdentity;
-	}
+//	}
 }
 
 - (BOOL)shouldRotateToOrientation:(UIInterfaceOrientation)orientation

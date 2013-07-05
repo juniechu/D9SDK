@@ -644,7 +644,9 @@
     
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
-        NSLog(@"land scape.");
+        if (DEBUG_LOG) {
+            NSLog(@"land scape.");
+        }
         [self setFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
         
         winSize = [self frame].size;
@@ -670,7 +672,9 @@
     }
     else
     {
-        NSLog(@"protrait.");
+        if (DEBUG_LOG) {
+            NSLog(@"protrait.");
+        }
         [self setFrame:CGRectMake(0, 0, kD9ScreenWidth, kD9ScreenHeight)];
         
         winSize = [self frame].size;
