@@ -79,7 +79,10 @@
         [self addSubview:resignBtn];
         
         // Head Logo
-        UIImage * logoImage = [UIImage imageNamed:@"d9_logo.png"];
+//        UIImage * logoImage = [UIImage imageNamed:@"d9_logo.png"];
+        NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
+        NSString* logoPath = [bundle pathForResource:@"d9_logo" ofType:@"png"];
+        UIImage* logoImage = [UIImage imageWithContentsOfFile:logoPath];
         if (!logoImage) {
             NSLog(@"Resource not found! Please add Resource into your project.");
         }
@@ -92,7 +95,10 @@
         // User Name
         UIView *usernameView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [usernameView setBackgroundColor:[UIColor grayColor]];
-        UIImage * usernameImage = [UIImage imageNamed:@"d9_username.png"];
+//        UIImage * usernameImage = [UIImage imageNamed:@"d9_username.png"];
+        NSString* usernamePath = [bundle pathForResource:@"d9_username" ofType:@"png"];
+        UIImage* usernameImage = [UIImage imageWithContentsOfFile:usernamePath];
+        
         UIImageView * usernameImageView = [[UIImageView alloc] initWithImage:usernameImage];
         [usernameImageView setFrame:CGRectMake(15 - usernameImage.size.width * 0.5, 15 - usernameImage.size.height * 0.5, usernameImage.size.width, usernameImage.size.height)];
         [usernameView addSubview:usernameImageView];
@@ -129,7 +135,9 @@
         // Pass Word
         UIView * passwordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         [passwordView setBackgroundColor:[UIColor grayColor]];
-        UIImage * passwordImage = [UIImage imageNamed:@"d9_password.png"];
+//        UIImage * passwordImage = [UIImage imageNamed:@"d9_password.png"];
+        NSString* passwordPath = [bundle pathForResource:@"d9_password" ofType:@"png"];
+        UIImage* passwordImage = [UIImage imageWithContentsOfFile:passwordPath];
         UIImageView * passwordImageView = [[UIImageView alloc] initWithImage:passwordImage];
         [passwordImageView setFrame:CGRectMake(15 - passwordImage.size.width * 0.5, 15 - passwordImage.size.height * 0.5, passwordImage.size.width, passwordImage.size.height)];
         [passwordView addSubview:passwordImageView];
@@ -168,9 +176,17 @@
         CGRect rememberCheckboxRect = CGRectMake(125, 150, 15, 15);
         [_rememberPassword setFrame:rememberCheckboxRect];
         
-        [_rememberPassword setImage:[UIImage imageNamed:@"d9_checkbox_false.png"] forState:UIControlStateNormal];
-        [_rememberPassword setImage:[UIImage imageNamed:@"d9_checkbox_focus.png"] forState:UIControlStateHighlighted];
-        [_rememberPassword setImage:[UIImage imageNamed:@"d9_checkbox_true.png"] forState:UIControlStateSelected];
+        NSString* ckbxFalsePath = [bundle pathForResource:@"d9_checkbox_false" ofType:@"png"];
+        UIImage* ckbxFalseImage = [UIImage imageWithContentsOfFile:ckbxFalsePath];
+        [_rememberPassword setImage:ckbxFalseImage forState:UIControlStateNormal];
+        
+        NSString* ckbxFocusPath = [bundle pathForResource:@"d9_checkbox_focus" ofType:@"png"];
+        UIImage* ckbxFocusImage = [UIImage imageWithContentsOfFile:ckbxFocusPath];
+        [_rememberPassword setImage:ckbxFocusImage forState:UIControlStateHighlighted];
+        
+        NSString* ckbxTruePath = [bundle pathForResource:@"d9_checkbox_true" ofType:@"png"];
+        UIImage* ckbxTrueImage = [UIImage imageWithContentsOfFile:ckbxTruePath];
+        [_rememberPassword setImage:ckbxTrueImage forState:UIControlStateSelected];
         
         [_rememberPassword addTarget:self action:@selector(checkboxClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -199,9 +215,9 @@
         CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 150, 15, 15);
         [_autoLogin setFrame:autoCheckboxRect];
         
-        [_autoLogin setImage:[UIImage imageNamed:@"d9_checkbox_false.png"] forState:UIControlStateNormal];
-        [_autoLogin setImage:[UIImage imageNamed:@"d9_checkbox_focus.png"] forState:UIControlStateHighlighted];
-        [_autoLogin setImage:[UIImage imageNamed:@"d9_checkbox_true.png"] forState:UIControlStateSelected];
+        [_autoLogin setImage:ckbxFalseImage forState:UIControlStateNormal];
+        [_autoLogin setImage:ckbxFocusImage forState:UIControlStateHighlighted];
+        [_autoLogin setImage:ckbxTrueImage forState:UIControlStateSelected];
         
         [_autoLogin addTarget:self action:@selector(checkboxClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:_autoLogin aboveSubview:resignBtn];
@@ -230,9 +246,13 @@
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_loginBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
+        NSString* btnNormalPath = [bundle pathForResource:@"d9_button_normal" ofType:@"png"];
+        UIImage* btnNormalImage = [UIImage imageWithContentsOfFile:btnNormalPath];
+        [_loginBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
         
-        [_loginBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
-        [_loginBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_down.png"] forState:UIControlStateSelected];
+        NSString* btnDownPath = [bundle pathForResource:@"d9_button_down" ofType:@"png"];
+        UIImage* btnDownImage = [UIImage imageWithContentsOfFile:btnDownPath];
+        [_loginBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
         
         
         [_loginBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -263,8 +283,8 @@
         [_regBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_regBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
-        [_regBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
-        [_regBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_down.png"] forState:UIControlStateSelected];
+        [_regBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
+        [_regBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
         
         [_regBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -280,8 +300,8 @@
         [_randomBtn setTitle:@"随机账号" forState:UIControlStateNormal];
         [_randomBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
         
-        [_randomBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_normal.png"] forState:UIControlStateNormal];
-        [_randomBtn setBackgroundImage:[UIImage imageNamed:@"d9_button_down.png"] forState:UIControlStateSelected];
+        [_randomBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
+        [_randomBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
         
         [_randomBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -303,8 +323,8 @@
         [_toLogBtn setHidden:YES];
         
         indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-//        [indicatorView setCenter:CGPointMake(160, 240)];
-        [indicatorView setCenter:CGPointMake(240, 160)];
+
+        [indicatorView setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
         [self addSubview:indicatorView];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -381,6 +401,7 @@
         }
         
         if (![self isInputValid]) {
+            [indicatorView stopAnimating];
             return;
         }
         if ([passWord length] != 32) {
@@ -426,6 +447,7 @@
         self.passWord = _passwordTextField.text;
         
         if (![self isInputValid]) {
+            [indicatorView stopAnimating];
             return;
         }
         if ([passWord length] != 32) {
@@ -603,6 +625,9 @@
 
 - (void) show:(BOOL)animated
 {
+    /* iOS5 bug, 第一次无法正确传入方向，statusBarOrientation第一次始终为portrait
+     * 初始化view中，不是AppDelegate中，加入[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandScapeRight];
+     */
     [self sizeToFitOrientation:[self currentOrientation]];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;

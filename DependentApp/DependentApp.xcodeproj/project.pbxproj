@@ -8,16 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9E1D3A27175F1FEC00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A26175F1FEC00C9A58E /* Security.framework */; };
-		9E42695717795098009947BD /* d9_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694D17795098009947BD /* d9_button_down.png */; };
-		9E42695817795098009947BD /* d9_button_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694E17795098009947BD /* d9_button_normal.png */; };
-		9E42695917795098009947BD /* d9_checkbox_false.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42694F17795098009947BD /* d9_checkbox_false.png */; };
-		9E42695A17795098009947BD /* d9_checkbox_focus.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695017795098009947BD /* d9_checkbox_focus.png */; };
-		9E42695B17795098009947BD /* d9_checkbox_true.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695117795098009947BD /* d9_checkbox_true.png */; };
-		9E42695C17795098009947BD /* d9_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695217795098009947BD /* d9_logo.png */; };
-		9E42695D17795098009947BD /* d9_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695317795098009947BD /* d9_password.png */; };
-		9E42695E17795098009947BD /* d9_progressbar_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695417795098009947BD /* d9_progressbar_bg.jpg */; };
-		9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695517795098009947BD /* d9_progressbar_bg2.png */; };
-		9E42696017795098009947BD /* d9_username.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E42695617795098009947BD /* d9_username.png */; };
 		9EBB6B5F1761BB400065E861 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EBB6B5E1761BB400065E861 /* MainViewController.m */; };
 		9ECF51E51755063200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E41755063200487F96 /* UIKit.framework */; };
 		9ECF51E71755063200487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51E61755063200487F96 /* Foundation.framework */; };
@@ -29,6 +19,7 @@
 		9ECF51F91755063200487F96 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51F81755063200487F96 /* Default@2x.png */; };
 		9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9ECF51FA1755063200487F96 /* Default-568h@2x.png */; };
 		9EDB32D7178442DB00FF92CF /* D9StudioSDK_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */; };
+		9EF6BDDA178A60E40010F497 /* D9Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EF6BDD9178A60E40010F497 /* D9Resource.bundle */; };
 		9EFE228A178672A8008EAA0C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2286178672A8008EAA0C /* icon.png */; };
 		9EFE228B178672A8008EAA0C /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2287178672A8008EAA0C /* icon@2x.png */; };
 		9EFE228C178672A8008EAA0C /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EFE2288178672A8008EAA0C /* icon72.png */; };
@@ -37,16 +28,6 @@
 
 /* Begin PBXFileReference section */
 		9E1D3A26175F1FEC00C9A58E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		9E42694D17795098009947BD /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
-		9E42694E17795098009947BD /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
-		9E42694F17795098009947BD /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
-		9E42695017795098009947BD /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
-		9E42695117795098009947BD /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
-		9E42695217795098009947BD /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
-		9E42695317795098009947BD /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
-		9E42695417795098009947BD /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
-		9E42695517795098009947BD /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
-		9E42695617795098009947BD /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9EBB6B5D1761BB400065E861 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		9EBB6B5E1761BB400065E861 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		9ECF51E11755063200487F96 /* DependentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DependentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +44,7 @@
 		9ECF51F81755063200487F96 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		9ECF51FA1755063200487F96 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9EDB32D6178442DB00FF92CF /* D9StudioSDK_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = D9StudioSDK_iOS.framework; path = ../../../Desktop/D9StudioSDK_iOS.framework; sourceTree = "<group>"; };
+		9EF6BDD9178A60E40010F497 /* D9Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = D9Resource.bundle; sourceTree = "<group>"; };
 		9EFE2286178672A8008EAA0C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9EFE2287178672A8008EAA0C /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		9EFE2288178672A8008EAA0C /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
@@ -88,16 +70,7 @@
 		9E42694C17795098009947BD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9E42694D17795098009947BD /* d9_button_down.png */,
-				9E42694E17795098009947BD /* d9_button_normal.png */,
-				9E42694F17795098009947BD /* d9_checkbox_false.png */,
-				9E42695017795098009947BD /* d9_checkbox_focus.png */,
-				9E42695117795098009947BD /* d9_checkbox_true.png */,
-				9E42695217795098009947BD /* d9_logo.png */,
-				9E42695317795098009947BD /* d9_password.png */,
-				9E42695417795098009947BD /* d9_progressbar_bg.jpg */,
-				9E42695517795098009947BD /* d9_progressbar_bg2.png */,
-				9E42695617795098009947BD /* d9_username.png */,
+				9EF6BDD9178A60E40010F497 /* D9Resource.bundle */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,20 +198,11 @@
 				9ECF51F71755063200487F96 /* Default.png in Resources */,
 				9ECF51F91755063200487F96 /* Default@2x.png in Resources */,
 				9ECF51FB1755063200487F96 /* Default-568h@2x.png in Resources */,
-				9E42695717795098009947BD /* d9_button_down.png in Resources */,
-				9E42695817795098009947BD /* d9_button_normal.png in Resources */,
-				9E42695917795098009947BD /* d9_checkbox_false.png in Resources */,
-				9E42695A17795098009947BD /* d9_checkbox_focus.png in Resources */,
-				9E42695B17795098009947BD /* d9_checkbox_true.png in Resources */,
-				9E42695C17795098009947BD /* d9_logo.png in Resources */,
-				9E42695D17795098009947BD /* d9_password.png in Resources */,
-				9E42695E17795098009947BD /* d9_progressbar_bg.jpg in Resources */,
-				9E42695F17795098009947BD /* d9_progressbar_bg2.png in Resources */,
-				9E42696017795098009947BD /* d9_username.png in Resources */,
 				9EFE228A178672A8008EAA0C /* icon.png in Resources */,
 				9EFE228B178672A8008EAA0C /* icon@2x.png in Resources */,
 				9EFE228C178672A8008EAA0C /* icon72.png in Resources */,
 				9EFE228D178672A8008EAA0C /* icon72@2x.png in Resources */,
+				9EF6BDDA178A60E40010F497 /* D9Resource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

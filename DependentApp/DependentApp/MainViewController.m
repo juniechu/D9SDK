@@ -44,6 +44,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandscapeRight];
+    
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
     UILabel * lblMain = [[UILabel alloc] initWithFrame:CGRectMake(20, 40, 40, 25)];

@@ -35,16 +35,6 @@
 		9E923881175C995100924B12 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923879175C995100924B12 /* SBJsonBase.m */; };
 		9E923882175C995100924B12 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387B175C995100924B12 /* SBJsonParser.m */; };
 		9E923883175C995100924B12 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92387D175C995100924B12 /* SBJsonWriter.m */; };
-		9EBC79B117795B6100E61955 /* d9_button_down.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79A717795B3100E61955 /* d9_button_down.png */; };
-		9EBC79B217795B6100E61955 /* d9_button_normal.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79A817795B3100E61955 /* d9_button_normal.png */; };
-		9EBC79B317795B6100E61955 /* d9_checkbox_false.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79A917795B3100E61955 /* d9_checkbox_false.png */; };
-		9EBC79B417795B6100E61955 /* d9_checkbox_focus.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AA17795B3100E61955 /* d9_checkbox_focus.png */; };
-		9EBC79B517795B6100E61955 /* d9_checkbox_true.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AB17795B3100E61955 /* d9_checkbox_true.png */; };
-		9EBC79B617795B6100E61955 /* d9_logo.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AC17795B3100E61955 /* d9_logo.png */; };
-		9EBC79B717795B6100E61955 /* d9_password.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AD17795B3100E61955 /* d9_password.png */; };
-		9EBC79B817795B6100E61955 /* d9_progressbar_bg.jpg in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AE17795B3100E61955 /* d9_progressbar_bg.jpg */; };
-		9EBC79B917795B6100E61955 /* d9_progressbar_bg2.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79AF17795B3100E61955 /* d9_progressbar_bg2.png */; };
-		9EBC79BA17795B6100E61955 /* d9_username.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EBC79B017795B3100E61955 /* d9_username.png */; };
 		9ECF51A017549A0E00487F96 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF519F17549A0E00487F96 /* Foundation.framework */; };
 		9ECF51A717549A0E00487F96 /* D9StudioSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51A617549A0E00487F96 /* D9StudioSDK.m */; };
 		9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51CD1754A88200487F96 /* D9LoginDialog.m */; };
@@ -53,6 +43,7 @@
 		9EE3E75617817D9A00990E4D /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
 		9EE3E75717817D9A00990E4D /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9EE3E75817817D9A00990E4D /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
+		9EF6BDD8178A52F90010F497 /* D9Resource.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EF6BDD7178A52F90010F497 /* D9Resource.bundle */; };
 		9EFE22901786A888008EAA0C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFE228E1786A888008EAA0C /* libcrypto.a */; };
 		9EFE22911786A888008EAA0C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFE228F1786A888008EAA0C /* libssl.a */; };
 		9EFE22F11786A896008EAA0C /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE22941786A896008EAA0C /* DataSigner.m */; };
@@ -84,16 +75,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Resources/";
 			dstSubfolderSpec = 0;
 			files = (
-				9EBC79B117795B6100E61955 /* d9_button_down.png in CopyFiles */,
-				9EBC79B217795B6100E61955 /* d9_button_normal.png in CopyFiles */,
-				9EBC79B317795B6100E61955 /* d9_checkbox_false.png in CopyFiles */,
-				9EBC79B417795B6100E61955 /* d9_checkbox_focus.png in CopyFiles */,
-				9EBC79B517795B6100E61955 /* d9_checkbox_true.png in CopyFiles */,
-				9EBC79B617795B6100E61955 /* d9_logo.png in CopyFiles */,
-				9EBC79B717795B6100E61955 /* d9_password.png in CopyFiles */,
-				9EBC79B817795B6100E61955 /* d9_progressbar_bg.jpg in CopyFiles */,
-				9EBC79B917795B6100E61955 /* d9_progressbar_bg2.png in CopyFiles */,
-				9EBC79BA17795B6100E61955 /* d9_username.png in CopyFiles */,
+				9EF6BDD8178A52F90010F497 /* D9Resource.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,16 +106,6 @@
 		9E92387B175C995100924B12 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		9E92387C175C995100924B12 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		9E92387D175C995100924B12 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		9EBC79A717795B3100E61955 /* d9_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_down.png; sourceTree = "<group>"; };
-		9EBC79A817795B3100E61955 /* d9_button_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_normal.png; sourceTree = "<group>"; };
-		9EBC79A917795B3100E61955 /* d9_checkbox_false.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_false.png; sourceTree = "<group>"; };
-		9EBC79AA17795B3100E61955 /* d9_checkbox_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_focus.png; sourceTree = "<group>"; };
-		9EBC79AB17795B3100E61955 /* d9_checkbox_true.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_checkbox_true.png; sourceTree = "<group>"; };
-		9EBC79AC17795B3100E61955 /* d9_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_logo.png; sourceTree = "<group>"; };
-		9EBC79AD17795B3100E61955 /* d9_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_password.png; sourceTree = "<group>"; };
-		9EBC79AE17795B3100E61955 /* d9_progressbar_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = d9_progressbar_bg.jpg; sourceTree = "<group>"; };
-		9EBC79AF17795B3100E61955 /* d9_progressbar_bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_progressbar_bg2.png; sourceTree = "<group>"; };
-		9EBC79B017795B3100E61955 /* d9_username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_username.png; sourceTree = "<group>"; };
 		9ECF519C17549A0E00487F96 /* libD9StudioSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libD9StudioSDK.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECF519F17549A0E00487F96 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9ECF51A317549A0E00487F96 /* D9StudioSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "D9StudioSDK-Prefix.pch"; sourceTree = "<group>"; };
@@ -144,6 +116,7 @@
 		9ECF51CF1754A8E200487F96 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9EE3E74C1781576900990E4D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		9EE3E74D1781576900990E4D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		9EF6BDD7178A52F90010F497 /* D9Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = D9Resource.bundle; sourceTree = "<group>"; };
 		9EFE228E1786A888008EAA0C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = D9StudioSDK/libcrypto.a; sourceTree = "<group>"; };
 		9EFE228F1786A888008EAA0C /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = D9StudioSDK/libssl.a; sourceTree = "<group>"; };
 		9EFE22931786A896008EAA0C /* DataSigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSigner.h; sourceTree = "<group>"; };
@@ -238,8 +211,6 @@
 		9EFE22EE1786A896008EAA0C /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		9EFE22EF1786A896008EAA0C /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		9EFE22F01786A896008EAA0C /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
-		9EFE22F91786B344008EAA0C /* d9_button_close_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_close_ipad.png; sourceTree = "<group>"; };
-		9EFE22FA1786B344008EAA0C /* d9_button_close_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = d9_button_close_iphone.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,18 +323,7 @@
 		9ECF51B71754A0C100487F96 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9EFE22F91786B344008EAA0C /* d9_button_close_ipad.png */,
-				9EFE22FA1786B344008EAA0C /* d9_button_close_iphone.png */,
-				9EBC79A717795B3100E61955 /* d9_button_down.png */,
-				9EBC79A817795B3100E61955 /* d9_button_normal.png */,
-				9EBC79A917795B3100E61955 /* d9_checkbox_false.png */,
-				9EBC79AA17795B3100E61955 /* d9_checkbox_focus.png */,
-				9EBC79AB17795B3100E61955 /* d9_checkbox_true.png */,
-				9EBC79AC17795B3100E61955 /* d9_logo.png */,
-				9EBC79AD17795B3100E61955 /* d9_password.png */,
-				9EBC79AE17795B3100E61955 /* d9_progressbar_bg.jpg */,
-				9EBC79AF17795B3100E61955 /* d9_progressbar_bg2.png */,
-				9EBC79B017795B3100E61955 /* d9_username.png */,
+				9EF6BDD7178A52F90010F497 /* D9Resource.bundle */,
 			);
 			path = Resources;
 			sourceTree = SOURCE_ROOT;

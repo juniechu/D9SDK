@@ -67,7 +67,12 @@
         [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
         [self addSubview:indicatorView];
         
-        closeBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
+        NSString* closePath = [bundle pathForResource:@"d9_btn_close" ofType:@"png"];
+//        NSLog(@"close path is[%@]",closePath);
+        UIImage* closeImage = [UIImage imageWithContentsOfFile:closePath];
 //        UIImage* closeImg = [UIImage imageNamed:@"d9_button_close_ipone.png"];
         
 //        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -77,8 +82,8 @@
 //            closeImg = [UIImage imageNamed:@"d9_button_close_iphone.png"];
 //        }
         [closeBtn setFrame:CGRectMake(kD9ScreenHeight - 30, 0, 30, 30)];
-//        [closeBtn setImage:closeImg forState:UIControlStateNormal];
-//        [closeBtn setImage:closeImg forState:UIControlStateSelected];
+        [closeBtn setImage:closeImage forState:UIControlStateNormal];
+        [closeBtn setImage:closeImage forState:UIControlStateSelected];
         
         [closeBtn addTarget:self action:@selector(closePayView:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeBtn];
