@@ -132,7 +132,7 @@ typedef enum {
     NSString *paramString = @"";
     paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, self.appID];
     if (DEBUG_PAY) {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, @"1234567890"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, @"1374217427-10016161"];
     } else {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, [self generateUniqueOrderId]];
     }
@@ -145,9 +145,9 @@ typedef enum {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayDescription, payDescription];
     }
     if (DEBUG_PAY) {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, @"12-34-56-78"];
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, @"5.0"];
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, @"android"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, @"34-15-9E-7C-D8-70"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, @"5.1.1"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, @"iPod-touch"];
     } else {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, [D9SDKUtil getMacAddress]];
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, [[UIDevice currentDevice] systemVersion]];
@@ -157,7 +157,7 @@ typedef enum {
     paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9RoleID, roleID];
     paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9TotalMoney, totalMoney];
     if (DEBUG_PAY) {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10000001"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10016161"];
     } else {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, self.userID];
     }
@@ -228,7 +228,7 @@ typedef enum {
     NSString *paramString = @"";
     paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, self.appID];
     if (DEBUG_PAY) {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10000001"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10016161"];
     } else {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, self.userID];
     }
@@ -247,10 +247,10 @@ typedef enum {
     }
     
     if (DEBUG_PAY) {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, @"1234567890"];
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, @"android"];
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, @"5.0"];
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, @"12-34-56-78"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, @"1374217427-10016161"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, @"iPod-touch"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhonePattern, @"5.1.1"];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneMac, @"34-15-9E-7C-D8-70"];
     } else {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, [self generateUniqueOrderId]];
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9PayPhoneType, [[UIDevice currentDevice] model]];
@@ -280,9 +280,9 @@ typedef enum {
         withUsername:(NSString *)username
             password:(NSString *)password
 {
-//    if (DEBUG_LOG) {
+    if (DEBUG_LOG) {
         NSLog(@"pass word is:%@, length = %d", password, [password length]);
-//    }
+    }
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
                             password, kD9Password, nil];
     

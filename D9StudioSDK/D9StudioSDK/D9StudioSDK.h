@@ -46,15 +46,15 @@
 @property (nonatomic, retain) NSString *userID;
 @property (nonatomic, retain) D9Request *request;
 @property (nonatomic, assign) id<D9StudioSDKDelegate> delegate;
-//@property (nonatomic, retain) D9LoginDialog * loginView;
 
 /*
  * Initialize an instance with your client AppID and AppKey
  */
 - (id) initWithAppID:(NSString *)theAppID andAppKey:(NSString *)theAppKey;
 
-/* log in method, open the login dialog.
- * If succeed, d9SDKDidLogin will be called.
+/* Log in method, open the login dialog.
+ * If succeed, d9SDKDidLogin will be called,
+ * Else, d9SDK didFailToLogInWithError will be called.
  */
 - (void) login;
 
@@ -68,7 +68,13 @@
  */
 - (BOOL) isLoggedIn;
 
-/* 
+/* Pay View, open the pay view dialog
+ * @param roleID the login account role id
+ * @param goodsId your goods id
+ * @param goodsCnt your buy goods count
+ * @param goodsName your goods name
+ * @param totalMoney your goods cost in CNY
+ * @param payDescription extra description, can be nil or ""
  */
 - (void) enterPayViewWithRoleId:(NSString *)roleID
                      andGoodsId:(NSString *)goodsId

@@ -123,6 +123,7 @@
         [_usernameTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [_usernameTextField setReturnKeyType:UIReturnKeyNext];
         [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+        [_usernameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
 //        [_usernameTextField.window makeKeyWindow];
 //        [_usernameTextField.window makeKeyAndVisible];
         
@@ -631,6 +632,9 @@
     } else if (textField == _passwordTextField) {
         [textField resignFirstResponder];
     }
+
+//    [textField resignFirstResponder];
+
     return YES;
 }
 

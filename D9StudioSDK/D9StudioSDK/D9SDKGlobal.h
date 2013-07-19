@@ -24,7 +24,7 @@
 
 
 #define DEBUG_LOG       0
-#define DEBUG_PAY       0       // test data
+#define DEBUG_PAY       0               // test data
 
 
 #define __RegistType                    @"1"    // 0：手机端快速注册，1：手机端注册，2:web端快速注册，3：web端注册

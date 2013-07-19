@@ -94,7 +94,7 @@
 #pragma mark -- Private
 - (void) payBtnClick
 {
-    [engine enterPayViewWithRoleId:@"7910" andGoodsId:@"30001" andGoodsCnt:@"1" andGoodsName:@"少量钻石" andTotalMoney:@"1" andPayDes:@""];
+    [engine enterPayViewWithRoleId:@"135682564" andGoodsId:@"30001" andGoodsCnt:@"1" andGoodsName:@"小量钻石" andTotalMoney:@"1" andPayDes:@"768-255-135682564-30001-1"];
 }
 
 - (void) logoutClick
