@@ -1,6 +1,6 @@
-DependentApp 为接入D9SDK的Sample程序
+***DependentApp 为接入D9SDK的Sample程序***
 
-D9StudioSDK 为登陆支付的framework
+***D9StudioSDK 为登陆支付的framework***
 
 ---
 

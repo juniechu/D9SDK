@@ -25,6 +25,8 @@
 - (void) resignKeyboard;
 - (void) btnClicked:(UIButton *)sender;
 - (BOOL) isInputValid;
+// For Android users whose username less than 6
+- (BOOL) isLoginInputValid;
 
 - (void) saveSettingToDefault;
 - (void) readSettingFromDefault;
@@ -84,7 +86,7 @@
         NSString* logoPath = [bundle pathForResource:@"d9_logo" ofType:@"png"];
         UIImage* logoImage = [UIImage imageWithContentsOfFile:logoPath];
         if (!logoImage) {
-            NSLog(@"Resource not found! Please add Resource into your project.");
+            NSLog(@"D9StudioSDK >> [Resource not found! Please add Resource into your project.]");
         }
         UIImageView * logoView = [[UIImageView alloc] initWithImage:logoImage];
         [logoView setFrame:CGRectMake(10, 10, logoImage.size.width * 0.5, logoImage.size.height * 0.5)];
@@ -400,12 +402,13 @@
             NSLog(@"%@, %@", userName, passWord);
         }
         
-        if (![self isInputValid]) {
+        if (![self isLoginInputValid]) {
             [indicatorView stopAnimating];
             return;
         }
         if ([passWord length] != 32) {
-            passWord = [passWord MD5EncodedString];
+            NSString* tmpString = [NSString stringWithFormat:@"%@%@", passWord, userName];
+            passWord = [tmpString MD5EncodedString];
         }
         [self saveSettingDefault];
         
@@ -451,7 +454,8 @@
             return;
         }
         if ([passWord length] != 32) {
-            passWord = [passWord MD5EncodedString];
+            NSString* tmpString = [NSString stringWithFormat:@"%@%@", passWord, userName];
+            passWord = [tmpString MD5EncodedString];
         }
         [self saveSettingDefault];
         
@@ -485,9 +489,18 @@
     }
 }
 
+- (BOOL) isLoginInputValid
+{
+    if (!userName || !passWord || [userName isEqual:@""] || [passWord isEqual:@""]) {
+        [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
+        return NO;
+    }
+    return YES;
+}
+
 - (BOOL) isInputValid
 {
-    if (!userName || !passWord) {
+    if (!userName || !passWord || [userName isEqual:@""] || [passWord isEqual:@""]) {
         [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
         return NO;
     }

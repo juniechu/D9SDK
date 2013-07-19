@@ -48,7 +48,7 @@
 
 - (NSString *)MD5EncodedString
 {
-	return [[self dataUsingEncoding:NSUTF8StringEncoding] MD5EncodedString];
+	return [[[self dataUsingEncoding:NSUTF8StringEncoding] MD5EncodedString] lowercaseString];
 }
 
 - (NSData *)HMACSHA1EncodedDataWithKey:(NSString *)key

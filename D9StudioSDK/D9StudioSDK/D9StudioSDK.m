@@ -280,9 +280,9 @@ typedef enum {
         withUsername:(NSString *)username
             password:(NSString *)password
 {
-    if (DEBUG_LOG) {
+//    if (DEBUG_LOG) {
         NSLog(@"pass word is:%@, length = %d", password, [password length]);
-    }
+//    }
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
                             password, kD9Password, nil];
     
