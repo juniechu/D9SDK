@@ -7,15 +7,15 @@
 //
 
 #import "D9StudioSDK.h"
-#import "D9LoginDialog.h"
+
 #import "D9SDKGlobal.h"
-#import "D9Request.h"
+
 #import "D9SDKUtil.h"
 #import "D9PayWebView.h"
 #import "DataSigner.h"
+#import "MobClick.h"
 
 #define kD9KeychainUserID               @"D9UserID"
-#define kD9KeychainAuto                 @"D9AutoLogin"
 
 typedef enum {
     kD9LoginScene       = 0,
@@ -53,6 +53,8 @@ typedef enum {
 
 - (id) initWithAppID:(NSString *)theAppID andAppKey:(NSString *)theAppKey {
     if (self = [super init]) {
+        [MobClick startWithAppkey:@"51ff1d4b56240b47680fa823" reportPolicy:REALTIME channelId:nil];
+        
         self.appID = theAppID;
         self.appKey = theAppKey;
         
@@ -85,7 +87,8 @@ typedef enum {
 - (void) saveToKeychain
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setObject:userID forKey:kD9KeychainUserID];
+    NSString* uIDKey = [NSString stringWithFormat:@"%@%@", kD9KeychainUserID, appID];
+    [userDefault setObject:userID forKey:uIDKey];
     
     [userDefault synchronize];
 }
@@ -93,7 +96,8 @@ typedef enum {
 - (void) readFromKeychain
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    self.userID = [userDefault stringForKey:kD9KeychainUserID];
+    NSString* uIDKey = [NSString stringWithFormat:@"%@%@", kD9KeychainUserID, appID];
+    self.userID = [userDefault stringForKey:uIDKey];
 }
 
 - (void) deleteInKeychain
@@ -107,7 +111,8 @@ typedef enum {
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
 
-    [userDefault setBool:false forKey:kD9DefaultAuto];
+    NSString* autoKey = [NSString stringWithFormat:@"%@%@", kD9DefaultAuto, appID];
+    [userDefault setBool:false forKey:autoKey];
     
     [userDefault synchronize];
 }
@@ -193,6 +198,8 @@ typedef enum {
         }
     }
     // 未登陆，进行登陆操作
+    [MobClick event:@"d9LoginMethod"];
+    
     loginView = [[D9LoginDialog alloc] initWithAppID:self.appID];
     [loginView setDelegate:self];
     [loginView show:YES];
@@ -204,6 +211,9 @@ typedef enum {
     [self deleteInKeychain];
 
     [self deleteLoginData];
+    
+    [MobClick event:@"d9LogoutMethod"];
+    
     if ([delegate respondsToSelector:@selector(d9SDKDidLogOut:)]) {
         [delegate d9SDKDidLogOut:self];
     }
@@ -259,17 +269,15 @@ typedef enum {
     }
     
     paramString = [D9SDKUtil toUTF8ConvertString:paramString];
-
     paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9Sign, signString];
-    
     urlString = [urlString stringByAppendingFormat:@"?%@", paramString];
     
     
-    
     NSLog(@"D9StudioSDK: url string is:%@", urlString);
-
     NSURL *url = [NSURL URLWithString:urlString];
 
+    [MobClick event:@"d9PayMethod"];
+    
     [payView loadRequestWithURL:url];
     [payView showPayView:NO];
 }
@@ -355,10 +363,13 @@ typedef enum {
         
         // If success, save username and password, 
         if (resultCode == kD9LoginErrorPwd) {
+            [MobClick event:@"d9LoginError" label:@"ErrorPwd"];
             [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
         } else if (resultCode == kD9LoginErrorNil) {
+            [MobClick event:@"d9LoginError" label:@"ErrorNil"];
             [D9SDKUtil showAlertViewWithMsg:@"账户不存在"];
         } else if (resultCode == kD9LoginErrorFail) {
+            [MobClick event:@"d9LoginError" label:@"ErrorFail"];
             [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
         } else {
             // success, save user custom setting
@@ -376,10 +387,13 @@ typedef enum {
     } else if (sceneType == kD9RegistScene) {
 
         if (resultCode == kD9LoginErrorPwd) {
+            [MobClick event:@"d9RegError" label:@"ErrorPwd"];
             [D9SDKUtil showAlertViewWithMsg:@"账号已经存在"];
         } else if (resultCode == kD9LoginErrorNil) {
+            [MobClick event:@"d9RegError" label:@"ErrorNil"];
             [D9SDKUtil showAlertViewWithMsg:@"提交参数有误"];
         } else if (resultCode == kD9LoginErrorFail) {
+            [MobClick event:@"d9RegError" label:@"ErrorFail"];
             [D9SDKUtil showAlertViewWithMsg:@"其他错误"];
         } else {
             // success, save user custom setting

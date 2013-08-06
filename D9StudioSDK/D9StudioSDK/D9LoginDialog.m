@@ -10,6 +10,7 @@
 #import "D9SDKUtil.h"
 #import "D9SDKGlobal.h"
 #import "SFHFKeychainUtils.h"
+#import "MobClick.h"
 
 #define kD9URLSchemePrefix              @"D9_"
 #define kD9KeychainServiceNameSuffix    @"_ServiceName"
@@ -71,7 +72,9 @@
         isRemember = true;
         
         // 背景
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:200 alpha:0.8];
+        NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
+        NSString* bgPath = [bundle pathForResource:@"d9_background" ofType:@"jpg"];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:bgPath]];
         self.autoresizesSubviews = YES;
         
         // button to resign keyborad
@@ -81,93 +84,71 @@
         [self addSubview:resignBtn];
         
         // Head Logo
-//        UIImage * logoImage = [UIImage imageNamed:@"d9_logo.png"];
-        NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
         NSString* logoPath = [bundle pathForResource:@"d9_logo" ofType:@"png"];
         UIImage* logoImage = [UIImage imageWithContentsOfFile:logoPath];
         if (!logoImage) {
             NSLog(@"D9StudioSDK >> [Resource not found! Please add Resource into your project.]");
         }
         UIImageView * logoView = [[UIImageView alloc] initWithImage:logoImage];
-        [logoView setFrame:CGRectMake(10, 10, logoImage.size.width * 0.5, logoImage.size.height * 0.5)];
+        [logoView setFrame:CGRectMake((kD9ScreenHeight - logoImage.size.width) * 0.5, 30, logoImage.size.width, logoImage.size.height)];
         
         [self insertSubview:logoView belowSubview:resignBtn];
         [logoView release];
         
         // User Name
-        UIView *usernameView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [usernameView setBackgroundColor:[UIColor grayColor]];
-//        UIImage * usernameImage = [UIImage imageNamed:@"d9_username.png"];
         NSString* usernamePath = [bundle pathForResource:@"d9_username" ofType:@"png"];
         UIImage* usernameImage = [UIImage imageWithContentsOfFile:usernamePath];
         
         UIImageView * usernameImageView = [[UIImageView alloc] initWithImage:usernameImage];
-        [usernameImageView setFrame:CGRectMake(15 - usernameImage.size.width * 0.5, 15 - usernameImage.size.height * 0.5, usernameImage.size.width, usernameImage.size.height)];
-        [usernameView addSubview:usernameImageView];
-        [usernameImageView release];
+        [usernameImageView setFrame:CGRectMake(305, 274, 416, 36)];
+        [self insertSubview:usernameImageView aboveSubview:resignBtn];
         
         // landscape
-        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 70, 230, 30)];
-        [_usernameTextField setBackgroundColor:[UIColor whiteColor]];
+        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(362, 274, 350, 36)];
+        [_usernameTextField setBackgroundColor:[UIColor clearColor]];
         [_usernameTextField setTextColor:[UIColor blackColor]];
         [_usernameTextField setDelegate:self];
         //TODO: use NSLocalizedString() instead
         [_usernameTextField setPlaceholder:@"用户名："];
         [_usernameTextField setTextAlignment:NSTextAlignmentLeft];
-        [_usernameTextField setFont:[UIFont fontWithName:kFontTimes size:20]];
+        [_usernameTextField setFont:[UIFont fontWithName:kFontTimes size:18]];
         [_usernameTextField setAdjustsFontSizeToFitWidth:NO];
         [_usernameTextField setBorderStyle:UITextBorderStyleNone];
         [_usernameTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-        [_usernameTextField setLeftView:usernameView];
-        [_usernameTextField setLeftViewMode:UITextFieldViewModeAlways];
         [_usernameTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [_usernameTextField setReturnKeyType:UIReturnKeyNext];
         [_usernameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [_usernameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
-//        [_usernameTextField.window makeKeyWindow];
-//        [_usernameTextField.window makeKeyAndVisible];
         
-        [usernameView release];
-        
-        [self insertSubview:_usernameTextField aboveSubview:resignBtn];
+        [self insertSubview:_usernameTextField aboveSubview:usernameImageView];
         
         if (userName) {
             [_usernameTextField setText:userName];
         }
         
         // Pass Word
-        UIView * passwordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        [passwordView setBackgroundColor:[UIColor grayColor]];
-//        UIImage * passwordImage = [UIImage imageNamed:@"d9_password.png"];
         NSString* passwordPath = [bundle pathForResource:@"d9_password" ofType:@"png"];
         UIImage* passwordImage = [UIImage imageWithContentsOfFile:passwordPath];
         UIImageView * passwordImageView = [[UIImageView alloc] initWithImage:passwordImage];
-        [passwordImageView setFrame:CGRectMake(15 - passwordImage.size.width * 0.5, 15 - passwordImage.size.height * 0.5, passwordImage.size.width, passwordImage.size.height)];
-        [passwordView addSubview:passwordImageView];
-        [passwordImageView release];
-        
-//        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(45, 190, 230, 30)];
-        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(125, 110, 230, 30)];
-        [_passwordTextField setBackgroundColor:[UIColor whiteColor]];
+        [passwordImageView setFrame:CGRectMake(305, 321, 416, 36)];
+        [self insertSubview:passwordImageView aboveSubview:resignBtn];
+
+        _passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(362, 321, 350, 36)];
+        [_passwordTextField setBackgroundColor:[UIColor clearColor]];
         [_passwordTextField setTextColor:[UIColor blackColor]];
         [_passwordTextField setDelegate:self];
         [_passwordTextField setPlaceholder:@"密码："];
         [_passwordTextField setTextAlignment:NSTextAlignmentLeft];
-        [_passwordTextField setFont:[UIFont fontWithName:kFontTimes size:20]];
+        [_passwordTextField setFont:[UIFont fontWithName:kFontTimes size:18]];
         [_passwordTextField setAdjustsFontSizeToFitWidth:NO];
         [_passwordTextField setClearsOnBeginEditing:YES];
         [_passwordTextField setBorderStyle:UITextBorderStyleNone];
         [_passwordTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
-        [_passwordTextField setLeftView:passwordView];
-        [_passwordTextField setLeftViewMode:UITextFieldViewModeAlways];
         [_passwordTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
         [_passwordTextField setSecureTextEntry:YES];
         [_passwordTextField setReturnKeyType:UIReturnKeyGo];
-        
-        [passwordView release];
-        
-        //        [self addSubview:_passwordTextField];
-        [self insertSubview:_passwordTextField aboveSubview:resignBtn];
+
+        [self insertSubview:_passwordTextField aboveSubview:passwordImageView];
         
         if (isRemember && passWord) {
             [_passwordTextField setText:passWord];
@@ -175,21 +156,17 @@
         
         // Remember Password
         _rememberPassword = [UIButton buttonWithType:UIButtonTypeCustom];
-//        CGRect rememberCheckboxRect = CGRectMake(45, 230, 15, 15);
-        CGRect rememberCheckboxRect = CGRectMake(125, 150, 15, 15);
+
+        CGRect rememberCheckboxRect = CGRectMake(376, 378, 96, 21);
         [_rememberPassword setFrame:rememberCheckboxRect];
         
-        NSString* ckbxFalsePath = [bundle pathForResource:@"d9_checkbox_false" ofType:@"png"];
-        UIImage* ckbxFalseImage = [UIImage imageWithContentsOfFile:ckbxFalsePath];
-        [_rememberPassword setImage:ckbxFalseImage forState:UIControlStateNormal];
+        NSString* rememberFalsePath = [bundle pathForResource:@"d9_remember_false" ofType:@"png"];
+        UIImage* rememberFalseImage = [UIImage imageWithContentsOfFile:rememberFalsePath];
+        [_rememberPassword setImage:rememberFalseImage forState:UIControlStateNormal];
         
-        NSString* ckbxFocusPath = [bundle pathForResource:@"d9_checkbox_focus" ofType:@"png"];
-        UIImage* ckbxFocusImage = [UIImage imageWithContentsOfFile:ckbxFocusPath];
-        [_rememberPassword setImage:ckbxFocusImage forState:UIControlStateHighlighted];
-        
-        NSString* ckbxTruePath = [bundle pathForResource:@"d9_checkbox_true" ofType:@"png"];
-        UIImage* ckbxTrueImage = [UIImage imageWithContentsOfFile:ckbxTruePath];
-        [_rememberPassword setImage:ckbxTrueImage forState:UIControlStateSelected];
+        NSString* rememberTruePath = [bundle pathForResource:@"d9_remember_true" ofType:@"png"];
+        UIImage* rememberTrueImage = [UIImage imageWithContentsOfFile:rememberTruePath];
+        [_rememberPassword setImage:rememberTrueImage forState:UIControlStateSelected];
         
         [_rememberPassword addTarget:self action:@selector(checkboxClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -199,63 +176,39 @@
             [_rememberPassword setSelected:YES];
         }
         
-//        _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
-        _lblRemember = [[UILabel alloc] initWithFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
-        [_lblRemember setBackgroundColor:[UIColor clearColor]];
-        [_lblRemember setFont:[UIFont fontWithName:kFontTimes size:13]];
-        [_lblRemember setText:@"记住密码"];
-        [_lblRemember setTextColor:[UIColor whiteColor]];
-        //        [lblRemember setShadowColor:[UIColor colorWithWhite:0.1 alpha:0.8]];
-        //        [lblRemember setShadowOffset:CGSizeMake(1.0, 1.0)];
-        [_lblRemember setTextAlignment:NSTextAlignmentLeft];
-        
-        [self insertSubview:_lblRemember belowSubview:resignBtn];
-        
         
         // Auto Login
         _autoLogin = [UIButton buttonWithType:UIButtonTypeCustom];
-//        CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 230, 15, 15);
-        CGRect autoCheckboxRect = CGRectMake(winSize.width * 0.5, 150, 15, 15);
+        CGRect autoCheckboxRect = CGRectMake(532, 378, 96, 21);
         [_autoLogin setFrame:autoCheckboxRect];
+
+        NSString* autologinFalsePath = [bundle pathForResource:@"d9_autologin_false" ofType:@"png"];
+        UIImage* autologinFalseImage = [UIImage imageWithContentsOfFile:autologinFalsePath];
+        [_autoLogin setImage:autologinFalseImage forState:UIControlStateNormal];
         
-        [_autoLogin setImage:ckbxFalseImage forState:UIControlStateNormal];
-        [_autoLogin setImage:ckbxFocusImage forState:UIControlStateHighlighted];
-        [_autoLogin setImage:ckbxTrueImage forState:UIControlStateSelected];
+        NSString* autologinTruePath = [bundle pathForResource:@"d9_autologin_true" ofType:@"png"];
+        UIImage* autologinTrueImage = [UIImage imageWithContentsOfFile:autologinTruePath];
+        [_autoLogin setImage:autologinTrueImage forState:UIControlStateSelected];
         
         [_autoLogin addTarget:self action:@selector(checkboxClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self insertSubview:_autoLogin aboveSubview:resignBtn];
         
         if (isAuto) {
+            NSLog(@"it is auto.");
             [_autoLogin setSelected:YES];
         }
         
-//        _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
-        _lblAuto = [[UILabel alloc] initWithFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
-        [_lblAuto setBackgroundColor:[UIColor clearColor]];
-        [_lblAuto setFont:[UIFont fontWithName:kFontTimes size:13]];
-        [_lblAuto setText:@"自动登陆"];
-        [_lblAuto setTextColor:[UIColor whiteColor]];
-        [_lblAuto setTextAlignment:NSTextAlignmentLeft];
-        
-        [self insertSubview:_lblAuto belowSubview:resignBtn];
-        
         // Login Button
         _loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
-        [_loginBtn setFrame:CGRectMake(125, 185, 230, 40)];
+        [_loginBtn setFrame:CGRectMake(359, 419, 309, 39)];
         
+        NSString* btnLoginNormalPath = [bundle pathForResource:@"d9_button_login" ofType:@"png"];
+        UIImage* btnLoginNormalImage = [UIImage imageWithContentsOfFile:btnLoginNormalPath];
+        [_loginBtn setBackgroundImage:btnLoginNormalImage forState:UIControlStateNormal];
         
-        [_loginBtn setTitle:@"登陆" forState:UIControlStateNormal];
-        [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_loginBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
-        
-        NSString* btnNormalPath = [bundle pathForResource:@"d9_button_normal" ofType:@"png"];
-        UIImage* btnNormalImage = [UIImage imageWithContentsOfFile:btnNormalPath];
-        [_loginBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
-        
-        NSString* btnDownPath = [bundle pathForResource:@"d9_button_down" ofType:@"png"];
-        UIImage* btnDownImage = [UIImage imageWithContentsOfFile:btnDownPath];
-        [_loginBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
+        NSString* btnLoginPressedPath = [bundle pathForResource:@"d9_button_login_pressed" ofType:@"png"];
+        UIImage* btnLoginPressedImage = [UIImage imageWithContentsOfFile:btnLoginPressedPath];
+        [_loginBtn setBackgroundImage:btnLoginPressedImage forState:UIControlStateSelected];
         
         
         [_loginBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -264,13 +217,11 @@
         
         // To Register Button
         _toRegBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_toRegBtn setFrame:CGRectMake(60, 335, 200, 20)];
-        [_toRegBtn setFrame:CGRectMake(140, 255, 200, 20)];
-        
-        [_toRegBtn setTitle:@"还没账号？快来这里注册！" forState:UIControlStateNormal];
-        [_toRegBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
-        [_toRegBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
+        [_toRegBtn setFrame:CGRectMake(412, 473, 200, 20)];
+
+        NSString* btnRegistHerePath = [bundle pathForResource:@"d9_regist_here" ofType:@"png"];
+        UIImage* btnRegistHereImage = [UIImage imageWithContentsOfFile:btnRegistHerePath];
+        [_toRegBtn setBackgroundImage:btnRegistHereImage forState:UIControlStateNormal];
         
         [_toRegBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -279,15 +230,15 @@
         
         // Register Button
         _regBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
-        [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
+        [_regBtn setFrame:CGRectMake(347, 392, 153, 39)];
         
-        [_regBtn setTitle:@"注册" forState:UIControlStateNormal];
-        [_regBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_regBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
+        NSString* btnRegistPath = [bundle pathForResource:@"d9_button_regist" ofType:@"png"];
+        UIImage* btnRegistImage = [UIImage imageWithContentsOfFile:btnRegistPath];
+        [_regBtn setBackgroundImage:btnRegistImage forState:UIControlStateNormal];
         
-        [_regBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
-        [_regBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
+        NSString* btnRegistPressedPath = [bundle pathForResource:@"d9_button_regist_pressed" ofType:@"png"];
+        UIImage* btnRegistPressedImage = [UIImage imageWithContentsOfFile:btnRegistPressedPath];
+        [_regBtn setBackgroundImage:btnRegistPressedImage forState:UIControlStateSelected];
         
         [_regBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -297,14 +248,16 @@
         
         // Random Button
         _randomBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 240, winSize.width * 0.5 - 50, 40)];
-        [_randomBtn setFrame:CGRectMake(winSize.width * 0.5 + 5, 160, winSize.width * 0.5 - 130, 40)];
-        [_randomBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_randomBtn setTitle:@"随机账号" forState:UIControlStateNormal];
-        [_randomBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
+        [_randomBtn setFrame:CGRectMake(526, 392, 153, 39)];
+
         
-        [_randomBtn setBackgroundImage:btnNormalImage forState:UIControlStateNormal];
-        [_randomBtn setBackgroundImage:btnDownImage forState:UIControlStateSelected];
+        NSString* btnRandomPath = [bundle pathForResource:@"d9_button_random" ofType:@"png"];
+        UIImage* btnRandomImage = [UIImage imageWithContentsOfFile:btnRandomPath];
+        [_randomBtn setBackgroundImage:btnRandomImage forState:UIControlStateNormal];
+        
+        NSString* btnRandomPressedPath = [bundle pathForResource:@"d9_button_random_pressed" ofType:@"png"];
+        UIImage* btnRandomPressedImage = [UIImage imageWithContentsOfFile:btnRandomPressedPath];
+        [_randomBtn setBackgroundImage:btnRandomPressedImage forState:UIControlStateSelected];
         
         [_randomBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -313,12 +266,12 @@
         
         // To Login Button
         _toLogBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_toLogBtn setFrame:[_toRegBtn frame]];
+        [_toLogBtn setFrame:CGRectMake(410, 454, 207, 17)];
+
         
-        [_toLogBtn setTitle:@"已有账号了？点这里登录！" forState:UIControlStateNormal];
-        [_toLogBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        
-        [_toLogBtn.titleLabel setFont:[UIFont fontWithName:kFontTimes size:15]];
+        NSString* btnToLoginPath = [bundle pathForResource:@"d9_login_here" ofType:@"png"];
+        UIImage* btnToLoginImage = [UIImage imageWithContentsOfFile:btnToLoginPath];
+        [_toLogBtn setBackgroundImage:btnToLoginImage forState:UIControlStateNormal];
         
         [_toLogBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -339,6 +292,7 @@
             [self performSelector:@selector(btnClicked:) withObject:_loginBtn afterDelay:0.5];
         }
         
+        [MobClick event:@"d9LoginView"];
     }
     return self;
 }
@@ -347,8 +301,6 @@
 {
     [_usernameTextField release], _usernameTextField = nil;
     [_passwordTextField release], _passwordTextField = nil;
-    [_lblRemember release], _lblRemember = nil;
-    [_lblAuto release], _lblAuto = nil;
     [userName release], userName = nil;
     [passWord release], passWord = nil;
     
@@ -367,8 +319,10 @@
 - (void) checkboxClicked:(UIButton *)btn
 {
     if (btn == _rememberPassword) {
+        [MobClick event:@"d9BtnRem"];
         isRemember = !isRemember;
     } else if (btn == _autoLogin) {
+        [MobClick event:@"d9BtnAuto"];
         isAuto = !isAuto;
     }
     btn.selected = !btn.selected;
@@ -418,29 +372,29 @@
             [delegate loginDialog:self withUsername:userName password:passWord];
         }
         
-        
+        [MobClick event:@"d9BtnLogin"];
     } else if (sender == _toRegBtn) {
         [_rememberPassword setHidden:YES];
         [_autoLogin setHidden:YES];
-        [_lblRemember setHidden:YES];
-        [_lblAuto setHidden:YES];
         [_loginBtn setHidden:YES];
         [_toRegBtn setHidden:YES];
         
         [_toLogBtn setHidden:NO];
         [_regBtn setHidden:NO];
         [_randomBtn setHidden:NO];
+        
+        [MobClick event:@"d9BtnToReg"];
     } else if (sender == _toLogBtn) {
         [_rememberPassword setHidden:NO];
         [_autoLogin setHidden:NO];
-        [_lblRemember setHidden:NO];
-        [_lblAuto setHidden:NO];
         [_loginBtn setHidden:NO];
         [_toRegBtn setHidden:NO];
         
         [_toLogBtn setHidden:YES];
         [_regBtn setHidden:YES];
         [_randomBtn setHidden:YES];
+        
+        [MobClick event:@"d9BtnToLogin"];
     } else if (sender == _regBtn) {
         [indicatorView startAnimating];
         
@@ -464,7 +418,7 @@
             [delegate registDialog:self withUsername:userName password:passWord];
         }
 
-        
+        [MobClick event:@"d9BtnReg"];
     } else if (sender == _randomBtn) {
         NSString *randomName = @"u";
         NSString *randomWord = @"";
@@ -487,6 +441,8 @@
         _passwordTextField.text = randomWord;
         
         [_passwordTextField setSecureTextEntry:NO];
+        
+        [MobClick event:@"d9BtnRandom"];
     }
 }
 
@@ -567,8 +523,11 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
 
     [self saveAccountDataToKeychain];
-    [userDefault setBool:isRemember forKey:kD9DefaultRemember];
-    [userDefault setBool:isAuto forKey:kD9DefaultAuto];
+    
+    NSString* remKey = [NSString stringWithFormat:@"%@%@", kD9DefaultRemember, d9AppID];
+    [userDefault setBool:isRemember forKey:remKey];
+    NSString* autoKey = [NSString stringWithFormat:@"%@%@", kD9DefaultAuto, d9AppID];
+    [userDefault setBool:isAuto forKey:autoKey];
     
     [userDefault synchronize];
 }
@@ -576,8 +535,10 @@
 - (void) readSettingFromDefault
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    isRemember = [userDefault boolForKey:kD9DefaultRemember];
-    isAuto = [userDefault boolForKey:kD9DefaultAuto];
+    NSString* remKey = [NSString stringWithFormat:@"%@%@", kD9DefaultRemember, d9AppID];
+    isRemember = [userDefault boolForKey:remKey];
+    NSString* autoKey = [NSString stringWithFormat:@"%@%@", kD9DefaultAuto, d9AppID];
+    isAuto = [userDefault boolForKey:autoKey];
 
     [self readAccountDataFromKeychain];
     if (DEBUG_LOG) {
@@ -592,8 +553,10 @@
     isAuto = false;
 
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    [userDefault setBool:isRemember forKey:kD9DefaultRemember];
-    [userDefault setBool:isAuto forKey:kD9DefaultAuto];
+    NSString* remKey = [NSString stringWithFormat:@"%@%@", kD9DefaultRemember, d9AppID];
+    [userDefault setBool:isRemember forKey:remKey];
+    NSString* autoKey = [NSString stringWithFormat:@"%@%@", kD9DefaultAuto, d9AppID];
+    [userDefault setBool:isAuto forKey:autoKey];
     
     [userDefault synchronize];
 }
@@ -645,7 +608,9 @@
     /* iOS5 bug, 第一次无法正确传入方向，statusBarOrientation第一次始终为portrait
      * 初始化view中，不是AppDelegate中，加入[[UIApplication sharedApplication] setStatusBarOrientation:UIInterfaceOrientationLandScapeRight];
      */
-    [self sizeToFitOrientation:[self currentOrientation]];
+    
+    // 只有iPad效果图和图素，只考虑iPad，去除自适配。
+//    [self sizeToFitOrientation:[self currentOrientation]];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     if (!window) {
@@ -658,15 +623,15 @@
         [window.rootViewController.view bringSubviewToFront:self];
     }
     
-    //TODO: animated action
-    
-    [self addObservers];
+    //--TODO: animated action
+    // 只有iPad效果图和图素，只考虑iPad，去除自适配。
+//    [self addObservers];
 }
 
 - (void) hide:(BOOL)animated
 {
     [self removeObservers];
-    //TODO: animated action
+    //--TODO: animated action
     [self removeFromSuperview];
 }
 
@@ -679,10 +644,6 @@
 - (void)sizeToFitOrientation:(UIInterfaceOrientation)orientation
 {
     [self setTransform:CGAffineTransformIdentity];
-//    CGRect screenFrame = [UIScreen mainScreen].applicationFrame;
-//    CGPoint screenCenter = CGPointMake(
-//                                       screenFrame.origin.x + ceil(screenFrame.size.width / 2),
-//                                       screenFrame.origin.y + ceil(screenFrame.size.height / 2));
     
     if (UIInterfaceOrientationIsLandscape(orientation))
     {
@@ -698,9 +659,7 @@
             [_usernameTextField setFrame:CGRectMake(125, 70, kD9ScreenHeight-2*125, 30)];
             [_passwordTextField setFrame:CGRectMake(125, 110, kD9ScreenHeight-2*125, 30)];
             [_rememberPassword setFrame:CGRectMake(125, 150, 15, 15)];
-            [_lblRemember setFrame:CGRectMake(140, 150, winSize.width * 0.5 - 140, 15)];
             [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 150, 15, 15)];
-            [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 150, winSize.width * 0.5 - 140, 15)];
             [_loginBtn setFrame:CGRectMake(125, 185, kD9ScreenHeight-2*125, 40)];
             [_toRegBtn setFrame:CGRectMake(kD9ScreenHeight * 0.5 - 100, 255, 200, 20)];
             [_regBtn setFrame:CGRectMake(125, 160, winSize.width * 0.5 - 130, 40)];
@@ -708,7 +667,7 @@
             [_toLogBtn setFrame:[_toRegBtn frame]];
             [indicatorView setCenter:CGPointMake(kD9ScreenHeight * 0.5, kD9ScreenWidth * 0.5)];
 //        } else {
-        
+        //TODO:区分iPad和iPhone
 //        }
         [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
@@ -725,9 +684,7 @@
         [_usernameTextField setFrame:CGRectMake(45, 150, kD9ScreenWidth-2*45, 30)];
         [_passwordTextField setFrame:CGRectMake(45, 190, kD9ScreenWidth-2*45, 30)];
         [_rememberPassword setFrame:CGRectMake(45, 230, 15, 15)];
-        [_lblRemember setFrame:CGRectMake(60, 230, winSize.width * 0.5 - 60, 15)];
         [_autoLogin setFrame:CGRectMake(winSize.width * 0.5, 230, 15, 15)];
-        [_lblAuto setFrame:CGRectMake(winSize.width * 0.5 + 15, 230, winSize.width * 0.5 - 60, 15)];
         [_loginBtn setFrame:CGRectMake(45, 265, 230, 40)];
         [_toRegBtn setFrame:CGRectMake(kD9ScreenWidth * 0.5 - 100, 335, 200, 20)];
         [_regBtn setFrame:CGRectMake(45, 240, winSize.width * 0.5 - 50, 40)];
@@ -736,7 +693,7 @@
         [indicatorView setCenter:CGPointMake(kD9ScreenWidth * 0.5, kD9ScreenHeight * 0.5)];
         [self setCenter:CGPointMake(winSize.width * 0.5, winSize.height * 0.5)];
     }
-//    [self setCenter:screenCenter];
+
     [self setTransform:[self transformForOrientation:orientation]];
     
     previousOrientation = orientation;

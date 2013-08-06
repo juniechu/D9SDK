@@ -28,8 +28,6 @@
     UITextField* _passwordTextField;
     UIButton* _rememberPassword;
     UIButton* _autoLogin;
-    UILabel* _lblRemember;
-    UILabel* _lblAuto;
     
     CGSize winSize;
     UIButton* resignBtn;

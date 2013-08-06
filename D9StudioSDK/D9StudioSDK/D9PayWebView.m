@@ -9,6 +9,7 @@
 #import "D9PayWebView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "D9SDKGlobal.h"
+#import "MobClick.h"
 
 @interface D9PayWebView (Private)
 
@@ -293,6 +294,7 @@
     }
     
     [self addObservers];
+    [MobClick event:@"d9PayView"];
 }
 
 - (void)closePayView:(BOOL)animated

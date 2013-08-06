@@ -307,12 +307,17 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../D9StudioSDK/D9StudioSDK\"",
+					"\"$(SRCROOT)/DependentApp/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "B1A4DBE3-4762-49D2-A448-639DC8F272D1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B1A4DBE3-4762-49D2-A448-639DC8F272D1";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -337,12 +342,17 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../D9StudioSDK/D9StudioSDK\"",
+					"\"$(SRCROOT)/DependentApp/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "A730FCD4-7710-4889-89CF-5C836F13D4C4";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A730FCD4-7710-4889-89CF-5C836F13D4C4";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s i386";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
