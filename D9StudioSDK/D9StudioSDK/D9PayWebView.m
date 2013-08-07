@@ -42,23 +42,53 @@
         }
         // background settings
         [self setBackgroundColor:[UIColor clearColor]];
-//        [self setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+
+        
+        NSString* dirPath;
+        float fOriginX, fOriginY, fPanelWOffset, fContainerWOffset, fExtraOffset, fClsOffset;
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            dirPath             = @"ipad";
+            fOriginX            = 10.0;
+            fOriginY            = 10.0;
+            fPanelWOffset       = 20.0;
+            fContainerWOffset   = 40.0;
+            fExtraOffset        = 22.0;
+            fClsOffset          = 60.0;
+        } else {
+            dirPath     = @"iphone";
+            fOriginX            = 5.0;
+            fOriginY            = 5.0;
+            fPanelWOffset       = 10.0;
+            fContainerWOffset   = 20.0;
+            fExtraOffset        = 11.0;
+            fClsOffset          = 30.0;
+        }
         
         // add the panel view
-        panelView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 20, kD9ScreenWidth - 20 - 22)];
+        panelView = [[UIView alloc] initWithFrame:CGRectMake(fOriginX,
+                                                             fOriginY,
+                                                             kD9ScreenHeight - fPanelWOffset,
+                                                             kD9ScreenWidth - fPanelWOffset - fExtraOffset)];
         [panelView setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.55]];
         [[panelView layer] setMasksToBounds:NO]; // very important
         [[panelView layer] setCornerRadius:10.0];
         [self addSubview:panelView];
         
         // add the conainer view
-        containerView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 22)];
+        containerView = [[UIView alloc] initWithFrame:CGRectMake(fOriginX,
+                                                                 fOriginY,
+                                                                 kD9ScreenHeight - fContainerWOffset,
+                                                                 kD9ScreenWidth - fContainerWOffset - fExtraOffset)];
         [[containerView layer] setBorderColor:[UIColor colorWithRed:0. green:0. blue:0. alpha:0.7].CGColor];
         [[containerView layer] setBorderWidth:1.0];
         
         
         // add the web view
-        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kD9ScreenHeight - 40, kD9ScreenWidth - 40 - 22)];
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,
+                                                              0,
+                                                              kD9ScreenHeight - fContainerWOffset,
+                                                              kD9ScreenWidth - fContainerWOffset - fExtraOffset)];
 		[webView setDelegate:self];
 		[containerView addSubview:webView];
         
@@ -71,18 +101,14 @@
         closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         
         NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
-        NSString* closePath = [bundle pathForResource:@"d9_btn_close" ofType:@"png"];
+        NSString* closePath = [bundle pathForResource:@"d9_btn_close" ofType:@"png" inDirectory:dirPath];
 //        NSLog(@"close path is[%@]",closePath);
         UIImage* closeImage = [UIImage imageWithContentsOfFile:closePath];
-//        UIImage* closeImg = [UIImage imageNamed:@"d9_button_close_ipone.png"];
-        
-//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-//            closeImg = [UIImage imageNamed:@"d9_button_close_ipad.png"];
-//            
-//        } else {
-//            closeImg = [UIImage imageNamed:@"d9_button_close_iphone.png"];
-//        }
-        [closeBtn setFrame:CGRectMake(kD9ScreenHeight - 30, 0, 30, 30)];
+
+        [closeBtn setFrame:CGRectMake(kD9ScreenHeight - fClsOffset,
+                                      0,
+                                      GET_WIDTH(closeImage),
+                                      GET_HEIGHT(closeImage) )];
         [closeBtn setImage:closeImage forState:UIControlStateNormal];
         [closeBtn setImage:closeImage forState:UIControlStateSelected];
         
@@ -261,7 +287,8 @@
 
 - (void)showPayView:(BOOL)animated
 {
-    [self sizeToFitOrientation:[self currentOrientation]];
+    //TODO: iPhone支持下个版本
+//    [self sizeToFitOrientation:[self currentOrientation]];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
 	if (!window)
@@ -293,7 +320,7 @@
         [self allAnimationsStopped];
     }
     
-    [self addObservers];
+//    [self addObservers];
     [MobClick event:@"d9PayView"];
 }
 

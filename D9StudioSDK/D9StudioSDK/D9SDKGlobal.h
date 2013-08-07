@@ -13,6 +13,7 @@
 #define __LOGIN_URL                     @"http://imept.imobile-ent.com:8988/D9PayPlat/login.action"
 #define __REGIST_URL                    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action"
 #define __PAY_URL                       @"http://imept.imobile-ent.com:8988/D9PayPlat/order.action"
+#define __CHANGE_PWD_URL                @"http://imept.imobile-ent.com:8988/D9PayPlat/changepwd.action"
 
 // 测试环境
 //#define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"
@@ -56,15 +57,34 @@
 #define kD9ScreenHeight                 [[UIScreen mainScreen] bounds].size.height
 #define kD9ScreenWidth                  [[UIScreen mainScreen] bounds].size.width
 
+
 #define kD9DefaultAuto                  @"D9Auto"
+#define kD9LaunchedBefore               @"D9Launched"
 
 #define kD9StopIndicatorNotification    @"D9StopIndicator"
+
+#define DEVICE_IS_IPHONE5 ([[UIScreen mainScreen] bounds].size.height == 568)
+
+#define SAFE_RELEASE(x) [x release];x=nil
+
+#define GET_WIDTH(obj) obj.size.width
+#define GET_HEIGHT(obj) obj.size.height
+#define GET_SIZE(obj) GET_WIDTH(obj), GET_HEIGHT(obj)
+#define GET_LEFT(obj) obj.frame.origin.x
+
+// Landscape defines
+#define L_CENTERX(obj) (kD9ScreenHeight-GET_WIDTH(obj))*0.5
+#define L_CENTERX_FRAME_RECT(obj, y) L_CENTERX(obj), y, GET_SIZE(obj)
+#define L_OFFSET_LT_FRAME_RECT(obj, offset, y) kD9ScreenHeight*0.5-offset-GET_WIDTH(obj), y, GET_SIZE(obj)
+#define L_OFFSET_RT_FRAME_RECT(obj, offset, y) kD9ScreenHeight*0.5+offset, y, GET_SIZE(obj)
+
+// Protraint defines
 
 typedef enum
 {
 	kD9ErrorCodeInterface	= 100,
 	kD9ErrorCodeSDK         = 101,
-}D9ErrorCode;
+} D9ErrorCode;
 
 typedef enum
 {
@@ -72,7 +92,7 @@ typedef enum
 	kD9SDKErrorCodeRequestError     = 201,
 	kD9SDKErrorCodeAccessError      = 202,
 	kD9SDKErrorCodeAuthorizeError	= 203,
-}D9SDKErrorCode;
+} D9SDKErrorCode;
 
 typedef enum
 {
@@ -80,13 +100,21 @@ typedef enum
     kD9LoginErrorNil            = -2,   // 账号不存在
     kD9LoginErrorFail           = -3,   // 其他错误
 
-}D9LoginErrorCode;
+} D9LoginErrorCode;
 
 typedef enum {
     kD9RegErrorAlreadyHave      = -1,   // 账号已经存在
     kD9RegErrorParam            = -2,   // 提交参数有误
     kD9RegErrorFail             = -3,   // 其他错误
     
-}D9RegErrorCode;
+} D9RegErrorCode;
+
+typedef enum
+{
+    kD9ChangePwdErrorPwd        = -1,   // 密码错误
+    kD9ChangePwdErrorNil        = -2,   // 账号不存在
+    kD9ChangePwdErrorFail       = -3,   // 修改密码失败
+    kD9ChangePwdErrorNet        = -4,   // 网络错误，请重试
+} D9ChangePwdErrorCode;
 
 #endif

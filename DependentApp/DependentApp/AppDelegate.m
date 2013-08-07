@@ -34,6 +34,7 @@
 //    if ([engine isLoggedIn]) {
 //        NSLog(@"Dependent App engine UserID is:%@", engine.userID);
 //    }
+    application.statusBarHidden = YES;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

@@ -37,6 +37,7 @@
     UIButton* _randomBtn;
     
     UIButton* _toRegBtn;
+    UIButton* _toChangePwd;
     UIButton* _toLogBtn;
     
     NSString* userName;

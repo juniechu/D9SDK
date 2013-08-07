@@ -33,6 +33,8 @@
 		9E663E4617AF9A4100D24082 /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
 		9E663E4717AF9A4100D24082 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9E663E4817AF9A4100D24082 /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
+		9E663E4D17B1FA4500D24082 /* D9Resource.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EF6BDD7178A52F90010F497 /* D9Resource.bundle */; };
+		9E663E5017B2862E00D24082 /* D9ChangePwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E663E4F17B2862D00D24082 /* D9ChangePwdView.m */; };
 		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
 		9E92387E175C995100924B12 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923873175C995100924B12 /* NSObject+SBJSON.m */; };
 		9E92387F175C995100924B12 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E923875175C995100924B12 /* NSString+SBJSON.m */; };
@@ -45,7 +47,6 @@
 		9ECF51CE1754A88200487F96 /* D9LoginDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECF51CD1754A88200487F96 /* D9LoginDialog.m */; };
 		9ECF51D01754A8E200487F96 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECF51CF1754A8E200487F96 /* UIKit.framework */; };
 		9EE3E74E1781576900990E4D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE3E74D1781576900990E4D /* SFHFKeychainUtils.m */; };
-		9EF6BDD8178A52F90010F497 /* D9Resource.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EF6BDD7178A52F90010F497 /* D9Resource.bundle */; };
 		9EFE22901786A888008EAA0C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFE228E1786A888008EAA0C /* libcrypto.a */; };
 		9EFE22911786A888008EAA0C /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFE228F1786A888008EAA0C /* libssl.a */; };
 		9EFE22F11786A896008EAA0C /* DataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE22941786A896008EAA0C /* DataSigner.m */; };
@@ -77,7 +78,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Resources/";
 			dstSubfolderSpec = 0;
 			files = (
-				9EF6BDD8178A52F90010F497 /* D9Resource.bundle in CopyFiles */,
+				9E663E4D17B1FA4500D24082 /* D9Resource.bundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +97,8 @@
 		9E663E3C17AF80A200D24082 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		9E663E3D17AF80A200D24082 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		9E663E4017AF847800D24082 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		9E663E4E17B2862C00D24082 /* D9ChangePwdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9ChangePwdView.h; sourceTree = "<group>"; };
+		9E663E4F17B2862D00D24082 /* D9ChangePwdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9ChangePwdView.m; sourceTree = "<group>"; };
 		9E92386A175C929900924B12 /* D9Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D9Request.h; sourceTree = "<group>"; };
 		9E92386B175C929900924B12 /* D9Request.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D9Request.m; sourceTree = "<group>"; };
 		9E923871175C995100924B12 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				9E3BF49E1758ACC4006AE29D /* D9SDKGlobal.h */,
 				052350D41762410900A12EDA /* D9PayWebView.h */,
 				052350D51762410900A12EDA /* D9PayWebView.m */,
+				9E663E4E17B2862C00D24082 /* D9ChangePwdView.h */,
+				9E663E4F17B2862D00D24082 /* D9ChangePwdView.m */,
 			);
 			path = D9StudioSDK;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				9EFE22F61786A896008EAA0C /* openssl_wrapper.m in Sources */,
 				9EFE22F71786A896008EAA0C /* RSADataSigner.m in Sources */,
 				9EFE22F81786A896008EAA0C /* RSADataVerifier.m in Sources */,
+				9E663E5017B2862E00D24082 /* D9ChangePwdView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
