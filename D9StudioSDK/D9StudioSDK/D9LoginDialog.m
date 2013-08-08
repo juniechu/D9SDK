@@ -15,7 +15,6 @@
 #define kD9DefaultRemember      @"D9Remember"
 
 
-
 @interface D9LoginDialog (Private)
 - (void) checkboxClicked:(UIButton *)btn;
 - (void) resignKeyboard;
@@ -27,11 +26,6 @@
 - (void) saveSettingToDefault;
 - (void) readSettingFromDefault;
 - (void) deleteSettingInDefault;
-
-//- (NSString *) urlSchemeString;
-//- (void) saveAccountDataToKeychain;
-//- (void) readAccountDataFromKeychain;
-//- (void) deleteAccountDataInKeychain;
 
 - (void) stopIndicatorAnimat;
 
@@ -363,7 +357,7 @@
     SAFE_RELEASE(_passWord);
     SAFE_RELEASE(indicatorView);
     SAFE_RELEASE(d9AppID);
-//    SAFE_RELEASE(changeView);
+
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kD9StopIndicatorNotification
                                                   object:nil];
@@ -687,13 +681,6 @@
     //--TODO: animated action
     [self removeFromSuperview];
 }
-
-//- (void) hideChangePwd
-//{
-//    if (changeView) {
-//        [changeView hide];
-//    }
-//}
 
 - (UIInterfaceOrientation)currentOrientation
 {

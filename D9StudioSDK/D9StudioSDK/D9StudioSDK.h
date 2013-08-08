@@ -28,19 +28,11 @@
 
 
 @interface D9StudioSDK : NSObject {
-    NSString    *appID;
-    NSString    *appKey;
-    NSString    *userID;
-    NSString    *nowPwd;
     BOOL        isLaunched;
-    
     int         sceneType;
     
-    D9Request   *request;
     D9LoginDialog *loginView;
     D9ChangePwdView* changeView;
-    
-    id<D9StudioSDKDelegate> delegate;
 }
 
 @property (nonatomic, retain) NSString *appID;

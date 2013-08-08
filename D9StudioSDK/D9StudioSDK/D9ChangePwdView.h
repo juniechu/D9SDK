@@ -31,13 +31,6 @@
     CGSize winSize;
     UIButton* resignBtn;
     
-//    NSString* userName;
-//    NSString* oldPassword;
-//    NSString* nowPassword;
-//    NSString* comfirmPassword;
-    
-//    id<D9ChangePwdDelegate> delegate;
-    
     float fLogoY;
     
     UIActivityIndicatorView* indicatorView;

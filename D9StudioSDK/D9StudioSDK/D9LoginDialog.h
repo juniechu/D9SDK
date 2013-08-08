@@ -50,8 +50,7 @@
     
     UIActivityIndicatorView* indicatorView;
     UIInterfaceOrientation previousOrientation;
-    
-    id <D9LoginDialogDelegate> delegate;
+
 }
 
 @property (nonatomic, assign) id<D9LoginDialogDelegate> delegate;
@@ -65,6 +64,6 @@
 - (id) initWithAppID:(NSString *)appID;
 - (void) show:(BOOL)animated;
 - (void) hide:(BOOL)animated;
-//- (void) hideChangePwd;
+
 
 @end

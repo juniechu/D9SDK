@@ -341,6 +341,11 @@
         [D9SDKUtil showAlertViewWithMsg:@"两次密码输入不一致"];
         return NO;
     }
+    
+    if ([oldPassword isEqual:nowPassword]) {
+        [D9SDKUtil showAlertViewWithMsg:@"新密码与旧密码相同\n程序也是有尊严的\n请不要随意调戏！"];
+        return NO;
+    }
 //    NSLog(@"I Give U YES!");
     return YES;
 }
