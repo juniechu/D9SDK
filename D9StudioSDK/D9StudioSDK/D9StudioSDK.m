@@ -51,6 +51,7 @@ typedef enum {
 @synthesize appID;
 @synthesize appKey;
 @synthesize userID;
+@synthesize nowPwd;
 @synthesize request;
 @synthesize delegate;
 
@@ -95,6 +96,7 @@ typedef enum {
     
     [changeView setDelegate:nil];
     SAFE_RELEASE(changeView);
+    SAFE_RELEASE(nowPwd);
     
     delegate = nil;
     
@@ -107,15 +109,15 @@ typedef enum {
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString* launchedKey = [NSString stringWithFormat:@"%@%@", kD9LaunchedBefore, appID];
-    [userDefault setObject:isLaunched forKey:launchedKey];
+    [userDefault setBool:isLaunched forKey:launchedKey];
     [userDefault synchronize];
     
     //TODO: send current machine info to server.
-    NSString *lowerMacAddress = [D9SDKUtil getLowerMacAddress];
-    //game_id = appID
-    NSString *deviceString = @"iOS";
-    NSString *phoneType = [[UIDevice currentDevice] model];
-    NSString *phonePattern = [[UIDevice currentDevice] systemVersion];
+//    NSString *lowerMacAddress = [D9SDKUtil getLowerMacAddress];
+//    NSString *deviceString = @"iOS";
+//    NSString *phoneType = [[UIDevice currentDevice] model];
+//    NSString *phonePattern = [[UIDevice currentDevice] systemVersion];
+    
     
 }
 
@@ -126,7 +128,7 @@ typedef enum {
     [userDefault setObject:userID forKey:uIDKey];
     
     NSString* launchedKey = [NSString stringWithFormat:@"%@%@", kD9LaunchedBefore, appID];
-    [userDefault setObject:isLaunched forKey:launchedKey];
+    [userDefault setBool:isLaunched forKey:launchedKey];
     
     [userDefault synchronize];
 }
@@ -389,9 +391,9 @@ typedef enum {
     sceneType = kD9RegistScene;
 }
 
-- (void) changePwdDialog:(D9LoginDialog *)dialog
+- (void) changePwdDialog:(D9LoginDialog *)dialog withUserName:(NSString *)username
 {
-    changeView = [[D9ChangePwdView alloc] init];
+    changeView = [[D9ChangePwdView alloc] initWithUsername:username];
     [changeView setDelegate:self];
     [changeView show];
 }
@@ -471,9 +473,13 @@ typedef enum {
             [D9SDKUtil showAlertViewWithMsg:@"网络错误，请重试"];
         } else {
             // 修改密码成功，转到登陆界面
-            [D9SDKUtil showAlertViewWithMsg:@"修改密码成功"];
-//            [loginView hideChangePwd];
-            [changeView hide];
+            [D9SDKUtil showSuccessAlertViewWithMsg:@"修改密码成功"];
+            if (changeView) {
+                [changeView hide];
+            }
+            
+            // bugfix: update the password!
+            [loginView setPassWord:nowPwd];
         }
     }
 }
@@ -500,6 +506,8 @@ typedef enum {
         NSLog(@"old pass word is:%@, length = %d", oldPassword, [oldPassword length]);
         NSLog(@"new pass word is:%@, length = %d", newPassword, [newPassword length]);
     }
+    
+    self.nowPwd = newPassword;
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
                             oldPassword, kD9Password, newPassword, kD9NewPassword, nil];

@@ -33,6 +33,7 @@
 @interface D9SDKUtil : NSObject
 
 + (void) showAlertViewWithMsg:(NSString *)msg;
++ (void) showSuccessAlertViewWithMsg:(NSString *)msg;
 + (NSString *) getIPAddress;
 + (NSString *) getMacAddress;
 + (NSString *) toUTF8ConvertString:(NSString *) uglyString;

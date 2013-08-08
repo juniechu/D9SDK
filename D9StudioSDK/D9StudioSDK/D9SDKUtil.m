@@ -116,6 +116,17 @@
     [alert autorelease];
 }
 
++ (void) showSuccessAlertViewWithMsg:(NSString *)msg
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"恭喜您"
+                                                    message:msg
+                                                   delegate:self
+                                          cancelButtonTitle:@"确定"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert autorelease];
+}
+
 + (NSString *)getIPAddress {
     
     NSString *address = @"errorIP";

@@ -31,6 +31,7 @@
     NSString    *appID;
     NSString    *appKey;
     NSString    *userID;
+    NSString    *nowPwd;
     BOOL        isLaunched;
     
     int         sceneType;
@@ -45,6 +46,7 @@
 @property (nonatomic, retain) NSString *appID;
 @property (nonatomic, retain) NSString *appKey;
 @property (nonatomic, retain) NSString *userID;
+@property (nonatomic, retain) NSString *nowPwd;
 @property (nonatomic, retain) D9Request *request;
 @property (nonatomic, assign) id<D9StudioSDKDelegate> delegate;
 

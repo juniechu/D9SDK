@@ -20,7 +20,8 @@
            withUsername:(NSString *)username
              password:(NSString *)password;
 
-- (void) changePwdDialog:(D9LoginDialog *)dialog;
+- (void) changePwdDialog:(D9LoginDialog *)dialog
+            withUserName:(NSString *)username;
 
 @end
 
@@ -42,8 +43,7 @@
     UIButton* _toChangePwd;
     UIButton* _toLogBtn;
     
-    NSString* userName;
-    NSString* passWord;
+    NSString* _passWord;
     
     BOOL isRemember;
     BOOL isAuto;
@@ -56,8 +56,11 @@
 
 @property (nonatomic, assign) id<D9LoginDialogDelegate> delegate;
 @property (nonatomic, retain) NSString* userName;
-@property (nonatomic, retain) NSString* passWord;
+//@property (nonatomic, retain) NSString* passWord;
 @property (nonatomic, retain) NSString* d9AppID;
+
+- (NSString *)passWord;
+- (void) setPassWord:(NSString *)passWord;
 
 - (id) initWithAppID:(NSString *)appID;
 - (void) show:(BOOL)animated;

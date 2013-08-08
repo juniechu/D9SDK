@@ -43,7 +43,7 @@
 
 @synthesize delegate;
 @synthesize userName;
-@synthesize passWord;
+//@synthesize passWord;
 @synthesize d9AppID;
 
 - (id)initWithAppID:(NSString *)appID
@@ -56,6 +56,8 @@
     if (self) {
         // Initialization code
         self.d9AppID = appID;
+        
+        _passWord = [[NSString alloc] init];
         
         CGRect winRect = CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth);
         winSize = winRect.size;
@@ -99,7 +101,7 @@
             bgPath = [bundle pathForResource:@"d9_background" ofType:@"jpg" inDirectory:dirPath];
         } else {
             dirPath     = @"iphone";
-            fLogoY      = 22.0;
+            fLogoY      = 30.0;
             fUnameY     = 105.0;
             fPwdY       = 128.0;
             fRemAutoY   = 156.0;
@@ -204,8 +206,9 @@
         [self insertSubview:_passwordTextField aboveSubview:passwordImageView];
         SAFE_RELEASE(passwordImageView);
         
-        if (isRemember && passWord) {
-            [_passwordTextField setText:passWord];
+        if (isRemember && _passWord && ![_passWord isEqual:@""]) {
+//            NSLog(@"password not nil:%@", _passWord);
+            [_passwordTextField setText:_passWord];
         }
         
         // Remember Password
@@ -357,7 +360,7 @@
     SAFE_RELEASE(_usernameTextField);
     SAFE_RELEASE(_passwordTextField);
     SAFE_RELEASE(userName);
-    SAFE_RELEASE(passWord);
+    SAFE_RELEASE(_passWord);
     SAFE_RELEASE(indicatorView);
     SAFE_RELEASE(d9AppID);
 //    SAFE_RELEASE(changeView);
@@ -407,25 +410,26 @@
         }
         
         self.userName = _usernameTextField.text;
-        self.passWord = _passwordTextField.text;
+//        self.passWord = _passwordTextField.text;
+        [self setPassWord:_passwordTextField.text];
         
         if (DEBUG_LOG) {
-            NSLog(@"%@, %@", userName, passWord);
+            NSLog(@"login pressed:%@, %@", userName, _passWord);
         }
         
         if (![self isLoginInputValid]) {
             [indicatorView stopAnimating];
             return;
         }
-        if ([passWord length] != 32) {
-            NSString* tmpString = [NSString stringWithFormat:@"%@%@", passWord, userName];
-            passWord = [tmpString MD5EncodedString];
+        if ([_passWord length] != 32) {
+            NSString* tmpString = [NSString stringWithFormat:@"%@%@", _passWord, userName];
+            _passWord = [tmpString MD5EncodedString];
         }
         [self saveSettingDefault];
         
         if ([delegate respondsToSelector:@selector(loginDialog:withUsername:password:)]) {
             
-            [delegate loginDialog:self withUsername:userName password:passWord];
+            [delegate loginDialog:self withUsername:userName password:_passWord];
         }
         
         [MobClick event:@"d9BtnLogin"];
@@ -440,6 +444,9 @@
         [_regBtn setHidden:NO];
         [_randomBtn setHidden:NO];
         
+        [_usernameTextField setText:@""];
+        [_passwordTextField setText:@""];
+        
         [MobClick event:@"d9BtnToReg"];
     } else if (sender == _toLogBtn) {
         [_rememberPassword setHidden:NO];
@@ -452,6 +459,9 @@
         [_regBtn setHidden:YES];
         [_randomBtn setHidden:YES];
         
+        [_usernameTextField setText:userName];
+        [_passwordTextField setText:_passWord];
+        
         [MobClick event:@"d9BtnToLogin"];
     } else if (sender == _regBtn) {
         [indicatorView startAnimating];
@@ -460,20 +470,21 @@
             NSLog(@"regist button pressed.");
         }
         self.userName = _usernameTextField.text;
-        self.passWord = _passwordTextField.text;
+//        self.passWord = _passwordTextField.text;
+        [self setPassWord:_passwordTextField.text];
         
         if (![self isInputValid]) {
             [indicatorView stopAnimating];
             return;
         }
-        if ([passWord length] != 32) {
-            NSString* tmpString = [NSString stringWithFormat:@"%@%@", passWord, userName];
-            passWord = [tmpString MD5EncodedString];
+        if ([_passWord length] != 32) {
+            NSString* tmpString = [NSString stringWithFormat:@"%@%@", _passWord, userName];
+            _passWord = [tmpString MD5EncodedString];
         }
         [self saveSettingDefault];
         
         if ([delegate respondsToSelector:@selector(registDialog:withUsername:password:)]) {
-            [delegate registDialog:self withUsername:userName password:passWord];
+            [delegate registDialog:self withUsername:userName password:_passWord];
         }
         
         [MobClick event:@"d9BtnReg"];
@@ -502,8 +513,8 @@
         
         [MobClick event:@"d9BtnRandom"];
     } else if (sender == _toChangePwd) {
-        if ([delegate respondsToSelector:@selector(changePwdDialog:)]) {
-            [delegate changePwdDialog:self];
+        if ([delegate respondsToSelector:@selector(changePwdDialog:withUserName:)]) {
+            [delegate changePwdDialog:self withUserName:userName];
         }
         [MobClick event:@"d9BtnToChange"];
     }
@@ -511,7 +522,7 @@
 
 - (BOOL) isLoginInputValid
 {
-    if (!userName || !passWord || [userName isEqual:@""] || [passWord isEqual:@""]) {
+    if (!userName || !_passWord || [userName isEqual:@""] || [_passWord isEqual:@""]) {
         [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
         return NO;
     }
@@ -520,11 +531,11 @@
 
 - (BOOL) isInputValid
 {
-    if (!userName || !passWord || [userName isEqual:@""] || [passWord isEqual:@""]) {
+    if (!userName || !_passWord || [userName isEqual:@""] || [_passWord isEqual:@""]) {
         [D9SDKUtil showAlertViewWithMsg:@"账号密码不能为空"];
         return NO;
     }
-    if ([userName length] < 6 || [passWord length] < 6) {
+    if ([userName length] < 6 || [_passWord length] < 6) {
         [D9SDKUtil showAlertViewWithMsg:@"账号密码不能少于6个字符"];
         return NO;
     }
@@ -537,7 +548,7 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     
 //    [self saveAccountDataToKeychain];
-    [D9SDKUtil saveToKeyChainUname:self.userName Pwd:self.passWord AppId:d9AppID];
+    [D9SDKUtil saveToKeyChainUname:userName Pwd:_passWord AppId:d9AppID];
     
     NSString* remKey = [NSString stringWithFormat:@"%@%@", kD9DefaultRemember, d9AppID];
     [userDefault setBool:isRemember forKey:remKey];
@@ -557,11 +568,12 @@
     
 
     self.userName = [D9SDKUtil readUnameFromKeyChainAppId:d9AppID];
-    self.passWord = [D9SDKUtil readPwdFromKeyChainAppId:d9AppID];
+//    self.passWord = [D9SDKUtil readPwdFromKeyChainAppId:d9AppID];
+    [self setPassWord:[D9SDKUtil readPwdFromKeyChainAppId:d9AppID]];
     
     if (DEBUG_LOG) {
         NSLog(@"D9LoginDialog: readSettingFromDefault: username=%@", userName);
-        NSLog(@"D9LoginDialog: readSettingFromDefault: password=%@", passWord);
+        NSLog(@"D9LoginDialog: readSettingFromDefault: password=%@", _passWord);
     }
 }
 
@@ -569,7 +581,8 @@
 {
 
     self.userName = nil;
-    self.passWord = nil;
+//    self.passWord = nil;
+    [self setPassWord:nil];
     [D9SDKUtil deleteInKeyChainAppId:d9AppID];
     
     isRemember = true;
@@ -624,6 +637,24 @@
 }
 
 #pragma mark -- D9LoginDialog Public Methods
+
+- (NSString *) passWord
+{
+    return _passWord;
+}
+
+- (void) setPassWord:(NSString *)passWord
+{
+    if (DEBUG_LOG) {
+        NSLog(@"%@ new value:%@", _passWord, passWord);
+    }
+    if (passWord != _passWord) {
+        [_passWord release];
+        _passWord = [passWord retain];
+
+        [_passwordTextField setText:_passWord];
+    }
+}
 
 - (void) show:(BOOL)animated
 {

@@ -31,12 +31,14 @@
     CGSize winSize;
     UIButton* resignBtn;
     
-    NSString* userName;
-    NSString* oldPassword;
-    NSString* nowPassword;
-    NSString* comfirmPassword;
+//    NSString* userName;
+//    NSString* oldPassword;
+//    NSString* nowPassword;
+//    NSString* comfirmPassword;
     
-    id<D9ChangePwdDelegate> delegate;
+//    id<D9ChangePwdDelegate> delegate;
+    
+    float fLogoY;
     
     UIActivityIndicatorView* indicatorView;
 }
@@ -47,6 +49,7 @@
 @property (nonatomic, retain) NSString* comfirmPassword;
 @property (nonatomic, assign) id<D9ChangePwdDelegate> delegate;
 
+- (id) initWithUsername:(NSString *)uname;
 - (void) show;
 - (void) hide;
 

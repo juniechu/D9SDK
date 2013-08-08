@@ -26,10 +26,12 @@
 @synthesize comfirmPassword;
 @synthesize delegate;
 
-- (id) init {
+- (id) initWithUsername:(NSString *)uname {
     self = [super initWithFrame:CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth)];
     if (self) {
         //TODO: init change password view here
+        self.userName = uname;
+        
         CGRect winRect = CGRectMake(0, 0, kD9ScreenHeight, kD9ScreenWidth);
         winSize = winRect.size;
         
@@ -38,7 +40,7 @@
         NSString* bgPath;
         NSString* dirPath;
         
-        float fLogoY, fUnameY, fPwdY, fNPwdY, fCPwdY, fChangeBtnY, fBackY;
+        float fUnameY, fPwdY, fNPwdY, fCPwdY, fChangeBtnY, fBackY;
         float fTxFieldOff, fTxFieldW, fTxFieldH;
         float fFontSize;
         
@@ -59,7 +61,7 @@
             bgPath = [bundle pathForResource:@"d9_bg_change_pwd" ofType:@"jpg" inDirectory:dirPath];
         } else {
             dirPath     = @"iphone";
-            fLogoY      = 22.0;
+            fLogoY      = 30.0;
             fUnameY     = 100.0;
             fPwdY       = 123.0;
             fNPwdY      = 146.0;
@@ -119,6 +121,8 @@
         [_userNameTextField setAutocapitalizationType:UITextAutocapitalizationTypeNone];
         [_userNameTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
         
+        [_userNameTextField setText:userName];
+        
         [self insertSubview:_userNameTextField aboveSubview:usernameImageView];
         SAFE_RELEASE(usernameImageView);
         
@@ -161,11 +165,11 @@
         [_newPasswordTextField setTextAlignment:NSTextAlignmentLeft];
         [_newPasswordTextField setFont:[UIFont fontWithName:kFontTimes size:fFontSize]];
         [_newPasswordTextField setAdjustsFontSizeToFitWidth:NO];
-//        [_newPasswordTextField setClearsOnBeginEditing:YES];
+        [_newPasswordTextField setClearsOnBeginEditing:YES];
         [_newPasswordTextField setBorderStyle:UITextBorderStyleNone];
         [_newPasswordTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
         [_newPasswordTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-//        [_newPasswordTextField setSecureTextEntry:YES];
+        [_newPasswordTextField setSecureTextEntry:YES];
         [_newPasswordTextField setReturnKeyType:UIReturnKeyNext];
         
         [self insertSubview:_newPasswordTextField aboveSubview:nowPasswordImageView];
@@ -185,11 +189,11 @@
         [_comfirmPasswordTextField setTextAlignment:NSTextAlignmentLeft];
         [_comfirmPasswordTextField setFont:[UIFont fontWithName:kFontTimes size:fFontSize]];
         [_comfirmPasswordTextField setAdjustsFontSizeToFitWidth:NO];
-
+        [_comfirmPasswordTextField setClearsOnBeginEditing:YES];
         [_comfirmPasswordTextField setBorderStyle:UITextBorderStyleNone];
         [_comfirmPasswordTextField setClearButtonMode:UITextFieldViewModeWhileEditing];
         [_comfirmPasswordTextField setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-
+        [_comfirmPasswordTextField setSecureTextEntry:YES];
         [_comfirmPasswordTextField setReturnKeyType:UIReturnKeyGo];
         
         [self insertSubview:_comfirmPasswordTextField aboveSubview:comfirmPasswordImageView];
@@ -264,7 +268,9 @@
 - (void) btnClicked:(UIButton *)sender
 {
     if (sender == _btnChangePwd) {
-        NSLog(@"change pwd btn clicked!");
+        if (DEBUG_LOG) {
+            NSLog(@"change pwd btn clicked!");
+        }
         
         [indicatorView startAnimating];
         
@@ -273,7 +279,9 @@
         self.nowPassword = _newPasswordTextField.text;
         self.comfirmPassword = _comfirmPasswordTextField.text;
         
-        NSLog(@">> [%@],[%@],[%@],[%@]", userName, oldPassword, nowPassword, comfirmPassword);
+        if (DEBUG_LOG) {
+            NSLog(@">> [%@],[%@],[%@],[%@]", userName, oldPassword, nowPassword, comfirmPassword);
+        }
         
         if (![self isInputValidate]) {
             [indicatorView stopAnimating];
@@ -333,7 +341,7 @@
         [D9SDKUtil showAlertViewWithMsg:@"两次密码输入不一致"];
         return NO;
     }
-    NSLog(@"I Give U YES!");
+//    NSLog(@"I Give U YES!");
     return YES;
 }
 
@@ -354,6 +362,16 @@
         [self btnClicked:_btnChangePwd];
     }
     return YES;
+}
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self setFrame:CGRectMake(0, -fLogoY, winSize.width, winSize.height)];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField
+{
+    [self setFrame:CGRectMake(0, 0, winSize.width, winSize.height)];
 }
 
 @end
