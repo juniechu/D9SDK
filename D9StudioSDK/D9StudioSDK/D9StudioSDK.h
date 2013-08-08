@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-#import "D9Request.h"
-#import "D9LoginDialog.h"
+//#import "D9Request.h"
+//#import "D9LoginDialog.h"
 
 @class D9StudioSDK;
+@class D9Request;
+@class D9LoginDialog;
+@class D9ChangePwdView;
 
 @protocol D9StudioSDKDelegate <NSObject>
 
@@ -26,7 +29,8 @@
 
 @end
 
-@interface D9StudioSDK : NSObject <D9LoginDialogDelegate, D9RequestDelegate> {
+//@interface D9StudioSDK : NSObject <D9LoginDialogDelegate, D9RequestDelegate> {
+@interface D9StudioSDK : NSObject {
     NSString    *appID;
     NSString    *appKey;
     
@@ -37,6 +41,7 @@
     int         sceneType;
     
     D9LoginDialog *loginView;
+    D9ChangePwdView* changeView;
     
     id<D9StudioSDKDelegate> delegate;
 }

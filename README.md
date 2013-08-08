@@ -1,6 +1,33 @@
-***DependentApp 为接入D9SDK的Sample程序***
+> DependentApp 为接入D9SDK的Sample程序
 
-***D9StudioSDK 为登陆支付的framework***
+> D9StudioSDK 为登陆支付的framework
+
+
+####编译注意事项：
+
+---
+
+####版本更新情况：
+
+---
+v2.0
+
+1. 修改密码功能完成
+
+
+---
+
+2013年 8月7日 星期三 23时17分40秒 CST
+
+1. 支持iPhone4(包括低清屏)，iPhone5
+
+2. 加入UMeng统计
+
+3. 增加常用宏定义
+
+4. 修改密码初步
+
+
 
 ---
 
@@ -28,24 +55,24 @@
 
 ---
 
-剩余工作量：
+剩余工作量：(加粗为未完成)
 
-1. 充值界面适配iPhone5
+- 充值界面适配iPhone5
 
-2. Secret Key由第三方传入
+- Secret Key由第三方传入
 
-3. 图片资源生成Bundle
+- 图片资源生成Bundle
 
-4. 文字本地化NSLocalize
+- 文字本地化NSLocalize
 
-5. 坐标位置优化
+- 坐标位置优化
 
-6. 输入错误检查
+- 输入错误检查
 
-7. 网络连接超时处理
+- **网络连接超时时长处理**
 
-8. 旋转横竖屏
+- 旋转横竖屏
 
-9. 输入优化
+- 输入优化
 
-10. 存储账户密码由NSUserDefaults改为KeyChains
+- 存储账户密码由NSUserDefaults改为KeyChains

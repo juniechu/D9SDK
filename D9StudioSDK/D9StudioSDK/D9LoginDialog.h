@@ -20,6 +20,8 @@
            withUsername:(NSString *)username
              password:(NSString *)password;
 
+- (void) changePwdDialog:(D9LoginDialog *)dialog;
+
 @end
 
 @interface D9LoginDialog : UIView <UITextFieldDelegate> {
@@ -60,5 +62,6 @@
 - (id) initWithAppID:(NSString *)appID;
 - (void) show:(BOOL)animated;
 - (void) hide:(BOOL)animated;
+//- (void) hideChangePwd;
 
 @end

@@ -33,6 +33,7 @@
 
 #define kD9AccountID                    @"accountid"
 #define kD9Password                     @"password"
+#define kD9NewPassword                  @"newpassword"
 #define kD9RegistMail                   @"registmail"
 #define kD9RegistType                   @"registtype"
 #define kD9PhoneIP                      @"ip"
@@ -57,6 +58,7 @@
 #define kD9ScreenHeight                 [[UIScreen mainScreen] bounds].size.height
 #define kD9ScreenWidth                  [[UIScreen mainScreen] bounds].size.width
 
+#define kFontTimes                      @"Times New Roman"
 
 #define kD9DefaultAuto                  @"D9Auto"
 #define kD9LaunchedBefore               @"D9Launched"

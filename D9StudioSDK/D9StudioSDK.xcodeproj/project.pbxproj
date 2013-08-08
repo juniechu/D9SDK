@@ -28,11 +28,9 @@
 		9E1D3A25175F1FDD00C9A58E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E1D3A24175F1FDD00C9A58E /* Security.framework */; };
 		9E1D3A30175F33A100C9A58E /* D9SDKUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A2F175F33A100C9A58E /* D9SDKUtil.m */; };
 		9E1D3A35175F33C900C9A58E /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1D3A33175F33C900C9A58E /* GTMBase64.m */; };
+		9E6133BC17B383C200716112 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
 		9E663E3E17AF80A200D24082 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E663E3C17AF80A200D24082 /* libMobClickLibrary.a */; };
 		9E663E4117AF847800D24082 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E663E4017AF847800D24082 /* libz.dylib */; };
-		9E663E4617AF9A4100D24082 /* D9Request.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E92386A175C929900924B12 /* D9Request.h */; };
-		9E663E4717AF9A4100D24082 /* D9StudioSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51A417549A0E00487F96 /* D9StudioSDK.h */; };
-		9E663E4817AF9A4100D24082 /* D9LoginDialog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9ECF51CC1754A88200487F96 /* D9LoginDialog.h */; };
 		9E663E4D17B1FA4500D24082 /* D9Resource.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9EF6BDD7178A52F90010F497 /* D9Resource.bundle */; };
 		9E663E5017B2862E00D24082 /* D9ChangePwdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E663E4F17B2862D00D24082 /* D9ChangePwdView.m */; };
 		9E92386E175C929900924B12 /* D9Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E92386B175C929900924B12 /* D9Request.m */; };
@@ -66,9 +64,7 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers/";
 			dstSubfolderSpec = 0;
 			files = (
-				9E663E4617AF9A4100D24082 /* D9Request.h in CopyFiles */,
-				9E663E4717AF9A4100D24082 /* D9StudioSDK.h in CopyFiles */,
-				9E663E4817AF9A4100D24082 /* D9LoginDialog.h in CopyFiles */,
+				9E6133BC17B383C200716112 /* D9StudioSDK.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

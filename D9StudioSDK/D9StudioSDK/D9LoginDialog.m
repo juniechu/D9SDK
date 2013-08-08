@@ -9,17 +9,12 @@
 #import "D9LoginDialog.h"
 #import "D9SDKUtil.h"
 #import "D9SDKGlobal.h"
-#import "SFHFKeychainUtils.h"
-#import "MobClick.h"
 
-#define kD9URLSchemePrefix              @"D9_"
-#define kD9KeychainServiceNameSuffix    @"_ServiceName"
-#define kD9KeychainUsername             @"D9Username"
-#define kD9keychainPassword             @"D9Password"
+#import "MobClick.h"
 
 #define kD9DefaultRemember      @"D9Remember"
 
-#define kFontTimes              @"Times New Roman"
+
 
 @interface D9LoginDialog (Private)
 - (void) checkboxClicked:(UIButton *)btn;
@@ -33,10 +28,10 @@
 - (void) readSettingFromDefault;
 - (void) deleteSettingInDefault;
 
-- (NSString *) urlSchemeString;
-- (void) saveAccountDataToKeychain;
-- (void) readAccountDataFromKeychain;
-- (void) deleteAccountDataInKeychain;
+//- (NSString *) urlSchemeString;
+//- (void) saveAccountDataToKeychain;
+//- (void) readAccountDataFromKeychain;
+//- (void) deleteAccountDataInKeychain;
 
 - (void) stopIndicatorAnimat;
 
@@ -100,7 +95,7 @@
             fTxFieldW   = 350.0;
             fTxFieldH   = 36.0;
             fFontSize   = 18.0;
-            fChangePwdOff = 212.0;
+            fChangePwdOff = 106.0;
             bgPath = [bundle pathForResource:@"d9_background" ofType:@"jpg" inDirectory:dirPath];
         } else {
             dirPath     = @"iphone";
@@ -118,7 +113,7 @@
             fTxFieldW   = 175.0;
             fTxFieldH   = 18.0;
             fFontSize   = 9.0;
-            fChangePwdOff = 106.0;
+            fChangePwdOff = 53.0;
             if (DEVICE_IS_IPHONE5) {
                 bgPath = [bundle pathForResource:@"d9_background_5" ofType:@"jpg" inDirectory:dirPath];
             } else {
@@ -146,9 +141,7 @@
             NSLog(@"ERROR: D9StudioSDK >> [Resource not found! Please add Resource into your project.]");
         }
         UIImageView* logoView = [[UIImageView alloc] initWithImage:logoImage];
-        
         [logoView setFrame:CGRectMake( L_CENTERX_FRAME_RECT(logoImage, fLogoY) )];
-        
         [self insertSubview:logoView belowSubview:resignBtn];
         SAFE_RELEASE(logoView);
         
@@ -156,7 +149,7 @@
         NSString* usernamePath = [bundle pathForResource:@"d9_username" ofType:@"png" inDirectory:dirPath];
         UIImage* usernameImg = [UIImage imageWithContentsOfFile:usernamePath];
         
-        UIImageView * usernameImageView = [[UIImageView alloc] initWithImage:usernameImg];
+        UIImageView* usernameImageView = [[UIImageView alloc] initWithImage:usernameImg];
         [usernameImageView setFrame:CGRectMake( L_CENTERX_FRAME_RECT(usernameImg, fUnameY) )];
         [self insertSubview:usernameImageView aboveSubview:resignBtn];
         
@@ -289,7 +282,7 @@
         
         // Change Password Button
         _toChangePwd = [UIButton buttonWithType:UIButtonTypeCustom];
-        NSString* btnChangePwdPath = [bundle pathForResource:@"d9_regist_here" ofType:@"png" inDirectory:dirPath];
+        NSString* btnChangePwdPath = [bundle pathForResource:@"d9_change_pwd" ofType:@"png" inDirectory:dirPath];
         UIImage* btnChangePwdImage = [UIImage imageWithContentsOfFile:btnChangePwdPath];
 
         [_toChangePwd setFrame:CGRectMake( L_OFFSET_RT_FRAME_RECT(btnChangePwdImage, fChangePwdOff, fToRegY) )];
@@ -367,6 +360,7 @@
     SAFE_RELEASE(passWord);
     SAFE_RELEASE(indicatorView);
     SAFE_RELEASE(d9AppID);
+//    SAFE_RELEASE(changeView);
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:kD9StopIndicatorNotification
                                                   object:nil];
@@ -440,6 +434,7 @@
         [_autoLogin setHidden:YES];
         [_loginBtn setHidden:YES];
         [_toRegBtn setHidden:YES];
+        [_toChangePwd setHidden:YES];
         
         [_toLogBtn setHidden:NO];
         [_regBtn setHidden:NO];
@@ -451,6 +446,7 @@
         [_autoLogin setHidden:NO];
         [_loginBtn setHidden:NO];
         [_toRegBtn setHidden:NO];
+        [_toChangePwd setHidden:NO];
         
         [_toLogBtn setHidden:YES];
         [_regBtn setHidden:YES];
@@ -506,7 +502,10 @@
         
         [MobClick event:@"d9BtnRandom"];
     } else if (sender == _toChangePwd) {
-        
+        if ([delegate respondsToSelector:@selector(changePwdDialog:)]) {
+            [delegate changePwdDialog:self];
+        }
+        [MobClick event:@"d9BtnToChange"];
     }
 }
 
@@ -532,61 +531,13 @@
     return YES;
 }
 
-- (NSString *) urlSchemeString
-{
-    return [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, d9AppID];
-}
-
-- (void) saveAccountDataToKeychain
-{
-    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    
-    [SFHFKeychainUtils storeUsername:kD9KeychainUsername
-                         andPassword:self.userName
-                      forServiceName:serviceName
-                      updateExisting:YES
-                               error:nil];
-    
-    [SFHFKeychainUtils storeUsername:kD9keychainPassword
-                         andPassword:self.passWord
-                      forServiceName:serviceName
-                      updateExisting:YES
-                               error:nil];
-}
-
-- (void) readAccountDataFromKeychain
-{
-    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    
-    self.userName = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUsername
-                                               andServiceName:serviceName
-                                                        error:nil];
-    
-    self.passWord = [SFHFKeychainUtils getPasswordForUsername:kD9keychainPassword
-                                               andServiceName:serviceName
-                                                        error:nil];
-}
-
-- (void) deleteAccountDataInKeychain
-{
-    self.userName = nil;
-    self.passWord = nil;
-    
-    NSString* serviceName = [[self urlSchemeString] stringByAppendingString:kD9KeychainServiceNameSuffix];
-    
-    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUsername
-                              andServiceName:serviceName
-                                       error:nil];
-    [SFHFKeychainUtils deleteItemForUsername:kD9keychainPassword
-                              andServiceName:serviceName
-                                       error:nil];
-}
 
 - (void) saveSettingDefault
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     
-    [self saveAccountDataToKeychain];
+//    [self saveAccountDataToKeychain];
+    [D9SDKUtil saveToKeyChainUname:self.userName Pwd:self.passWord AppId:d9AppID];
     
     NSString* remKey = [NSString stringWithFormat:@"%@%@", kD9DefaultRemember, d9AppID];
     [userDefault setBool:isRemember forKey:remKey];
@@ -604,15 +555,23 @@
     NSString* autoKey = [NSString stringWithFormat:@"%@%@", kD9DefaultAuto, d9AppID];
     isAuto = [userDefault boolForKey:autoKey];
     
-    [self readAccountDataFromKeychain];
+
+    self.userName = [D9SDKUtil readUnameFromKeyChainAppId:d9AppID];
+    self.passWord = [D9SDKUtil readPwdFromKeyChainAppId:d9AppID];
+    
     if (DEBUG_LOG) {
         NSLog(@"D9LoginDialog: readSettingFromDefault: username=%@", userName);
+        NSLog(@"D9LoginDialog: readSettingFromDefault: password=%@", passWord);
     }
 }
 
 - (void) deleteSettingInDefault
 {
-    [self deleteAccountDataInKeychain];
+
+    self.userName = nil;
+    self.passWord = nil;
+    [D9SDKUtil deleteInKeyChainAppId:d9AppID];
+    
     isRemember = true;
     isAuto = false;
     
@@ -697,6 +656,13 @@
     //--TODO: animated action
     [self removeFromSuperview];
 }
+
+//- (void) hideChangePwd
+//{
+//    if (changeView) {
+//        [changeView hide];
+//    }
+//}
 
 - (UIInterfaceOrientation)currentOrientation
 {

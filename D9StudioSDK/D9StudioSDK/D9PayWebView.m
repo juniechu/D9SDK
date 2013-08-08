@@ -54,7 +54,7 @@
             fPanelWOffset       = 20.0;
             fContainerWOffset   = 40.0;
             fExtraOffset        = 22.0;
-            fClsOffset          = 60.0;
+            fClsOffset          = 50.0;
         } else {
             dirPath     = @"iphone";
             fOriginX            = 5.0;
@@ -62,7 +62,7 @@
             fPanelWOffset       = 10.0;
             fContainerWOffset   = 20.0;
             fExtraOffset        = 11.0;
-            fClsOffset          = 30.0;
+            fClsOffset          = 25.0;
         }
         
         // add the panel view
@@ -102,7 +102,7 @@
         
         NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"D9Resource" ofType:@"bundle"]];
         NSString* closePath = [bundle pathForResource:@"d9_btn_close" ofType:@"png" inDirectory:dirPath];
-//        NSLog(@"close path is[%@]",closePath);
+
         UIImage* closeImage = [UIImage imageWithContentsOfFile:closePath];
 
         [closeBtn setFrame:CGRectMake(kD9ScreenHeight - fClsOffset,
@@ -114,18 +114,21 @@
         
         [closeBtn addTarget:self action:@selector(closePayView:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:closeBtn];
-//        [closeImg release];
+
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [panelView release], panelView = nil;
-    [containerView release], containerView = nil;
-    [webView release], webView = nil;
-    [indicatorView release], indicatorView = nil;
-    
+//    [panelView release], panelView = nil;
+    SAFE_RELEASE(panelView);
+//    [containerView release], containerView = nil;
+//    [webView release], webView = nil;
+//    [indicatorView release], indicatorView = nil;
+    SAFE_RELEASE(containerView);
+    SAFE_RELEASE(webView);
+    SAFE_RELEASE(indicatorView);
     [super dealloc];
 }
 
@@ -287,7 +290,7 @@
 
 - (void)showPayView:(BOOL)animated
 {
-    //TODO: iPhone支持下个版本
+    //TODO: 竖屏暂不支持，下个版本
 //    [self sizeToFitOrientation:[self currentOrientation]];
     
     UIWindow *window = [UIApplication sharedApplication].keyWindow;

@@ -29,6 +29,7 @@
     UIButton*    _btnBack;
     
     CGSize winSize;
+    UIButton* resignBtn;
     
     NSString* userName;
     NSString* oldPassword;
@@ -45,5 +46,8 @@
 @property (nonatomic, retain) NSString* nowPassword;
 @property (nonatomic, retain) NSString* comfirmPassword;
 @property (nonatomic, assign) id<D9ChangePwdDelegate> delegate;
+
+- (void) show;
+- (void) hide;
 
 @end

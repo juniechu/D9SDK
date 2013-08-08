@@ -7,22 +7,26 @@
 //
 
 #import "D9StudioSDK.h"
-
 #import "D9SDKGlobal.h"
-
+#import "D9Request.h"
+#import "D9LoginDialog.h"
 #import "D9SDKUtil.h"
 #import "D9PayWebView.h"
 #import "DataSigner.h"
 #import "MobClick.h"
+#import "D9ChangePwdView.h"
 
 #define kD9KeychainUserID               @"D9UserID"
 
 typedef enum {
     kD9LoginScene       = 0,
     kD9RegistScene      = 1,
+    kD9ChangeScene      = 2,
 }kD9Scene;
 
-@interface D9StudioSDK (Private)
+@interface D9StudioSDK (Private) <D9LoginDialogDelegate, D9RequestDelegate, D9ChangePwdDelegate>
+
+@property (nonatomic, retain) D9Request *request;
 
 - (void) saveToKeychain;
 - (void) readFromKeychain;
@@ -65,17 +69,25 @@ typedef enum {
 
 - (void) dealloc
 {
-    [appID release], appID = nil;
-    [appKey release], appKey = nil;
+//    [appID release], appID = nil;
+//    [appKey release], appKey = nil;
+    SAFE_RELEASE(appID);
+    SAFE_RELEASE(appKey);
     
-    [userID release], userID = nil;
+//    [userID release], userID = nil;
+    SAFE_RELEASE(userID);
     
     [request setDelegate:nil];
     [request disconnect];
-    [request release], request = nil;
+//    [request release], request = nil;
+    SAFE_RELEASE(request);
     
     [loginView setDelegate:nil];
-    [loginView release], loginView = nil;
+//    [loginView release], loginView = nil;
+    SAFE_RELEASE(loginView);
+    
+    [changeView setDelegate:nil];
+    SAFE_RELEASE(changeView);
     
     delegate = nil;
     
@@ -272,8 +284,9 @@ typedef enum {
     paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9Sign, signString];
     urlString = [urlString stringByAppendingFormat:@"?%@", paramString];
     
-    
-    NSLog(@"D9StudioSDK: url string is:%@", urlString);
+//    if (DEBUG_LOG) {
+        NSLog(@"D9StudioSDK: PayUrlString:\n%@", urlString);
+//    }
     NSURL *url = [NSURL URLWithString:urlString];
 
     [MobClick event:@"d9PayMethod"];
@@ -347,6 +360,12 @@ typedef enum {
     sceneType = kD9RegistScene;
 }
 
+- (void) changePwdDialog:(D9LoginDialog *)dialog
+{
+    changeView = [[D9ChangePwdView alloc] init];
+    [changeView setDelegate:self];
+    [changeView show];
+}
 
 #pragma mark - D9RequestDelegate Methods
 - (void) request:(D9Request *)request didFinishLoadingWithResult:(id)result
@@ -408,6 +427,25 @@ typedef enum {
             
             [loginView hide:YES];
         }
+    } else if (sceneType == kD9ChangeScene) {
+        if (resultCode == kD9ChangePwdErrorPwd) {
+            [MobClick event:@"d9ChangeError" label:@"ErrorPwd"];
+            [D9SDKUtil showAlertViewWithMsg:@"密码错误"];
+        } else if (resultCode == kD9ChangePwdErrorNil) {
+            [MobClick event:@"d9ChangeError" label:@"ErrorNil"];
+            [D9SDKUtil showAlertViewWithMsg:@"帐号不存在"];
+        } else if (resultCode == kD9ChangePwdErrorFail) {
+            [MobClick event:@"d9ChangeError" label:@"ErrorFail"];
+            [D9SDKUtil showAlertViewWithMsg:@"修改密码失败"];
+        } else if (resultCode == kD9ChangePwdErrorNet) {
+            [MobClick event:@"d9ChangeError" label:@"ErrorNet"];
+            [D9SDKUtil showAlertViewWithMsg:@"网络错误，请重试"];
+        } else {
+            // 修改密码成功，转到登陆界面
+            [D9SDKUtil showAlertViewWithMsg:@"修改密码成功"];
+//            [loginView hideChangePwd];
+            [changeView hide];
+        }
     }
 }
 
@@ -421,6 +459,32 @@ typedef enum {
     if ([delegate respondsToSelector:@selector(d9SDK:didFailToLogInWithError:)]) {
         [delegate d9SDK:self didFailToLogInWithError:error];
     }
+}
+
+#pragma mark -- D9 Change Password Delegate --
+- (void) dialog:(D9ChangePwdView *)dialog
+   withUserName:(NSString *)username
+   changeOldPwd:(NSString *)oldPassword
+       toNewPwd:(NSString *)newPassword
+{
+    if (DEBUG_LOG) {
+        NSLog(@"old pass word is:%@, length = %d", oldPassword, [oldPassword length]);
+        NSLog(@"new pass word is:%@, length = %d", newPassword, [newPassword length]);
+    }
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:username, kD9AccountID,
+                            oldPassword, kD9Password, newPassword, kD9NewPassword, nil];
+    [request disconnect];
+    
+    self.request = [D9Request requestWithURL:__CHANGE_PWD_URL
+                                  httpMethod:@"POST"
+                                      params:params
+                                postDataType:kD9RequestPostDataTypeNormal
+                            httpHeaderFields:nil
+                                    delegate:self];
+    [request connect];
+    
+    sceneType = kD9ChangeScene;
 }
 
 @end

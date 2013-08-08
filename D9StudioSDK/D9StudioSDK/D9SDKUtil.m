@@ -88,6 +88,8 @@
 //@end
 
 #import "UIKit/UIKit.h"
+#import "SFHFKeychainUtils.h"
+
 #include <ifaddrs.h>
 #include <arpa/inet.h>
 
@@ -95,6 +97,11 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
+
+#define kD9URLSchemePrefix              @"D9_"
+#define kD9KeychainServiceNameSuffix    @"_ServiceName"
+#define kD9KeychainUsername             @"D9Username"
+#define kD9keychainPassword             @"D9Password"
 
 @implementation D9SDKUtil
 
@@ -217,6 +224,75 @@
     
     NSString * cleanString = [NSString stringWithString:uglyMutableString];
     return cleanString;
+}
+
++ (void) saveToKeyChainUname:(NSString *)username Pwd:(NSString *)password AppId:(NSString *)appId
+{
+    NSString *urlSchemeString = [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appId];
+    NSString* serviceName = [urlSchemeString stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    [SFHFKeychainUtils storeUsername:kD9KeychainUsername
+                         andPassword:username
+                      forServiceName:serviceName
+                      updateExisting:YES
+                               error:nil];
+    
+    [SFHFKeychainUtils storeUsername:kD9keychainPassword
+                         andPassword:password
+                      forServiceName:serviceName
+                      updateExisting:YES
+                               error:nil];
+}
+
+//+ (NSArray *) readFromKeyChainAppId:(NSString *)appId
+//{
+//    NSString *urlSchemeString = [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appId];
+//    NSString* serviceName = [urlSchemeString stringByAppendingString:kD9KeychainServiceNameSuffix];
+//    
+//    NSString *unameString = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUsername
+//                                               andServiceName:serviceName
+//                                                        error:nil];
+//    
+//    NSString *pwdString = [SFHFKeychainUtils getPasswordForUsername:kD9keychainPassword
+//                                               andServiceName:serviceName
+//                                                        error:nil];
+//
+//    
+//}
+
++ (NSString *) readUnameFromKeyChainAppId:(NSString *)appId
+{
+    NSString *urlSchemeString = [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appId];
+    NSString* serviceName = [urlSchemeString stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    NSString *unameString = [SFHFKeychainUtils getPasswordForUsername:kD9KeychainUsername
+                                                       andServiceName:serviceName
+                                                                error:nil];
+    return unameString;
+}
+
++ (NSString *) readPwdFromKeyChainAppId:(NSString *)appId
+{
+    NSString *urlSchemeString = [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appId];
+    NSString* serviceName = [urlSchemeString stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    NSString *pwdString = [SFHFKeychainUtils getPasswordForUsername:kD9keychainPassword
+                                                     andServiceName:serviceName
+                                                              error:nil];
+    return pwdString;
+}
+
++ (void) deleteInKeyChainAppId:(NSString *)appId
+{
+    NSString *urlSchemeString = [NSString stringWithFormat:@"%@%@", kD9URLSchemePrefix, appId];
+    NSString* serviceName = [urlSchemeString stringByAppendingString:kD9KeychainServiceNameSuffix];
+    
+    [SFHFKeychainUtils deleteItemForUsername:kD9KeychainUsername
+                              andServiceName:serviceName
+                                       error:nil];
+    [SFHFKeychainUtils deleteItemForUsername:kD9keychainPassword
+                              andServiceName:serviceName
+                                       error:nil];
 }
 
 @end
