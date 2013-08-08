@@ -42,6 +42,7 @@ typedef enum {
                       andGoodsName:(NSString *)goodsName
                      andTotalMoney:(NSString *)totalMoney
                          andPayDes:(NSString *)payDescription;
+- (void) sendStatistics;
 
 @end
 
@@ -63,6 +64,12 @@ typedef enum {
         self.appKey = theAppKey;
         
         [self readFromKeychain];
+        
+        if (!isLaunched) {
+            isLaunched = YES;
+            
+            [self sendStatistics];
+        }
     }
     return self;
 }
@@ -96,11 +103,30 @@ typedef enum {
 
 #pragma mark - D9StudioSDK Private Methods
 
+- (void) sendStatistics
+{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString* launchedKey = [NSString stringWithFormat:@"%@%@", kD9LaunchedBefore, appID];
+    [userDefault setObject:isLaunched forKey:launchedKey];
+    [userDefault synchronize];
+    
+    //TODO: send current machine info to server.
+    NSString *lowerMacAddress = [D9SDKUtil getLowerMacAddress];
+    //game_id = appID
+    NSString *deviceString = @"iOS";
+    NSString *phoneType = [[UIDevice currentDevice] model];
+    NSString *phonePattern = [[UIDevice currentDevice] systemVersion];
+    
+}
+
 - (void) saveToKeychain
 {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString* uIDKey = [NSString stringWithFormat:@"%@%@", kD9KeychainUserID, appID];
     [userDefault setObject:userID forKey:uIDKey];
+    
+    NSString* launchedKey = [NSString stringWithFormat:@"%@%@", kD9LaunchedBefore, appID];
+    [userDefault setObject:isLaunched forKey:launchedKey];
     
     [userDefault synchronize];
 }
@@ -110,6 +136,9 @@ typedef enum {
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     NSString* uIDKey = [NSString stringWithFormat:@"%@%@", kD9KeychainUserID, appID];
     self.userID = [userDefault stringForKey:uIDKey];
+    
+    NSString* launchedKey = [NSString stringWithFormat:@"%@%@", kD9LaunchedBefore, appID];
+    isLaunched = [userDefault boolForKey:launchedKey];
 }
 
 - (void) deleteInKeychain

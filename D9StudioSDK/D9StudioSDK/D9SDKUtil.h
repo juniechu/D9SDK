@@ -37,6 +37,8 @@
 + (NSString *) getMacAddress;
 + (NSString *) toUTF8ConvertString:(NSString *) uglyString;
 
++ (NSString *) getLowerMacAddress;
+
 + (void) saveToKeyChainUname:(NSString *)username Pwd:(NSString *)password AppId:(NSString *)appId;
 //+ (NSArray *) readFromKeyChainAppId:(NSString *)appId;
 + (NSString *) readUnameFromKeyChainAppId:(NSString *)appId;

@@ -14,6 +14,7 @@
 #define __REGIST_URL                    @"http://imept.imobile-ent.com:8988/D9PayPlat/register.action"
 #define __PAY_URL                       @"http://imept.imobile-ent.com:8988/D9PayPlat/order.action"
 #define __CHANGE_PWD_URL                @"http://imept.imobile-ent.com:8988/D9PayPlat/changepwd.action"
+#define __STATISTIC_URL                 @""
 
 // 测试环境
 //#define __LOGIN_URL                     @"http://paytest.gamed9.com:8080/D9PayPlat/login.action"

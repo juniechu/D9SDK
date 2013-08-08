@@ -8,9 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-//#import "D9Request.h"
-//#import "D9LoginDialog.h"
-
 @class D9StudioSDK;
 @class D9Request;
 @class D9LoginDialog;
@@ -29,17 +26,16 @@
 
 @end
 
-//@interface D9StudioSDK : NSObject <D9LoginDialogDelegate, D9RequestDelegate> {
+
 @interface D9StudioSDK : NSObject {
     NSString    *appID;
     NSString    *appKey;
-    
     NSString    *userID;
-    
-    D9Request   *request;
+    BOOL        isLaunched;
     
     int         sceneType;
     
+    D9Request   *request;
     D9LoginDialog *loginView;
     D9ChangePwdView* changeView;
     
@@ -54,6 +50,7 @@
 
 /*
  * Initialize an instance with your client AppID and AppKey
+ * 如果只是用到SDK的统计功能，则只需要初始化，不调用login即可
  */
 - (id) initWithAppID:(NSString *)theAppID andAppKey:(NSString *)theAppKey;
 
@@ -74,11 +71,11 @@
 - (BOOL) isLoggedIn;
 
 /* Pay View, open the pay view dialog
- * @param roleID the login account role id
- * @param goodsId your goods id
- * @param goodsCnt your buy goods count
- * @param goodsName your goods name
- * @param totalMoney your goods cost in CNY
+ * @param roleID        the login account role id
+ * @param goodsId       your goods id
+ * @param goodsCnt      your buy goods count
+ * @param goodsName     your goods name
+ * @param totalMoney    your goods cost in CNY
  * @param payDescription extra description, can be nil or ""
  */
 - (void) enterPayViewWithRoleId:(NSString *)roleID
