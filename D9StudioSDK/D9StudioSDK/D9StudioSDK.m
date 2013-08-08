@@ -166,7 +166,7 @@ typedef enum {
     long long dTime = [[NSNumber numberWithDouble:time] longLongValue];
     NSString *curTime = [NSString stringWithFormat:@"%llu", dTime];
     
-    NSString * clientOrderId = [NSString stringWithFormat:@"%@-%@", curTime, self.userID];
+    NSString * clientOrderId = [NSString stringWithFormat:@"%@-%@", curTime, userID];
     return clientOrderId;
 }
 
@@ -178,7 +178,7 @@ typedef enum {
                          andPayDes:(NSString *)payDescription
 {
     NSString *paramString = @"";
-    paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, self.appID];
+    paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, appID];
     if (DEBUG_PAY) {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9ClientOrderID, @"1374217427-10016161"];
     } else {
@@ -207,7 +207,7 @@ typedef enum {
     if (DEBUG_PAY) {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10016161"];
     } else {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, self.userID];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, userID];
     }
     
     if (DEBUG_PAY) {
@@ -243,7 +243,7 @@ typedef enum {
     // 未登陆，进行登陆操作
     [MobClick event:@"d9LoginMethod"];
     
-    loginView = [[D9LoginDialog alloc] initWithAppID:self.appID];
+    loginView = [[D9LoginDialog alloc] initWithAppID:appID];
     [loginView setDelegate:self];
     [loginView show:YES];
 
@@ -279,11 +279,11 @@ typedef enum {
     D9PayWebView *payView = [[[D9PayWebView alloc] init] autorelease];
     NSString *urlString = __PAY_URL;
     NSString *paramString = @"";
-    paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, self.appID];
+    paramString = [paramString stringByAppendingFormat:@"%@=%@", kD9AppID, appID];
     if (DEBUG_PAY) {
         paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, @"10016161"];
     } else {
-        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, self.userID];
+        paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9UID, userID];
     }
     
     paramString = [paramString stringByAppendingFormat:@"&%@=%@", kD9RoleID, roleID];
