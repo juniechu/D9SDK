@@ -61,18 +61,18 @@
             bgPath = [bundle pathForResource:@"d9_bg_change_pwd" ofType:@"jpg" inDirectory:dirPath];
         } else {
             dirPath     = @"iphone";
-            fLogoY      = 30.0;
-            fUnameY     = 100.0;
-            fPwdY       = 123.0;
-            fNPwdY      = 146.0;
-            fCPwdY      = 169.0;
-            fChangeBtnY = 203.0;
-            fBackY      = 242.0;
+            fLogoY      = 34.0;
+            fUnameY     = 69.0;
+            fPwdY       = 101.0;
+            fNPwdY      = 134.0;
+            fCPwdY      = 166.0;
+            fChangeBtnY = 215.0;
+            fBackY      = 266.0;
             
-            fTxFieldOff = 30.0;
-            fTxFieldW   = 175.0;
-            fTxFieldH   = 18.0;
-            fFontSize   = 9.0;
+            fTxFieldOff = 43.0;
+            fTxFieldW   = 264.0;
+            fTxFieldH   = 26.0;
+            fFontSize   = 11.0;
             
             if (DEVICE_IS_IPHONE5) {
                 bgPath = [bundle pathForResource:@"d9_bg_change_pwd_5" ofType:@"jpg" inDirectory:dirPath];
